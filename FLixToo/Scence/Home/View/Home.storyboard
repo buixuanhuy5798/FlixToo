@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="b0m-T4-lNr">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sBU-hi-AdC" customClass="HomeViewController" customModule="FLixToo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ajp-Sz-nD0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vC6-ju-CHM">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_title_image" translatesAutoresizingMaskIntoConstraints="NO" id="C83-ft-xN8">
+                                        <rect key="frame" x="16" y="16" width="335" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="RcC-X2-Z7v"/>
+                                        </constraints>
+                                    </imageView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aWj-8c-03c">
+                                        <rect key="frame" x="0.0" y="56" width="393" height="703"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="C83-ft-xN8" secondAttribute="trailing" constant="16" id="GvJ-8I-ZTx"/>
+                                    <constraint firstAttribute="bottom" secondItem="aWj-8c-03c" secondAttribute="bottom" id="McT-sT-AgO"/>
+                                    <constraint firstItem="C83-ft-xN8" firstAttribute="top" secondItem="vC6-ju-CHM" secondAttribute="top" constant="16" id="N8W-df-XM0"/>
+                                    <constraint firstItem="C83-ft-xN8" firstAttribute="leading" secondItem="vC6-ju-CHM" secondAttribute="leading" constant="16" id="aQi-wj-neB"/>
+                                    <constraint firstAttribute="trailing" secondItem="aWj-8c-03c" secondAttribute="trailing" id="jK2-7F-aIz"/>
+                                    <constraint firstItem="aWj-8c-03c" firstAttribute="top" secondItem="C83-ft-xN8" secondAttribute="bottom" constant="16" id="rNG-3W-1Ni"/>
+                                    <constraint firstItem="aWj-8c-03c" firstAttribute="leading" secondItem="vC6-ju-CHM" secondAttribute="leading" id="yrQ-fS-ixI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="W2o-aj-Yov"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="W2o-aj-Yov" firstAttribute="bottom" secondItem="vC6-ju-CHM" secondAttribute="bottom" id="FyP-mg-Cgb"/>
+                            <constraint firstItem="W2o-aj-Yov" firstAttribute="trailing" secondItem="vC6-ju-CHM" secondAttribute="trailing" id="aBe-aH-gDm"/>
+                            <constraint firstItem="vC6-ju-CHM" firstAttribute="leading" secondItem="ajp-Sz-nD0" secondAttribute="leading" id="cuK-TQ-4XW"/>
+                            <constraint firstItem="vC6-ju-CHM" firstAttribute="top" secondItem="W2o-aj-Yov" secondAttribute="top" id="t8h-pr-LgR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="aWj-8c-03c" id="Mdx-FG-d64"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X9f-gw-FEx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="320" y="-285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="home_title_image" width="335" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
