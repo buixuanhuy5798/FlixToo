@@ -48,8 +48,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2H-FS-pwg">
-                                        <rect key="frame" x="16" y="36" width="0.0" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2H-FS-pwg">
+                                        <rect key="frame" x="16.000000000000004" y="36" width="41.333333333333343" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2V-IE-Viw">
+                                        <rect key="frame" x="16.000000000000004" y="52" width="41.333333333333343" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -58,9 +64,12 @@
                                 <constraints>
                                     <constraint firstItem="P1F-UF-UaB" firstAttribute="top" secondItem="e6t-Ug-bpe" secondAttribute="top" constant="12" id="2UF-yy-fW5"/>
                                     <constraint firstAttribute="trailing" secondItem="L2H-FS-pwg" secondAttribute="trailing" constant="16" id="E54-9e-7dX"/>
+                                    <constraint firstItem="S2V-IE-Viw" firstAttribute="leading" secondItem="e6t-Ug-bpe" secondAttribute="leading" constant="16" id="Exx-no-X3D"/>
                                     <constraint firstItem="L2H-FS-pwg" firstAttribute="top" secondItem="P1F-UF-UaB" secondAttribute="bottom" constant="24" id="Gvd-fS-CzV"/>
+                                    <constraint firstItem="S2V-IE-Viw" firstAttribute="top" secondItem="L2H-FS-pwg" secondAttribute="bottom" constant="16" id="bBs-6S-3y4"/>
                                     <constraint firstItem="L2H-FS-pwg" firstAttribute="leading" secondItem="e6t-Ug-bpe" secondAttribute="leading" constant="16" id="hwh-E7-yfr"/>
                                     <constraint firstAttribute="bottom" secondItem="L2H-FS-pwg" secondAttribute="bottom" constant="1000" id="t66-tr-pVi"/>
+                                    <constraint firstAttribute="trailing" secondItem="S2V-IE-Viw" secondAttribute="trailing" constant="16" id="uhG-Bc-yIy"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -81,6 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="backdropImageView" destination="0Pk-Q8-Tn0" id="va7-kS-5aO"/>
+                        <outlet property="generLabel" destination="S2V-IE-Viw" id="CjB-lS-6mZ"/>
                         <outlet property="imdbScoreLabel" destination="P1F-UF-UaB" id="PgS-LG-dqA"/>
                         <outlet property="movieNameLabel" destination="L2H-FS-pwg" id="fk0-ho-gSA"/>
                     </connections>

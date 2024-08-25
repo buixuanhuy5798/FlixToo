@@ -37,4 +37,15 @@ class Utils {
         let fullURLString = AppConstant.imageUrl + path
         return URL(string: fullURLString)
     }
+    
+    class func calculateTime(_ timeValue: Int) -> String {
+        let timeMeasure = Measurement(value: Double(timeValue), unit: UnitDuration.minutes)
+        let hours = timeMeasure.converted(to: .hours)
+        if hours.value > 1 {
+            let minutes = Int(timeMeasure.value.truncatingRemainder(dividingBy: 60))
+            let hourValue = Int(hours.value)
+            return "\(hourValue)h \(minutes)min"
+        }
+        return String(format: "%.d %@", timeMeasure.value, "min")
+    }
 }
