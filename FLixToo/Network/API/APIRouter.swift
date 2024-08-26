@@ -13,6 +13,7 @@ enum APIRouter {
     case getListNowPlayingMovies(page: Int)
     case getListMovieProviders
     case getMovieDetail(id: String)
+    case getPopularPeople
     
     var method: HTTPMethod {
         switch self {
@@ -41,6 +42,8 @@ enum APIRouter {
             return "/movie/now_playing"
         case .getMovieDetail(let id):
             return "/movie/\(id)"
+        case .getPopularPeople:
+            return "/trending/person/week"
         }
     }
     

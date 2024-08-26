@@ -88,7 +88,7 @@ extension HomeViewController: UITableViewDelegate {
             $0.width.equalTo(8)
         }
         switch presenter.data[section] {
-        case .categories:
+        case .categories, .popularPeople:
             iconNext.isHidden = true
         case .movieProviders:
             return nil
@@ -128,6 +128,10 @@ extension HomeViewController: UITableViewDelegate {
             let itemWitdh = (Screen.width - 48) / 3.2
             let itemHeight = itemWitdh * 194/102 + 18
             return itemHeight
+        case .popularPeople:
+            let itemWitdh = (Screen.width - 48) / 3.2
+            let itemHeight = itemWitdh * 122/102
+            return itemHeight
         case .movieProviders:
             return 60
         }
@@ -138,6 +142,8 @@ extension HomeViewController: UITableViewDelegate {
         case .categories:
             return 30
         case .movieProviders:
+            return 24
+        case .popularPeople:
             return 24
         default:
             return 0
@@ -172,6 +178,10 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MovieProviderCell.self)
             cell.setContentForCell(data: providers[indexPath.row])
             return cell
+        case .popularPeople(let people):
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ActorCommonInfoCell.self)
+            cell.setContentForCell(actor: people[indexPath.row])
+            return cell
         }
     }
 }
@@ -197,6 +207,8 @@ extension HomeViewController: UICollectionViewDelegate {
             print("SELECT MOVIE: \(movies[indexPath.row].originalTitle)")
         case .movieProviders(let providers):
             print("SELECT PROVIDER: \(providers[indexPath.row].providerName)")
+        case .popularPeople(let actor):
+            print("SELECT ACTOR: \(actor[indexPath.row].name)")
         }
     }
 }
