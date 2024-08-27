@@ -16,6 +16,8 @@ pod 'Alamofire'
 pod 'RxSwift'
 pod 'RxCocoa'
 pod 'SwiftKeychainWrapper'
+pod 'MASegmentedControl'
+
 end
 
 post_install do |pi|

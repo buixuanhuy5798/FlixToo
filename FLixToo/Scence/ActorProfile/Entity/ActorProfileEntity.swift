@@ -16,6 +16,19 @@ struct ActorCommonInfo: Codable {
     let knownForDepartment, profilePath: String?
     let knownFor: [KnownFor]?
 
+    var knowForDisplay: String {
+        var result = ""
+        if let knownFor = knownFor {
+            for movie in knownFor {
+                let movieName = movie.originalTitle
+                let releaseYear = movie.releaseDate?.prefix(4)
+                result += "\(movieName ?? "") (\(releaseYear ?? ""))\n"
+            }
+        }
+        result.removeLast()
+        return result
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id, name
         case originalName = "original_name"

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053642672C7E2F8F000A346A /* ActorInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053642662C7E2F8F000A346A /* ActorInfoView.swift */; };
 		0537EDC82C7A1BFE004F06A9 /* BounderCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537EDC62C7A1BFE004F06A9 /* BounderCategoryCell.swift */; };
 		0537EDC92C7A1BFE004F06A9 /* BounderCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0537EDC72C7A1BFE004F06A9 /* BounderCategoryCell.xib */; };
 		0537EDCE2C7A2C3A004F06A9 /* MoviePosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537EDCC2C7A2C3A004F06A9 /* MoviePosterCell.swift */; };
@@ -131,6 +132,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		053642662C7E2F8F000A346A /* ActorInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoView.swift; sourceTree = "<group>"; };
 		0537EDC62C7A1BFE004F06A9 /* BounderCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounderCategoryCell.swift; sourceTree = "<group>"; };
 		0537EDC72C7A1BFE004F06A9 /* BounderCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BounderCategoryCell.xib; sourceTree = "<group>"; };
 		0537EDCC2C7A2C3A004F06A9 /* MoviePosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterCell.swift; sourceTree = "<group>"; };
@@ -270,6 +272,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		053642652C7E2E00000A346A /* ActorInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				056DA9B62C7E07BB00420344 /* ActorInfoView.xib */,
+				053642662C7E2F8F000A346A /* ActorInfoView.swift */,
+			);
+			path = ActorInfoView;
+			sourceTree = "<group>";
+		};
 		0537EDCA2C7A2BCC004F06A9 /* Genres */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,9 +475,9 @@
 		056BC8EC2C7CE4580096A2FC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				053642652C7E2E00000A346A /* ActorInfoView */,
 				056BC8EA2C7CE4580096A2FC /* ActorProfile.storyboard */,
 				056BC8EB2C7CE4580096A2FC /* ActorProfileViewController.swift */,
-				056DA9B62C7E07BB00420344 /* ActorInfoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1347,6 +1358,7 @@
 				F052A8D52C7729D400814CCB /* IntroduceViewController.swift in Sources */,
 				F0770B722C78463A007F522F /* SettingProtocol.swift in Sources */,
 				F0770BE32C784752007F522F /* SearchViewController.swift in Sources */,
+				053642672C7E2F8F000A346A /* ActorInfoView.swift in Sources */,
 				05544ABD2C7B57D40083B591 /* GenresRouter.swift in Sources */,
 				05544AE52C7B63DC0083B591 /* MovieDetailAssembly.swift in Sources */,
 				F052A8E52C78236400814CCB /* UIColor+Extension.swift in Sources */,

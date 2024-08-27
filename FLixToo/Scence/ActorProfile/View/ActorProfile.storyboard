@@ -24,23 +24,59 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tig-iO-Aml">
-                                                <rect key="frame" x="131" y="16" width="131" height="131"/>
+                                                <rect key="frame" x="131" y="20" width="131" height="131"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="tig-iO-Aml" secondAttribute="height" multiplier="1:1" id="Vb5-ww-UmI"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJv-hE-TI3">
-                                                <rect key="frame" x="16" y="163" width="361" height="20.333333333333343"/>
+                                                <rect key="frame" x="16" y="167" width="361" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lOh-FB-fwk">
+                                                <rect key="frame" x="16" y="211.33333333333331" width="361" height="383.99999999999994"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="361" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="co0-fv-X1m" customClass="ActorInfoView" customModule="FLixToo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="128"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="361" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="fIZ-8b-Gr0" customClass="ActorInfoView" customModule="FLixToo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="128" width="361" height="128"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="361" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="1k4-p0-rC1" customClass="ActorInfoView" customModule="FLixToo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="256.00000000000006" width="361" height="128"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7E-gN-Q8G" customClass="MASegmentedControl" customModule="MASegmentedControl">
+                                                <rect key="frame" x="16" y="619.33333333333337" width="361" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="dUC-Ct-H25"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentedBackGroundColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="yJv-hE-TI3" firstAttribute="leading" secondItem="5w4-tM-Nc8" secondAttribute="leading" constant="16" id="0cQ-zR-EZU"/>
                                             <constraint firstAttribute="bottom" secondItem="tig-iO-Aml" secondAttribute="bottom" constant="1000" id="ACR-Mf-z6e"/>
                                             <constraint firstAttribute="trailing" secondItem="yJv-hE-TI3" secondAttribute="trailing" constant="16" id="LYs-sH-w5h"/>
-                                            <constraint firstItem="tig-iO-Aml" firstAttribute="top" secondItem="5w4-tM-Nc8" secondAttribute="top" constant="16" id="XvE-6B-3pA"/>
+                                            <constraint firstItem="lOh-FB-fwk" firstAttribute="leading" secondItem="5w4-tM-Nc8" secondAttribute="leading" constant="16" id="RIN-xT-nph"/>
+                                            <constraint firstAttribute="trailing" secondItem="U7E-gN-Q8G" secondAttribute="trailing" constant="16" id="SHd-5D-tpd"/>
+                                            <constraint firstAttribute="trailing" secondItem="lOh-FB-fwk" secondAttribute="trailing" constant="16" id="WsV-Pe-spH"/>
+                                            <constraint firstItem="tig-iO-Aml" firstAttribute="top" secondItem="5w4-tM-Nc8" secondAttribute="top" constant="20" id="XvE-6B-3pA"/>
+                                            <constraint firstItem="lOh-FB-fwk" firstAttribute="top" secondItem="yJv-hE-TI3" secondAttribute="bottom" constant="24" id="Zu4-3k-L6s"/>
+                                            <constraint firstItem="U7E-gN-Q8G" firstAttribute="leading" secondItem="5w4-tM-Nc8" secondAttribute="leading" constant="16" id="pda-s8-0xI"/>
+                                            <constraint firstItem="U7E-gN-Q8G" firstAttribute="top" secondItem="lOh-FB-fwk" secondAttribute="bottom" constant="24" id="t7W-Ze-1gM"/>
                                             <constraint firstItem="yJv-hE-TI3" firstAttribute="top" secondItem="tig-iO-Aml" secondAttribute="bottom" constant="16" id="ttj-Zc-ySx"/>
                                         </constraints>
                                     </scrollView>
@@ -58,6 +94,7 @@
                         <viewLayoutGuide key="safeArea" id="UQA-5g-Ksl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="lOh-FB-fwk" firstAttribute="centerX" secondItem="UQA-5g-Ksl" secondAttribute="centerX" id="2TW-00-zhX"/>
                             <constraint firstItem="yJv-hE-TI3" firstAttribute="centerX" secondItem="UQA-5g-Ksl" secondAttribute="centerX" id="BuF-8l-3Yg"/>
                             <constraint firstItem="UQA-5g-Ksl" firstAttribute="trailing" secondItem="CQa-0V-QlY" secondAttribute="trailing" id="Bxw-0W-cjH"/>
                             <constraint firstItem="CQa-0V-QlY" firstAttribute="leading" secondItem="UQA-5g-Ksl" secondAttribute="leading" id="FLd-7W-46e"/>
@@ -67,8 +104,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bornInfoView" destination="co0-fv-X1m" id="aHH-GA-ULo"/>
+                        <outlet property="heightInfo" destination="1k4-p0-rC1" id="UI5-YJ-DFJ"/>
+                        <outlet property="knowForView" destination="fIZ-8b-Gr0" id="bgT-dr-RHa"/>
                         <outlet property="nameActorLabel" destination="yJv-hE-TI3" id="2S3-op-FbF"/>
                         <outlet property="profileImageView" destination="tig-iO-Aml" id="cx0-ad-oaN"/>
+                        <outlet property="segmentControl" destination="U7E-gN-Q8G" id="FVf-lQ-j1D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nN-lO-DAf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
