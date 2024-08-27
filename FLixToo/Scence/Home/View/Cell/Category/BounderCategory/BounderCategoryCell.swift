@@ -10,7 +10,7 @@ import Reusable
 
 protocol BaseCollectionViewInTableViewCell {
     var collectionViewOffset: CGFloat { get set }
-    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, fowRow row: Int)
+    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, fowRow row: Int, type: HomeCollectionSectionData)
 }
 
 class BounderCategoryCell: UITableViewCell, BaseCollectionViewInTableViewCell, NibReusable {
@@ -47,7 +47,7 @@ class BounderCategoryCell: UITableViewCell, BaseCollectionViewInTableViewCell, N
         collectionView.showsHorizontalScrollIndicator = false
     }
     
-    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, fowRow row: Int) {
+    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, fowRow row: Int, type: HomeCollectionSectionData) {
         collectionView.dataSource = dataSourceDelegate
         collectionView.delegate = dataSourceDelegate
         collectionView.tag = row

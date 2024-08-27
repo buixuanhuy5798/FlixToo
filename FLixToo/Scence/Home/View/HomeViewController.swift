@@ -55,7 +55,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BounderListMovieCell.self)
-        cell.setContentForCell(type: presenter.data[indexPath.section])
+//        cell.setContentForCell(type: presenter.data[indexPath.section])
         return cell
     }
 }
@@ -105,7 +105,7 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard var tableViewCell = cell as? BaseCollectionViewInTableViewCell else { return }
-        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, fowRow: indexPath.section)
+        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, fowRow: indexPath.section, type: presenter.data[indexPath.section])
         tableViewCell.collectionViewOffset = storedOffsets[indexPath.section] ?? 0
     }
     

@@ -31,7 +31,7 @@ class BounderListMovieCell: UITableViewCell, BaseCollectionViewInTableViewCell, 
         selectionStyle = .none
     }
     
-    func setContentForCell(type: HomeCollectionSectionData) {
+    private func setContentForCell(type: HomeCollectionSectionData) {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 16
         layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
@@ -57,10 +57,11 @@ class BounderListMovieCell: UITableViewCell, BaseCollectionViewInTableViewCell, 
         collectionView.collectionViewLayout = layout
     }
     
-    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, fowRow row: Int) {
+    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, fowRow row: Int, type: HomeCollectionSectionData) {
         collectionView.dataSource = dataSourceDelegate
         collectionView.delegate = dataSourceDelegate
         collectionView.tag = row
         collectionView.reloadData()
+        setContentForCell(type: type)
     }
 }
