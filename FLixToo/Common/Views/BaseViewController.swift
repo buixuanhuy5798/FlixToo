@@ -98,8 +98,8 @@ class BaseViewController: UIViewController {
             $0.height.equalTo(30)
         }
         titleLabel.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(-16)
             $0.centerY.equalTo(backButton)
+            $0.centerX.equalToSuperview()
             $0.leading.equalTo(backButton.snp.trailing).offset(2)
         }
         view.constraints.filter {

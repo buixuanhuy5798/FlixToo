@@ -14,6 +14,8 @@ protocol ActorProfilePresenterProtocol: AnyObject {
     var view: ActorProfileViewProtocol? { get set }
     var interactor: ActorProfileInteractorInputProtocol! { get set }
     var router: ActorProfileRouterProtocol! { get set }
+    var commonInfo: ActorCommonInfo? { get set }
+    
     func onViewDidLoad()
 }
 

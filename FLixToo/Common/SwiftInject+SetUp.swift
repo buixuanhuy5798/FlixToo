@@ -56,5 +56,11 @@ extension SwinjectStoryboard {
             let assembler = Assembler([SettingAssembly()])
             c.presenter = assembler.resolver.resolve(SettingPresenterProtocol.self, argument: c)
         }
+        
+        defaultContainer.storyboardInitCompleted(ActorProfileViewController.self) { r, c in
+            let assembler = Assembler([ActorProfileAssembly()])
+            let repository = r.resolve(PeopleRepositoryType.self)!
+            c.presenter = assembler.resolver.resolve(ActorProfilePresenterProtocol.self, arguments: c, repository)
+        }
     }
 }

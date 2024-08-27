@@ -1,7 +1,84 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Actor Profile View Controller-->
+        <scene sceneID="Tdr-AQ-eVU">
+            <objects>
+                <viewController storyboardIdentifier="ActorProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZRt-KB-5XJ" customClass="ActorProfileViewController" customModule="FLixToo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Py-Lk-DbP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQa-0V-QlY">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5w4-tM-Nc8">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tig-iO-Aml">
+                                                <rect key="frame" x="131" y="16" width="131" height="131"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="tig-iO-Aml" secondAttribute="height" multiplier="1:1" id="Vb5-ww-UmI"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJv-hE-TI3">
+                                                <rect key="frame" x="16" y="163" width="361" height="20.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="yJv-hE-TI3" firstAttribute="leading" secondItem="5w4-tM-Nc8" secondAttribute="leading" constant="16" id="0cQ-zR-EZU"/>
+                                            <constraint firstAttribute="bottom" secondItem="tig-iO-Aml" secondAttribute="bottom" constant="1000" id="ACR-Mf-z6e"/>
+                                            <constraint firstAttribute="trailing" secondItem="yJv-hE-TI3" secondAttribute="trailing" constant="16" id="LYs-sH-w5h"/>
+                                            <constraint firstItem="tig-iO-Aml" firstAttribute="top" secondItem="5w4-tM-Nc8" secondAttribute="top" constant="16" id="XvE-6B-3pA"/>
+                                            <constraint firstItem="yJv-hE-TI3" firstAttribute="top" secondItem="tig-iO-Aml" secondAttribute="bottom" constant="16" id="ttj-Zc-ySx"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="tig-iO-Aml" firstAttribute="width" secondItem="CQa-0V-QlY" secondAttribute="width" multiplier="1/3" id="BEm-da-k56"/>
+                                    <constraint firstItem="5w4-tM-Nc8" firstAttribute="leading" secondItem="CQa-0V-QlY" secondAttribute="leading" id="JCA-ZQ-IHv"/>
+                                    <constraint firstItem="5w4-tM-Nc8" firstAttribute="top" secondItem="CQa-0V-QlY" secondAttribute="top" id="SOC-Bb-Dix"/>
+                                    <constraint firstAttribute="bottom" secondItem="5w4-tM-Nc8" secondAttribute="bottom" id="pcp-Og-n1N"/>
+                                    <constraint firstAttribute="trailing" secondItem="5w4-tM-Nc8" secondAttribute="trailing" id="vnO-nV-RUS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UQA-5g-Ksl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yJv-hE-TI3" firstAttribute="centerX" secondItem="UQA-5g-Ksl" secondAttribute="centerX" id="BuF-8l-3Yg"/>
+                            <constraint firstItem="UQA-5g-Ksl" firstAttribute="trailing" secondItem="CQa-0V-QlY" secondAttribute="trailing" id="Bxw-0W-cjH"/>
+                            <constraint firstItem="CQa-0V-QlY" firstAttribute="leading" secondItem="UQA-5g-Ksl" secondAttribute="leading" id="FLd-7W-46e"/>
+                            <constraint firstItem="tig-iO-Aml" firstAttribute="centerX" secondItem="UQA-5g-Ksl" secondAttribute="centerX" id="J5b-u4-qGF"/>
+                            <constraint firstItem="CQa-0V-QlY" firstAttribute="top" secondItem="UQA-5g-Ksl" secondAttribute="top" identifier="topMostConstraint" id="hvZ-cp-Lln"/>
+                            <constraint firstItem="UQA-5g-Ksl" firstAttribute="bottom" secondItem="CQa-0V-QlY" secondAttribute="bottom" id="nJt-qh-k5z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameActorLabel" destination="yJv-hE-TI3" id="2S3-op-FbF"/>
+                        <outlet property="profileImageView" destination="tig-iO-Aml" id="cx0-ad-oaN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4nN-lO-DAf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86" y="50"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

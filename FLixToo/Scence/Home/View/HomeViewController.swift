@@ -20,6 +20,11 @@ class HomeViewController: BaseViewController {
         setUpView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     private func setUpView() {
         showHeaderView = false
         tableView.dataSource = self
@@ -52,15 +57,6 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BounderListMovieCell.self)
         cell.setContentForCell(type: presenter.data[indexPath.section])
         return cell
-        
-//        switch presenter.data[indexPath.section] {
-//        case .categories:
-//            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BounderCategoryCell.self)
-//            return cell
-//        case .tredingMovies, .upcoming, .nowPlaying:
-//            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BounderListMovieCell.self)
-//            return cell
-//        }
     }
 }
 
@@ -209,6 +205,7 @@ extension HomeViewController: UICollectionViewDelegate {
             print("SELECT PROVIDER: \(providers[indexPath.row].providerName)")
         case .popularPeople(let actor):
             print("SELECT ACTOR: \(actor[indexPath.row].name)")
+            presenter.openActorDetail(info: actor[indexPath.row])
         }
     }
 }

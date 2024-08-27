@@ -10,12 +10,13 @@ import Swinject
 
 class ActorProfileAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(ActorProfilePresenterProtocol.self) { (resolver, viewController: ActorProfileViewController) in
+        container.register(ActorProfilePresenterProtocol.self) { (resolver, viewController: ActorProfileViewController, repository: PeopleRepositoryType) in
             let presenter = ActorProfilePresenter()
             presenter.view = viewController
             // Interactor
             let interactor = ActorProfileInteractor()
             interactor.output = presenter
+            interactor.repository = repository
             presenter.interactor = interactor
             // Router
             let router = ActorProfileRouter()

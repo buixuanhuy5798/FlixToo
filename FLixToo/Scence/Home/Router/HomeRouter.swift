@@ -9,4 +9,10 @@ import UIKit
 
 final class HomeRouter: HomeRouterProtocol {
     weak var viewController: HomeViewController?
+    
+    func openActorDetail(info: ActorCommonInfo) {
+        let vc = ActorProfileViewController.instantiate()
+        vc.presenter.commonInfo = info
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }

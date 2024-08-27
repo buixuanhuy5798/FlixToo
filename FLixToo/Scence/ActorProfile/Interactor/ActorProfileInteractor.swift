@@ -6,7 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 
 final class ActorProfileInteractor: ActorProfileInteractorInputProtocol {
     weak var output: ActorProfileInteractorOutputProtocol?
+    
+    var repository: PeopleRepositoryType!
+    private let disposebag = DisposeBag()
 }

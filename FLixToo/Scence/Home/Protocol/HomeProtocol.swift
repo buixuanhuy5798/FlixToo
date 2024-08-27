@@ -18,6 +18,7 @@ protocol HomePresenterProtocol: AnyObject {
     var data: [HomeCollectionSectionData] { get set }
     
     func onViewDidLoad()
+    func openActorDetail(info: ActorCommonInfo)
 }
 
 protocol HomeInteractorInputProtocol: AnyObject {
@@ -40,4 +41,6 @@ protocol HomeInteractorOutputProtocol: AnyObject {
 
 protocol HomeRouterProtocol: AnyObject {
     var viewController: HomeViewController? { get set }
+    
+    func openActorDetail(info: ActorCommonInfo)
 }
