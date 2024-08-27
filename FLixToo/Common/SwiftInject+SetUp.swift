@@ -19,10 +19,16 @@ extension SwinjectStoryboard {
             return MovieRepository(api)
         }.inObjectScope(.container)
         
+        defaultContainer.register(PeopleRepositoryType.self) { r in
+            let api = r.resolve(APIService.self)!
+            return PeopleRepository(api)
+        }.inObjectScope(.container)
+        
         defaultContainer.storyboardInitCompleted(HomeViewController.self) { r, c in
             let assembler = Assembler([HomeAssembly()])
             let repository = r.resolve(MovieRepositoryType.self)!
-            c.presenter = assembler.resolver.resolve(HomePresenterProtocol.self, arguments: c, repository)
+            let peopleRepository = r.resolve(PeopleRepositoryType.self)!
+            c.presenter = assembler.resolver.resolve(HomePresenterProtocol.self, arguments: c, repository, peopleRepository)
         }
         
         defaultContainer.storyboardInitCompleted(MovieDetailViewController.self) { r, c in

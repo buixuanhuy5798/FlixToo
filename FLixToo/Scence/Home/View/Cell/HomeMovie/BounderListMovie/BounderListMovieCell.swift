@@ -27,6 +27,7 @@ class BounderListMovieCell: UITableViewCell, BaseCollectionViewInTableViewCell, 
         collectionView.register(cellType: MovieProviderCell.self)
         collectionView.register(cellType: CategoryCell.self)
         collectionView.register(cellType: MoviePosterCell.self)
+        collectionView.register(cellType: ActorCommonInfoCell.self)
         selectionStyle = .none
     }
     
@@ -48,6 +49,10 @@ class BounderListMovieCell: UITableViewCell, BaseCollectionViewInTableViewCell, 
             layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
         case .movieProviders:
             layout.itemSize = CGSize(width: 60, height: 60)
+        case .popularPeople:
+            let itemWitdh = (Screen.width - 48) / 3.2
+            let itemHeight = itemWitdh * 122/102
+            layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
         }
         collectionView.collectionViewLayout = layout
     }

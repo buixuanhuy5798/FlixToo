@@ -36,6 +36,7 @@ enum HomeCollectionSectionData {
     case nowPlaying([MovieCommonInfomation])
     case upcoming([MovieCommonInfomation])
     case movieProviders([MovieProvider])
+    case popularPeople([ActorCommonInfo])
     
     func getTitle() -> String {
         switch self {
@@ -47,6 +48,8 @@ enum HomeCollectionSectionData {
             return "Recently Released Movies"
         case .upcoming:
             return "Upcoming Movies"
+        case .popularPeople:
+            return "Popular People"
         default:
             return ""
         }
@@ -64,6 +67,8 @@ enum HomeCollectionSectionData {
             return data.count
         case .movieProviders(let data):
             return data.count
+        case .popularPeople(let people):
+            return people.count
         }
     }
 }

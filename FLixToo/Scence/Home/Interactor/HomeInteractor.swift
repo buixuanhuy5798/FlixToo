@@ -12,6 +12,7 @@ final class HomeInteractor: HomeInteractorInputProtocol {
     weak var output: HomeInteractorOutputProtocol?
     
     var repository: MovieRepositoryType!
+    var peopleRepository: PeopleRepositoryType!
     
     private let disposebag = DisposeBag()
     
@@ -51,6 +52,16 @@ final class HomeInteractor: HomeInteractorInputProtocol {
                 return
             }
             self?.output?.getListMovieProvidersSuccess(data: results)
+        })
+        .disposed(by: disposebag)
+    }
+    
+    func getListPopularPeople(checkingType: CheckingType) {
+        peopleRepository.getListPopularPeople(checking: checkingType).subscribe(onSuccess: { [weak self] response in
+            guard let results = response.results else {
+                return
+            }
+            self?.output?.getListPopularPeople(data: results)
         })
         .disposed(by: disposebag)
     }

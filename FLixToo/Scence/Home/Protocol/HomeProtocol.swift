@@ -27,6 +27,7 @@ protocol HomeInteractorInputProtocol: AnyObject {
     func getListUpcomingMovies(page: Int, checkingType: CheckingType)
     func getListNowPlayingMovies(page: Int, checkingType: CheckingType)
     func getListMovieProviders(checkingType: CheckingType)
+    func getListPopularPeople(checkingType: CheckingType)
 }
 
 protocol HomeInteractorOutputProtocol: AnyObject {
@@ -34,6 +35,7 @@ protocol HomeInteractorOutputProtocol: AnyObject {
     func getListUpcomingMoviesSuccess(data: [MovieCommonInfomation])
     func getListNowPlayingMoviesSuccess(data: [MovieCommonInfomation])
     func getListMovieProvidersSuccess(data: [MovieProvider])
+    func getListPopularPeople(data: [ActorCommonInfo])
 }
 
 protocol HomeRouterProtocol: AnyObject {
