@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,9 +18,80 @@
                     <view key="view" contentMode="scaleToFill" id="Zew-Cd-vWk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GS-NR-4ka">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tD8-72-CtY">
+                                        <rect key="frame" x="16" y="16" width="361" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9E4-DL-klq">
+                                                <rect key="frame" x="12" y="10.33333333333333" width="20" height="29.666666666666671"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="9E4-DL-klq" secondAttribute="height" multiplier="1:1" id="Zgj-1B-I2V"/>
+                                                    <constraint firstAttribute="height" constant="20" id="iEZ-RZ-OOm"/>
+                                                </constraints>
+                                                <imageReference key="image" image="scope" catalog="system" symbolScale="large"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap your location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIe-ib-IPU">
+                                                <rect key="frame" x="48" y="14.666666666666671" width="297" height="21"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2q3-Hh-D6t"/>
+                                            <constraint firstItem="NIe-ib-IPU" firstAttribute="leading" secondItem="9E4-DL-klq" secondAttribute="trailing" constant="16" id="7pc-Rn-X6v"/>
+                                            <constraint firstAttribute="trailing" secondItem="NIe-ib-IPU" secondAttribute="trailing" constant="16" id="Lax-m7-eFO"/>
+                                            <constraint firstItem="9E4-DL-klq" firstAttribute="centerY" secondItem="tD8-72-CtY" secondAttribute="centerY" id="SNz-m8-7fT"/>
+                                            <constraint firstItem="9E4-DL-klq" firstAttribute="leading" secondItem="tD8-72-CtY" secondAttribute="leading" constant="12" id="drV-p0-jVF"/>
+                                            <constraint firstItem="NIe-ib-IPU" firstAttribute="centerY" secondItem="tD8-72-CtY" secondAttribute="centerY" id="pqn-uy-J4r"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="#454545"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BBO-Ac-jBg">
+                                        <rect key="frame" x="0.0" y="82" width="393" height="677"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BBO-Ac-jBg" secondAttribute="trailing" id="5d5-10-xK9"/>
+                                    <constraint firstItem="BBO-Ac-jBg" firstAttribute="top" secondItem="tD8-72-CtY" secondAttribute="bottom" constant="16" id="6IZ-o5-Vc3"/>
+                                    <constraint firstAttribute="bottom" secondItem="BBO-Ac-jBg" secondAttribute="bottom" id="FFr-QD-SD1"/>
+                                    <constraint firstItem="tD8-72-CtY" firstAttribute="leading" secondItem="3GS-NR-4ka" secondAttribute="leading" constant="16" id="J2E-KO-dke"/>
+                                    <constraint firstItem="tD8-72-CtY" firstAttribute="top" secondItem="3GS-NR-4ka" secondAttribute="top" constant="16" id="TSE-6K-8xk"/>
+                                    <constraint firstItem="BBO-Ac-jBg" firstAttribute="leading" secondItem="3GS-NR-4ka" secondAttribute="leading" id="V3R-rn-4nh"/>
+                                    <constraint firstAttribute="trailing" secondItem="tD8-72-CtY" secondAttribute="trailing" constant="16" id="cc2-zX-hdb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OeY-Ib-73V"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OeY-Ib-73V" firstAttribute="trailing" secondItem="3GS-NR-4ka" secondAttribute="trailing" id="11s-9m-Aa5"/>
+                            <constraint firstItem="3GS-NR-4ka" firstAttribute="top" secondItem="OeY-Ib-73V" secondAttribute="top" identifier="topMostConstraint" id="2t8-T8-J2T"/>
+                            <constraint firstItem="3GS-NR-4ka" firstAttribute="leading" secondItem="OeY-Ib-73V" secondAttribute="leading" id="QEY-Rh-OK7"/>
+                            <constraint firstItem="OeY-Ib-73V" firstAttribute="bottom" secondItem="3GS-NR-4ka" secondAttribute="bottom" id="faY-Ot-QS2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="locationTextField" destination="NIe-ib-IPU" id="7mK-VV-Dmd"/>
+                        <outlet property="placesTableView" destination="BBO-Ac-jBg" id="lQd-6T-q0i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jeE-Ju-1Yk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,6 +99,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="scope" catalog="system" width="128" height="124"/>
+        <namedColor name="#454545">
+            <color red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

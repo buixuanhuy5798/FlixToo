@@ -58,6 +58,12 @@
 		05FB825C2C7B34C0004FA411 /* MovieProviderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FB825A2C7B34C0004FA411 /* MovieProviderCell.swift */; };
 		05FB825D2C7B34C0004FA411 /* MovieProviderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05FB825B2C7B34C0004FA411 /* MovieProviderCell.xib */; };
 		92805A6365E23FBFE1CF2C0E /* Pods_FLixToo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5886DFD0C20F1D36B1D05A /* Pods_FLixToo.framework */; };
+		CEC696AE2C7D7BD20090951B /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696AC2C7D7BD20090951B /* PlaceTableViewCell.swift */; };
+		CEC696AF2C7D7BD20090951B /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC696AD2C7D7BD20090951B /* PlaceTableViewCell.xib */; };
+		CEC696B22C7D81540090951B /* CenimaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696B02C7D81540090951B /* CenimaTableViewCell.swift */; };
+		CEC696B32C7D81540090951B /* CenimaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC696B12C7D81540090951B /* CenimaTableViewCell.xib */; };
+		CEC696B72C7DC42F0090951B /* SearchNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696B52C7DC42F0090951B /* SearchNameTableViewCell.swift */; };
+		CEC696B82C7DC42F0090951B /* SearchNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC696B62C7DC42F0090951B /* SearchNameTableViewCell.xib */; };
 		F052A8BD2C77273D00814CCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052A8BC2C77273D00814CCB /* AppDelegate.swift */; };
 		F052A8C12C77273D00814CCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052A8C02C77273D00814CCB /* ViewController.swift */; };
 		F052A8C42C77273D00814CCB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F052A8C32C77273D00814CCB /* Base */; };
@@ -178,6 +184,12 @@
 		3A719AB4B277AB458B1EDAB7 /* Pods-FLixToo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLixToo.debug.xcconfig"; path = "Target Support Files/Pods-FLixToo/Pods-FLixToo.debug.xcconfig"; sourceTree = "<group>"; };
 		3DEB40B140CDEA9C6441E4E6 /* Pods-FLixToo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLixToo.release.xcconfig"; path = "Target Support Files/Pods-FLixToo/Pods-FLixToo.release.xcconfig"; sourceTree = "<group>"; };
 		9F5886DFD0C20F1D36B1D05A /* Pods_FLixToo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FLixToo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC696AC2C7D7BD20090951B /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		CEC696AD2C7D7BD20090951B /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
+		CEC696B02C7D81540090951B /* CenimaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenimaTableViewCell.swift; sourceTree = "<group>"; };
+		CEC696B12C7D81540090951B /* CenimaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenimaTableViewCell.xib; sourceTree = "<group>"; };
+		CEC696B52C7DC42F0090951B /* SearchNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNameTableViewCell.swift; sourceTree = "<group>"; };
+		CEC696B62C7DC42F0090951B /* SearchNameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchNameTableViewCell.xib; sourceTree = "<group>"; };
 		F052A8B92C77273D00814CCB /* FLixToo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLixToo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F052A8BC2C77273D00814CCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F052A8C02C77273D00814CCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -607,6 +619,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CEC696AB2C7D7BB20090951B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEC696AC2C7D7BD20090951B /* PlaceTableViewCell.swift */,
+				CEC696AD2C7D7BD20090951B /* PlaceTableViewCell.xib */,
+				CEC696B02C7D81540090951B /* CenimaTableViewCell.swift */,
+				CEC696B12C7D81540090951B /* CenimaTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CEC696B42C7DC4110090951B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEC696B52C7DC42F0090951B /* SearchNameTableViewCell.swift */,
+				CEC696B62C7DC42F0090951B /* SearchNameTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		E2086D2F9A04F5D6D4C09DEA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -981,6 +1013,7 @@
 		F0770BB22C784718007F522F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CEC696AB2C7D7BB20090951B /* Cell */,
 				F0770BB02C784718007F522F /* Cinemas.storyboard */,
 				F0770BB12C784718007F522F /* CinemasViewController.swift */,
 			);
@@ -1046,6 +1079,7 @@
 		F0770BD92C784751007F522F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CEC696B42C7DC4110090951B /* Cell */,
 				F0770BD72C784751007F522F /* Search.storyboard */,
 				F0770BD82C784751007F522F /* SearchViewController.swift */,
 			);
@@ -1201,6 +1235,7 @@
 				F0770BBC2C784718007F522F /* Cinemas.storyboard in Resources */,
 				F052A8E92C78350C00814CCB /* Poppins-SemiBold.ttf in Resources */,
 				F0770C152C784F84007F522F /* Urbanist-Bold.ttf in Resources */,
+				CEC696AF2C7D7BD20090951B /* PlaceTableViewCell.xib in Resources */,
 				0537EDCF2C7A2C3A004F06A9 /* MoviePosterCell.xib in Resources */,
 				0537EDD42C7A3653004F06A9 /* SettingOptionCell.xib in Resources */,
 				F052A8C62C77273F00814CCB /* Assets.xcassets in Resources */,
@@ -1210,6 +1245,7 @@
 				056BC8F82C7CE4580096A2FC /* ActorProfile.storyboard in Resources */,
 				F0770C092C784786007F522F /* Home.storyboard in Resources */,
 				05FB825D2C7B34C0004FA411 /* MovieProviderCell.xib in Resources */,
+				CEC696B82C7DC42F0090951B /* SearchNameTableViewCell.xib in Resources */,
 				F0770B442C7837F4007F522F /* Urbanist-SemiBold.ttf in Resources */,
 				F052A8C92C77273F00814CCB /* Base in Resources */,
 				F052A8DD2C78183600814CCB /* Poppins-Regular.ttf in Resources */,
@@ -1217,6 +1253,7 @@
 				05FB82512C7B0DFB004FA411 /* BounderListMovieCell.xib in Resources */,
 				F052A8C42C77273D00814CCB /* Base in Resources */,
 				05544AE92C7B63DC0083B591 /* MovieDetail.storyboard in Resources */,
+				CEC696B32C7D81540090951B /* CenimaTableViewCell.xib in Resources */,
 				056BC8D82C7CDC850096A2FC /* ActorCommonInfoCell.xib in Resources */,
 				F0770B752C78463A007F522F /* Setting.storyboard in Resources */,
 				05544AC12C7B57D40083B591 /* Genres.storyboard in Resources */,
@@ -1278,6 +1315,7 @@
 				F0770B982C7846C3007F522F /* LibraryEntity.swift in Sources */,
 				F0770B702C78463A007F522F /* SettingAssembly.swift in Sources */,
 				F052A8E72C7834D900814CCB /* Typography.swift in Sources */,
+				CEC696B22C7D81540090951B /* CenimaTableViewCell.swift in Sources */,
 				F0770B742C78463A007F522F /* SettingEntity.swift in Sources */,
 				05544AEA2C7B63DC0083B591 /* MovieDetailViewController.swift in Sources */,
 				05544AE42C7B63DC0083B591 /* MovieDetailProtocol.swift in Sources */,
@@ -1293,6 +1331,7 @@
 				056BC8FA2C7CE4580096A2FC /* ActorProfileEntity.swift in Sources */,
 				05544AC22C7B57D40083B591 /* GenresViewController.swift in Sources */,
 				F0770BE42C784752007F522F /* SearchProtocol.swift in Sources */,
+				CEC696B72C7DC42F0090951B /* SearchNameTableViewCell.swift in Sources */,
 				05FB825C2C7B34C0004FA411 /* MovieProviderCell.swift in Sources */,
 				F0770B9B2C7846C3007F522F /* LibraryRouter.swift in Sources */,
 				05FB82462C7B0502004FA411 /* MovieRepository.swift in Sources */,
@@ -1340,6 +1379,7 @@
 				05544ABF2C7B57D40083B591 /* GenresAssembly.swift in Sources */,
 				F0770B4B2C783B1E007F522F /* ScreenInfomation.swift in Sources */,
 				F0770B962C7846C3007F522F /* LibraryProtocol.swift in Sources */,
+				CEC696AE2C7D7BD20090951B /* PlaceTableViewCell.swift in Sources */,
 				05544AC02C7B57D40083B591 /* GenresInteractor.swift in Sources */,
 				0537EDD32C7A3653004F06A9 /* SettingOptionCell.swift in Sources */,
 				F0770C052C784786007F522F /* HomeEntity.swift in Sources */,
