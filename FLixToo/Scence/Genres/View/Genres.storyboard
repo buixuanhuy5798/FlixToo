@@ -1,24 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Genres View Controller-->
         <scene sceneID="71d-bf-pt8">
             <objects>
-                <viewController id="HPT-UI-QO4" sceneMemberID="viewController">
+                <viewController id="HPT-UI-QO4" customClass="GenresViewController" customModule="FLixToo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUu-ho-sPV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gR-hA-SIC">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8ca-YZ-a0w">
+                                        <rect key="frame" x="16" y="32" width="146.66666666666666" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1g-L8-bk2">
+                                                <rect key="frame" x="0.0" y="0.0" width="65.333333333333329" height="31"/>
+                                                <color key="backgroundColor" name="#454545"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Movie">
+                                                    <fontDescription key="titleFontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="14"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0t-04-Aky">
+                                                <rect key="frame" x="81.333333333333343" y="0.0" width="65.333333333333343" height="31"/>
+                                                <color key="backgroundColor" name="#454545"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Shows">
+                                                    <fontDescription key="titleFontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="14"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xt1-9s-veX">
+                                        <rect key="frame" x="0.0" y="79" width="393" height="680"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="orO-aY-OZI">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Xt1-9s-veX" secondAttribute="bottom" id="4gs-Z2-fLC"/>
+                                    <constraint firstItem="8ca-YZ-a0w" firstAttribute="leading" secondItem="2gR-hA-SIC" secondAttribute="leading" constant="16" id="R35-Ko-AFm"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xt1-9s-veX" secondAttribute="trailing" id="TXE-g0-IBb"/>
+                                    <constraint firstItem="Xt1-9s-veX" firstAttribute="top" secondItem="8ca-YZ-a0w" secondAttribute="bottom" constant="16" id="eYe-fH-9ch"/>
+                                    <constraint firstItem="8ca-YZ-a0w" firstAttribute="top" secondItem="2gR-hA-SIC" secondAttribute="top" constant="32" id="y9M-k0-wMd"/>
+                                    <constraint firstItem="Xt1-9s-veX" firstAttribute="leading" secondItem="2gR-hA-SIC" secondAttribute="leading" id="zSE-gM-qgF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iJQ-hM-Utk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2gR-hA-SIC" firstAttribute="top" secondItem="iJQ-hM-Utk" secondAttribute="top" identifier="topMostConstraint" id="Syz-Nl-umU"/>
+                            <constraint firstItem="iJQ-hM-Utk" firstAttribute="bottom" secondItem="2gR-hA-SIC" secondAttribute="bottom" id="Zn1-ZK-hVx"/>
+                            <constraint firstItem="iJQ-hM-Utk" firstAttribute="trailing" secondItem="2gR-hA-SIC" secondAttribute="trailing" id="fy5-19-XtP"/>
+                            <constraint firstItem="2gR-hA-SIC" firstAttribute="leading" secondItem="iJQ-hM-Utk" secondAttribute="leading" id="je3-s0-gJh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="genresCollectionView" destination="Xt1-9s-veX" id="cg4-9X-4wY"/>
+                        <outlet property="movieButton" destination="C1g-L8-bk2" id="X5M-6Y-xbW"/>
+                        <outlet property="showsButton" destination="C0t-04-Aky" id="ZLx-Ae-eoO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAt-DN-G8L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,6 +88,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="#454545">
+            <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

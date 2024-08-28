@@ -65,6 +65,8 @@
 		CEC696B32C7D81540090951B /* CenimaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC696B12C7D81540090951B /* CenimaTableViewCell.xib */; };
 		CEC696B72C7DC42F0090951B /* SearchNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696B52C7DC42F0090951B /* SearchNameTableViewCell.swift */; };
 		CEC696B82C7DC42F0090951B /* SearchNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC696B62C7DC42F0090951B /* SearchNameTableViewCell.xib */; };
+		CEC696BC2C7F19850090951B /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696BA2C7F19850090951B /* GenreCollectionViewCell.swift */; };
+		CEC696BD2C7F19850090951B /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC696BB2C7F19850090951B /* GenreCollectionViewCell.xib */; };
 		F052A8BD2C77273D00814CCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052A8BC2C77273D00814CCB /* AppDelegate.swift */; };
 		F052A8C12C77273D00814CCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052A8C02C77273D00814CCB /* ViewController.swift */; };
 		F052A8C42C77273D00814CCB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F052A8C32C77273D00814CCB /* Base */; };
@@ -192,6 +194,8 @@
 		CEC696B12C7D81540090951B /* CenimaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenimaTableViewCell.xib; sourceTree = "<group>"; };
 		CEC696B52C7DC42F0090951B /* SearchNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNameTableViewCell.swift; sourceTree = "<group>"; };
 		CEC696B62C7DC42F0090951B /* SearchNameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchNameTableViewCell.xib; sourceTree = "<group>"; };
+		CEC696BA2C7F19850090951B /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEC696BB2C7F19850090951B /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
 		F052A8B92C77273D00814CCB /* FLixToo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLixToo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F052A8BC2C77273D00814CCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F052A8C02C77273D00814CCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -348,6 +352,7 @@
 		05544AB82C7B57D40083B591 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CEC696B92C7F18220090951B /* Cell */,
 				05544AB62C7B57D40083B591 /* Genres.storyboard */,
 				05544AB72C7B57D40083B591 /* GenresViewController.swift */,
 			);
@@ -646,6 +651,15 @@
 			children = (
 				CEC696B52C7DC42F0090951B /* SearchNameTableViewCell.swift */,
 				CEC696B62C7DC42F0090951B /* SearchNameTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CEC696B92C7F18220090951B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEC696BA2C7F19850090951B /* GenreCollectionViewCell.swift */,
+				CEC696BB2C7F19850090951B /* GenreCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1268,6 +1282,7 @@
 				056BC8D82C7CDC850096A2FC /* ActorCommonInfoCell.xib in Resources */,
 				F0770B752C78463A007F522F /* Setting.storyboard in Resources */,
 				05544AC12C7B57D40083B591 /* Genres.storyboard in Resources */,
+				CEC696BD2C7F19850090951B /* GenreCollectionViewCell.xib in Resources */,
 				0537EDC92C7A1BFE004F06A9 /* BounderCategoryCell.xib in Resources */,
 				F0770B992C7846C3007F522F /* Library.storyboard in Resources */,
 				F0770B412C7837E5007F522F /* Urbanist-Regular.ttf in Resources */,
@@ -1331,6 +1346,7 @@
 				05544AEA2C7B63DC0083B591 /* MovieDetailViewController.swift in Sources */,
 				05544AE42C7B63DC0083B591 /* MovieDetailProtocol.swift in Sources */,
 				F0770BDF2C784752007F522F /* SearchRouter.swift in Sources */,
+				CEC696BC2C7F19850090951B /* GenreCollectionViewCell.swift in Sources */,
 				056BC8F92C7CE4580096A2FC /* ActorProfileViewController.swift in Sources */,
 				F0770B952C7846C3007F522F /* LibraryAssembly.swift in Sources */,
 				056BC8D72C7CDC850096A2FC /* ActorCommonInfoCell.swift in Sources */,

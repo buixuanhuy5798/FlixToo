@@ -9,3 +9,9 @@ import UIKit
 
 class GenresEntity {
 }
+
+struct GenreModel {
+    let id: Int
+    let name: String
+    let image: UIImage
+}
