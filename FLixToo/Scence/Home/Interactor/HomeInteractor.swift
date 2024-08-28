@@ -65,4 +65,34 @@ final class HomeInteractor: HomeInteractorInputProtocol {
         })
         .disposed(by: disposebag)
     }
+    
+    func getListPopularTVShow(page: Int, checkingType: CheckingType) {
+        repository.getListPopularTVShow(page: page, checking: checkingType).subscribe(onSuccess: { [weak self] response in
+            guard let results = response.results else {
+                return
+            }
+            self?.output?.getListPopularTVShowSuccess(data: results)
+        })
+        .disposed(by: disposebag)
+    }
+    
+    func getListUpcomingTvShow(page: Int, checkingType: CheckingType) {
+        repository.getListUpcomingTVShow(page: page, checking: checkingType).subscribe(onSuccess: { [weak self] response in
+            guard let results = response.results else {
+                return
+            }
+            self?.output?.getListUpcomingTVShowSuccess(data: results)
+        })
+        .disposed(by: disposebag)
+    }
+    
+    func getListTopRatedTVShow(page: Int, checkingType: CheckingType) {
+        repository.getListTopRatedTVShow(page: page, checking: checkingType).subscribe(onSuccess: { [weak self] response in
+            guard let results = response.results else {
+                return
+            }
+            self?.output?.getListTopRatedTVShowSuccess(data: results)
+        })
+        .disposed(by: disposebag)
+    }
 }

@@ -120,7 +120,7 @@ extension HomeViewController: UITableViewDelegate {
             let itemWitdh = (Screen.width - 48) / 2
             let itemHeight = itemWitdh * 96/158
             return itemHeight
-        case .tredingMovies, .upcoming, .nowPlaying:
+        case .tredingMovies, .upcoming, .nowPlaying, .trendingShow, .upcomingShow, .topRatedShow:
             let itemWitdh = (Screen.width - 48) / 3.2
             let itemHeight = itemWitdh * 194/102 + 18
             return itemHeight
@@ -178,6 +178,18 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ActorCommonInfoCell.self)
             cell.setContentForCell(actor: people[indexPath.row])
             return cell
+        case .trendingShow(let shows):
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
+            cell.setContentForCell(data: shows[indexPath.row])
+            return cell
+        case .upcomingShow(let shows):
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
+            cell.setContentForCell(data: shows[indexPath.row])
+            return cell
+        case .topRatedShow(let shows):
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
+            cell.setContentForCell(data: shows[indexPath.row])
+            return cell
         }
     }
 }
@@ -206,6 +218,13 @@ extension HomeViewController: UICollectionViewDelegate {
         case .popularPeople(let actor):
             print("SELECT ACTOR: \(actor[indexPath.row].name)")
             presenter.openActorDetail(info: actor[indexPath.row])
+        case .trendingShow(let shows):
+            print("SELECT SHOWS: \(shows[indexPath.row].originalName)")
+        case .upcomingShow(let shows):
+            print("SELECT SHOWS: \(shows[indexPath.row].originalName)")
+        case .topRatedShow(let shows):
+            print("SELECT SHOWS: \(shows[indexPath.row].originalName)")
+//            presenter.openActorDetail(info: shows[indexPath.row])
         }
     }
     

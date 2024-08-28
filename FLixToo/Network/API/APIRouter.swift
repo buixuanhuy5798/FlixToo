@@ -18,6 +18,10 @@ enum APIRouter {
     case getPopularPeople
     case getDetailPeople(id: Int)
     
+    case getListPopularTVShow(page: Int)
+    case getListUpcomingTVShow(page: Int)
+    case getListTopRatedTVShow(page: Int)
+    
     var method: HTTPMethod {
         switch self {
         default:
@@ -53,6 +57,12 @@ enum APIRouter {
             return "/trending/person/week"
         case .getDetailPeople(let id):
             return "person/\(id)"
+        case .getListPopularTVShow:
+            return "/tv/popular"
+        case .getListUpcomingTVShow:
+            return "/tv/on_the_air"
+        case .getListTopRatedTVShow:
+            return "/tv/top_rated"
         }
     }
     
@@ -67,6 +77,12 @@ enum APIRouter {
         case .searchMovieName(let keyword, let page):
             return ["page": page, "query": keyword]
         case .getListTVPopular(let page):
+            return ["page": page]
+        case .getListPopularTVShow(let page):
+            return ["page": page]
+        case .getListUpcomingTVShow(let page):
+            return ["page": page]
+        case .getListTopRatedTVShow(let page):
             return ["page": page]
         default:
             return nil

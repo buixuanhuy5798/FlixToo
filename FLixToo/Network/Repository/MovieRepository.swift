@@ -35,6 +35,10 @@ protocol MovieRepositoryType {
     func getListNowPlayingMovies(page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>>
     func getListMovieProviders(checking: CheckingType) -> Single<BaseResponse<[MovieProvider]>>
     func getMovieDetail(id: String) -> Single<MovieDetail>
+    
+    func getListPopularTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
+    func getListUpcomingTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
+    func getListTopRatedTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
 }
 
 struct MovieRepository: MovieRepositoryType {
@@ -62,5 +66,17 @@ struct MovieRepository: MovieRepositoryType {
     
     func getMovieDetail(id: String) -> Single<MovieDetail> {
         return api.request(router: .getMovieDetail(id: id), checking: .checked)
+    }
+    
+    func getListPopularTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>> {
+        return api.request(router: .getListTVPopular(page: page), checking: checking)
+    }
+    
+    func getListUpcomingTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>> {
+        return api.request(router: .getListUpcomingTVShow(page: page), checking: checking)
+    }
+    
+    func getListTopRatedTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>> {
+        return api.request(router: .getListTopRatedTVShow(page: page), checking: checking)
     }
 }

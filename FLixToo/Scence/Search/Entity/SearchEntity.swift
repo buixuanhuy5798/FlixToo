@@ -43,7 +43,7 @@ struct TvShowCommonInfomation: Codable {
         case originalName = "original_name"
         case overview, popularity
         case posterPath = "poster_path"
-        case firstAirDate
+        case firstAirDate = "first_air_date"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
