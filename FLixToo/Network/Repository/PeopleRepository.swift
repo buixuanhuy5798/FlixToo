@@ -10,6 +10,7 @@ import RxSwift
 
 protocol PeopleRepositoryType {
     func getListPopularPeople(checking: CheckingType) -> Single<BaseResponse<[ActorCommonInfo]>>
+    func getDetailActorInfo(id: Int) -> Single<ActorDetailInfo>
 }
 
 struct PeopleRepository: PeopleRepositoryType {
@@ -21,5 +22,9 @@ struct PeopleRepository: PeopleRepositoryType {
     
     func getListPopularPeople(checking: CheckingType) -> Single<BaseResponse<[ActorCommonInfo]>> {
         return api.request(router: .getPopularPeople, checking: checking)
+    }
+    
+    func getDetailActorInfo(id: Int) -> Single<ActorDetailInfo> {
+        return api.request(router: .getDetailPeople(id: id), checking: .checked)
     }
 }

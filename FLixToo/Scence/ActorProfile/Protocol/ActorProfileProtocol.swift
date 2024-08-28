@@ -8,6 +8,8 @@
 import UIKit
 
 protocol ActorProfileViewProtocol: AnyObject {
+    func updateActorDetail(data: ActorDetailInfo)
+    func showError(message: String)
 }
 
 protocol ActorProfilePresenterProtocol: AnyObject {
@@ -21,9 +23,13 @@ protocol ActorProfilePresenterProtocol: AnyObject {
 
 protocol ActorProfileInteractorInputProtocol: AnyObject {
     var output: ActorProfileInteractorOutputProtocol? { get set }
+    
+    func getActorDetail(id: Int)
 }
 
 protocol ActorProfileInteractorOutputProtocol: AnyObject {
+    func getActorDetailSuccess(detail: ActorDetailInfo)
+    func getActorDetailFail(message: String)
 }
 
 protocol ActorProfileRouterProtocol: AnyObject {

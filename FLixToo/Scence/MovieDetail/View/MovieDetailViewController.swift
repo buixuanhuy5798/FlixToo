@@ -37,15 +37,16 @@ class MovieDetailViewController: UIViewController {
 extension MovieDetailViewController:MovieDetailViewProtocol {
     func updateMovieDetail(data: MovieDetail) {
         backdropImageView.kf.setImage(
-            with: Utils.getUrlImage(path: data.backdropPath),
+            with: Utils.getUrlImage(path: data.backdropPath ?? ""),
             options: [
                 .loadDiskFileSynchronously,
                 .cacheOriginalImage,
                 .transition(.fade(0.1)),
             ])
-        imdbScoreLabel.text = "(\(data.voteAverage)/10)"
-        movieNameLabel.text = "\(data.originalTitle) (\(data.releaseDate.prefix(4)))"
-        generLabel.text = "● \(Utils.calculateTime(data.runtime))"
+        let voteAverage = String(format: "%.1f", (data.voteAverage ?? 0))
+        imdbScoreLabel.text = "(\(voteAverage)/10)"
+        movieNameLabel.text = "\(data.originalTitle ?? "") (\(data.releaseDate?.prefix(4) ?? ""))"
+        generLabel.text = "● \(Utils.calculateTime(data.runtime ?? 0))"
     }
 }
 

@@ -21,10 +21,10 @@ final class HomePresenter: HomePresenterProtocol {
                 .nowPlaying([]),
                 .popularPeople([]),
                 .upcoming([])]
-        interactor.getListMovieProviders(checkingType: .unchecked)
-        interactor.getListPopularMovie(page: 1, checkingType: .unchecked)
-        interactor.getListNowPlayingMovies(page: 1, checkingType: .unchecked)
-        interactor.getListUpcomingMovies(page: 1, checkingType: .unchecked)
+//        interactor.getListMovieProviders(checkingType: .unchecked)
+//        interactor.getListPopularMovie(page: 1, checkingType: .unchecked)
+//        interactor.getListNowPlayingMovies(page: 1, checkingType: .unchecked)
+//        interactor.getListUpcomingMovies(page: 1, checkingType: .unchecked)
         interactor.getListPopularPeople(checkingType: .unchecked)
     }
     

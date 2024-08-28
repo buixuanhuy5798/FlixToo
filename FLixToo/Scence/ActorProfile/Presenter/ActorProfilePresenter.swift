@@ -15,8 +15,17 @@ final class ActorProfilePresenter: ActorProfilePresenterProtocol {
     var commonInfo: ActorCommonInfo?
     
     func onViewDidLoad() {
+        guard let id = commonInfo?.id else { return }
+        interactor.getActorDetail(id: id)
     }
 }
 
 extension ActorProfilePresenter:ActorProfileInteractorOutputProtocol {
+    func getActorDetailSuccess(detail: ActorDetailInfo) {
+        view?.updateActorDetail(data: detail)
+    }
+    
+    func getActorDetailFail(message: String) {
+        view?.showError(message: message)
+    }
 }
