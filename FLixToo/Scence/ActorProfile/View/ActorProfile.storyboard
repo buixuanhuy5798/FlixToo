@@ -55,14 +55,14 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQx-aR-EOo">
-                                                <rect key="frame" x="21" y="538.33333333333337" width="351" height="1"/>
+                                                <rect key="frame" x="21" y="530.33333333333337" width="351" height="1"/>
                                                 <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="0.80651379870129869" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="EoE-Pv-SSd"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7E-gN-Q8G" customClass="MASegmentedControl" customModule="MASegmentedControl">
-                                                <rect key="frame" x="16" y="483.33333333333337" width="361" height="60"/>
+                                                <rect key="frame" x="16" y="475.33333333333337" width="361" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="dUC-Ct-H25"/>
@@ -77,7 +77,7 @@
                                                 </connections>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Ys-ak-5aW">
-                                                <rect key="frame" x="0.0" y="551.33333333333337" width="393" height="379.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="543.33333333333337" width="393" height="379.66666666666663"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IEO-TC-Azj">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -97,7 +97,7 @@
                                                 </cells>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2za-FR-x1D">
-                                                <rect key="frame" x="0.0" y="551.33333333333337" width="393" height="379.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="543.33333333333337" width="393" height="379.66666666666663"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnY-9f-YxF">
                                                         <rect key="frame" x="16" y="15.999999999999998" width="361" height="20.333333333333329"/>
@@ -133,7 +133,7 @@
                                             <constraint firstItem="8Ys-ak-5aW" firstAttribute="leading" secondItem="5w4-tM-Nc8" secondAttribute="leading" id="oL7-wh-zqP"/>
                                             <constraint firstItem="U7E-gN-Q8G" firstAttribute="leading" secondItem="5w4-tM-Nc8" secondAttribute="leading" constant="16" id="pda-s8-0xI"/>
                                             <constraint firstItem="8Ys-ak-5aW" firstAttribute="top" secondItem="U7E-gN-Q8G" secondAttribute="bottom" constant="8" id="qRn-9s-gTF"/>
-                                            <constraint firstItem="U7E-gN-Q8G" firstAttribute="top" secondItem="lOh-FB-fwk" secondAttribute="bottom" constant="16" id="t7W-Ze-1gM"/>
+                                            <constraint firstItem="U7E-gN-Q8G" firstAttribute="top" secondItem="lOh-FB-fwk" secondAttribute="bottom" constant="8" id="t7W-Ze-1gM"/>
                                             <constraint firstItem="OQx-aR-EOo" firstAttribute="leading" secondItem="U7E-gN-Q8G" secondAttribute="leading" constant="5" id="tJP-yY-KB4"/>
                                             <constraint firstItem="yJv-hE-TI3" firstAttribute="top" secondItem="tig-iO-Aml" secondAttribute="bottom" constant="16" id="ttj-Zc-ySx"/>
                                             <constraint firstItem="2za-FR-x1D" firstAttribute="leading" secondItem="8Ys-ak-5aW" secondAttribute="leading" id="xRz-h3-LUb"/>
