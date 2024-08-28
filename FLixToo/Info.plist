@@ -6,6 +6,8 @@
 	<string>Light</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Urbanist-Medium.ttf</string>
+		<string>Urbanist-Regular.ttf</string>
 		<string>Urbanist-Bold.ttf</string>
 		<string>Urbanist-Regular.ttf</string>
 		<string>Urbanist-SemiBold.ttf</string>

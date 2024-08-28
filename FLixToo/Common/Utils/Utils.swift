@@ -48,4 +48,16 @@ class Utils {
         }
         return String(format: "%.d %@", timeMeasure.value, "min")
     }
+    
+    class func convertDateFormatString(dateString: String, inputFormat: String, outputFormat: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = inputFormat
+        guard let date = inputFormatter.date(from: dateString) else {
+            return ""
+        }
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = outputFormat
+        let formattedDateString = outputFormatter.string(from: date)
+        return formattedDateString
+    }
 }

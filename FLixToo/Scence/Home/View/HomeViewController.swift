@@ -194,18 +194,24 @@ extension HomeViewController: UICollectionViewDelegate {
             }
         case .tredingMovies(let movies):
             print("SELECT MOVIE: \(movies[indexPath.row].originalTitle)")
-            let vc = MovieDetailViewController.instantiate()
-            vc.presenter.id = movies[indexPath.row].id
-            present(vc, animated: true)
+            openMovieDetail(movie: movies[indexPath.row])
         case .upcoming(let movies):
             print("SELECT MOVIE: \(movies[indexPath.row].originalTitle)")
+            openMovieDetail(movie: movies[indexPath.row])
         case .nowPlaying(let movies):
             print("SELECT MOVIE: \(movies[indexPath.row].originalTitle)")
+            openMovieDetail(movie: movies[indexPath.row])
         case .movieProviders(let providers):
             print("SELECT PROVIDER: \(providers[indexPath.row].providerName)")
         case .popularPeople(let actor):
             print("SELECT ACTOR: \(actor[indexPath.row].name)")
             presenter.openActorDetail(info: actor[indexPath.row])
         }
+    }
+    
+    func openMovieDetail(movie: MovieCommonInfomation) {
+        let vc = MovieDetailViewController.instantiate()
+        vc.presenter.id = movie.id
+        present(vc, animated: true)
     }
 }

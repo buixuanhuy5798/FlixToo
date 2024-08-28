@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,13 +49,62 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2H-FS-pwg">
-                                        <rect key="frame" x="16.000000000000004" y="36" width="41.333333333333343" height="0.0"/>
+                                        <rect key="frame" x="16" y="36" width="361" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2V-IE-Viw">
-                                        <rect key="frame" x="16.000000000000004" y="52" width="41.333333333333343" height="20.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="S2V-IE-Viw">
+                                        <rect key="frame" x="16" y="52" width="361" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAW-yz-svQ" customClass="BaseFillButton" customModule="FLixToo" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="76" width="361" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="pkH-id-LHf"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="handleTapWatchTrailerButton:" destination="4k9-3B-Ot8" eventType="touchUpInside" id="py9-jO-6GZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Osb-HJ-AOE">
+                                        <rect key="frame" x="16" y="140" width="361" height="48"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="VDN-K7-nvZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="+ Add to Library">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handleTapAddToLibraryButton:" destination="4k9-3B-Ot8" eventType="touchUpInside" id="Qmy-pG-y9i"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ckj-YJ-GA0">
+                                        <rect key="frame" x="16" y="212" width="361" height="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-Qv-LNF">
+                                        <rect key="frame" x="16" y="240" width="361" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -63,13 +112,25 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="P1F-UF-UaB" firstAttribute="top" secondItem="e6t-Ug-bpe" secondAttribute="top" constant="12" id="2UF-yy-fW5"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ckj-YJ-GA0" secondAttribute="trailing" constant="16" id="4gu-GD-6tL"/>
+                                    <constraint firstItem="HEJ-Qv-LNF" firstAttribute="leading" secondItem="e6t-Ug-bpe" secondAttribute="leading" constant="16" id="6uA-uR-DQY"/>
+                                    <constraint firstItem="HEJ-Qv-LNF" firstAttribute="top" secondItem="Ckj-YJ-GA0" secondAttribute="bottom" constant="8" id="Cr3-Xk-5fb"/>
+                                    <constraint firstAttribute="trailing" secondItem="HEJ-Qv-LNF" secondAttribute="trailing" constant="16" id="DoC-4n-RZ9"/>
                                     <constraint firstAttribute="trailing" secondItem="L2H-FS-pwg" secondAttribute="trailing" constant="16" id="E54-9e-7dX"/>
                                     <constraint firstItem="S2V-IE-Viw" firstAttribute="leading" secondItem="e6t-Ug-bpe" secondAttribute="leading" constant="16" id="Exx-no-X3D"/>
                                     <constraint firstItem="L2H-FS-pwg" firstAttribute="top" secondItem="P1F-UF-UaB" secondAttribute="bottom" constant="24" id="Gvd-fS-CzV"/>
+                                    <constraint firstItem="Ckj-YJ-GA0" firstAttribute="leading" secondItem="e6t-Ug-bpe" secondAttribute="leading" constant="16" id="H3g-IN-q10"/>
+                                    <constraint firstItem="Osb-HJ-AOE" firstAttribute="leading" secondItem="e6t-Ug-bpe" secondAttribute="leading" constant="16" id="U55-dR-Are"/>
+                                    <constraint firstItem="dAW-yz-svQ" firstAttribute="top" secondItem="S2V-IE-Viw" secondAttribute="bottom" constant="24" id="Y2O-9O-dFb"/>
+                                    <constraint firstItem="dAW-yz-svQ" firstAttribute="leading" secondItem="e6t-Ug-bpe" secondAttribute="leading" constant="16" id="Z5Y-Oy-igR"/>
                                     <constraint firstItem="S2V-IE-Viw" firstAttribute="top" secondItem="L2H-FS-pwg" secondAttribute="bottom" constant="16" id="bBs-6S-3y4"/>
+                                    <constraint firstItem="Ckj-YJ-GA0" firstAttribute="top" secondItem="Osb-HJ-AOE" secondAttribute="bottom" constant="24" id="dsJ-62-pY9"/>
                                     <constraint firstItem="L2H-FS-pwg" firstAttribute="leading" secondItem="e6t-Ug-bpe" secondAttribute="leading" constant="16" id="hwh-E7-yfr"/>
+                                    <constraint firstAttribute="trailing" secondItem="dAW-yz-svQ" secondAttribute="trailing" constant="16" id="ktd-Hm-1ED"/>
+                                    <constraint firstAttribute="trailing" secondItem="Osb-HJ-AOE" secondAttribute="trailing" constant="16" id="nhG-Ld-gx0"/>
                                     <constraint firstAttribute="bottom" secondItem="L2H-FS-pwg" secondAttribute="bottom" constant="1000" id="t66-tr-pVi"/>
                                     <constraint firstAttribute="trailing" secondItem="S2V-IE-Viw" secondAttribute="trailing" constant="16" id="uhG-Bc-yIy"/>
+                                    <constraint firstItem="Osb-HJ-AOE" firstAttribute="top" secondItem="dAW-yz-svQ" secondAttribute="bottom" constant="16" id="wco-J2-3NQ"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -84,15 +145,20 @@
                             <constraint firstItem="e6t-Ug-bpe" firstAttribute="top" secondItem="0Pk-Q8-Tn0" secondAttribute="bottom" id="VuJ-KE-wbO"/>
                             <constraint firstItem="46q-mJ-NRd" firstAttribute="top" secondItem="iuB-TT-sDh" secondAttribute="top" constant="12" id="aV8-ly-d6c"/>
                             <constraint firstItem="tw9-6S-0Xq" firstAttribute="trailing" secondItem="e6t-Ug-bpe" secondAttribute="trailing" id="fIL-LB-FTz"/>
+                            <constraint firstItem="dAW-yz-svQ" firstAttribute="centerX" secondItem="tw9-6S-0Xq" secondAttribute="centerX" id="kFE-ir-txX"/>
                             <constraint firstItem="tw9-6S-0Xq" firstAttribute="bottom" secondItem="e6t-Ug-bpe" secondAttribute="bottom" id="pGZ-PR-hqa"/>
                             <constraint firstItem="tw9-6S-0Xq" firstAttribute="trailing" secondItem="P1F-UF-UaB" secondAttribute="trailing" constant="12" id="rE6-xL-Ha2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutMovieContentLabel" destination="HEJ-Qv-LNF" id="P7i-R3-HUE"/>
+                        <outlet property="aboutMovieTitleLabel" destination="Ckj-YJ-GA0" id="LVw-04-B4b"/>
+                        <outlet property="addToLibraryButton" destination="Osb-HJ-AOE" id="Dkx-pK-HzG"/>
                         <outlet property="backdropImageView" destination="0Pk-Q8-Tn0" id="va7-kS-5aO"/>
                         <outlet property="generLabel" destination="S2V-IE-Viw" id="CjB-lS-6mZ"/>
                         <outlet property="imdbScoreLabel" destination="P1F-UF-UaB" id="PgS-LG-dqA"/>
                         <outlet property="movieNameLabel" destination="L2H-FS-pwg" id="fk0-ho-gSA"/>
+                        <outlet property="watchTrailerButton" destination="dAW-yz-svQ" id="u0M-N2-9fP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="arm-df-Wrk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
