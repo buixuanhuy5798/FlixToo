@@ -131,6 +131,7 @@
 		F0770C152C784F84007F522F /* Urbanist-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0770C142C784F84007F522F /* Urbanist-Bold.ttf */; };
 		F0E7E1EE2C7ECE6C009ADE62 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E7E1ED2C7ECE6C009ADE62 /* UIViewController+Extension.swift */; };
 		F0E7E1F02C7ED504009ADE62 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E7E1EF2C7ED504009ADE62 /* Date+Extension.swift */; };
+		F0E7E1F42C7EDFA5009ADE62 /* Urbanist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0E7E1F32C7EDFA5009ADE62 /* Urbanist-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -262,6 +263,7 @@
 		F0770C142C784F84007F522F /* Urbanist-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Bold.ttf"; sourceTree = "<group>"; };
 		F0E7E1ED2C7ECE6C009ADE62 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		F0E7E1EF2C7ED504009ADE62 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		F0E7E1F32C7EDFA5009ADE62 /* Urbanist-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -785,6 +787,7 @@
 		F0770B422C7837E8007F522F /* Urbanist */ = {
 			isa = PBXGroup;
 			children = (
+				F0E7E1F32C7EDFA5009ADE62 /* Urbanist-Medium.ttf */,
 				F0770C142C784F84007F522F /* Urbanist-Bold.ttf */,
 				F0770B432C7837F4007F522F /* Urbanist-SemiBold.ttf */,
 				F0770B402C7837E5007F522F /* Urbanist-Regular.ttf */,
@@ -1244,6 +1247,7 @@
 				F0770BBC2C784718007F522F /* Cinemas.storyboard in Resources */,
 				F052A8E92C78350C00814CCB /* Poppins-SemiBold.ttf in Resources */,
 				F0770C152C784F84007F522F /* Urbanist-Bold.ttf in Resources */,
+				F0E7E1F42C7EDFA5009ADE62 /* Urbanist-Medium.ttf in Resources */,
 				CEC696AF2C7D7BD20090951B /* PlaceTableViewCell.xib in Resources */,
 				0537EDCF2C7A2C3A004F06A9 /* MoviePosterCell.xib in Resources */,
 				0537EDD42C7A3653004F06A9 /* SettingOptionCell.xib in Resources */,

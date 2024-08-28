@@ -16,10 +16,11 @@ enum Typography {
     static let fontPoppinsRegular14 = UIFont(name: "Poppins-Regular", size: 14)
     
     // Font Regular
-    static let fontRegular14 = UIFont(name: "Urbanist-SemiBold", size: 14)
+    static let fontRegular12 = UIFont(name: "Urbanist-Regular", size: 12)
+    static let fontRegular14 = UIFont(name: "Urbanist-Regular", size: 14)
     
     // Font Medium
-    static let fontMedium14 = UIFont(name: "Urbanist-SemiBold", size: 14)
+    static let fontMedium14 = UIFont(name: "Urbanist-Medium", size: 14)
     
     // Font Semibold
     static let fontSemibold14 = UIFont(name: "Urbanist-SemiBold", size: 14)
