@@ -17,6 +17,7 @@ pod 'RxSwift'
 pod 'RxCocoa'
 pod 'SwiftKeychainWrapper'
 pod 'MASegmentedControl'
+pod 'Cosmos'
 
 end
 

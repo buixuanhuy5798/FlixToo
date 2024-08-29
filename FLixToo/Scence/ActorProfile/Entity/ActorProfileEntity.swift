@@ -50,7 +50,9 @@ struct ActorCommonInfo: Codable {
                 result += "\(movieName ?? "") (\(releaseYear ?? ""))\n"
             }
         }
-        result.removeLast()
+        if !result.isEmpty {
+            result.removeLast()
+        }
         return result
     }
     

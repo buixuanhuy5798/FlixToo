@@ -25,6 +25,7 @@ enum APIRouter {
     case getMovieCredit(id: Int)
     case getSimilarMovie(id: Int, page: Int)
     case getAllBackdrops(id: Int)
+    case getReview(id: Int, page: Int)
     
     var method: HTTPMethod {
         switch self {
@@ -73,6 +74,8 @@ enum APIRouter {
             return "/movie/\(id)/similar"
         case .getAllBackdrops(let id):
             return "/movie/\(id)/images"
+        case .getReview(let id, _):
+            return "/movie/\(id)/reviews"
         }
     }
     
@@ -95,6 +98,8 @@ enum APIRouter {
         case .getListTopRatedTVShow(let page):
             return ["page": page]
         case .getSimilarMovie(_, let page):
+            return ["page": page]
+        case .getReview(_, let page):
             return ["page": page]
         default:
             return nil
