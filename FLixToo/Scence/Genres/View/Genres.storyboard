@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HPT-UI-QO4">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Genres View Controller-->
         <scene sceneID="71d-bf-pt8">
             <objects>
-                <viewController id="HPT-UI-QO4" customClass="GenresViewController" customModule="FLixToo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GenresViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HPT-UI-QO4" customClass="GenresViewController" customModule="FLixToo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUu-ho-sPV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,6 +31,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Movie">
                                                     <fontDescription key="titleFontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="14"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="handleMovieButton:" destination="HPT-UI-QO4" eventType="touchUpInside" id="S7e-lA-5if"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0t-04-Aky">
                                                 <rect key="frame" x="81.333333333333343" y="0.0" width="65.333333333333343" height="31"/>
@@ -41,12 +43,15 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Shows">
                                                     <fontDescription key="titleFontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="14"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="handleTShowsButton:" destination="HPT-UI-QO4" eventType="touchUpInside" id="Dlo-jB-bfU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xt1-9s-veX">
                                         <rect key="frame" x="0.0" y="79" width="393" height="680"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="orO-aY-OZI">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -68,7 +73,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iJQ-hM-Utk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2gR-hA-SIC" firstAttribute="top" secondItem="iJQ-hM-Utk" secondAttribute="top" identifier="topMostConstraint" id="Syz-Nl-umU"/>
                             <constraint firstItem="iJQ-hM-Utk" firstAttribute="bottom" secondItem="2gR-hA-SIC" secondAttribute="bottom" id="Zn1-ZK-hVx"/>
@@ -91,8 +96,5 @@
         <namedColor name="#454545">
             <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

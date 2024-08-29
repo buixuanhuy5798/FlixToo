@@ -200,7 +200,8 @@ extension HomeViewController: UICollectionViewDelegate {
         case .categories(let data):
             switch data[indexPath.row] {
             case .movie:
-                print("Explore Movie")
+                let vc = GenresViewController.instantiate()
+                navigationController?.pushViewController(vc, animated: true)
             case .show:
                 print("Explore Show")
             }
@@ -229,8 +230,10 @@ extension HomeViewController: UICollectionViewDelegate {
     }
     
     func openMovieDetail(movie: MovieCommonInfomation) {
-        let vc = MovieDetailViewController.instantiate()
-        vc.presenter.id = movie.id
-        present(vc, animated: true)
+//        let vc = MovieDetailViewController.instantiate()
+//        vc.presenter.id = movie.id
+//        present(vc, animated: true)
+        let vc = ListMoviesViewController.instantiate()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

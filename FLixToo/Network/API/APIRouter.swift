@@ -94,7 +94,7 @@ enum APIRouter {
     }
     
     var header: [String: String] {
-        var header = ["accept": "application/json",
+        let header = ["accept": "application/json",
                       "Authorization": KeychainStorage.shared.apiKey ?? ""]
         return header
     }

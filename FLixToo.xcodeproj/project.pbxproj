@@ -67,6 +67,8 @@
 		CEC696B82C7DC42F0090951B /* SearchNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC696B62C7DC42F0090951B /* SearchNameTableViewCell.xib */; };
 		CEC696BC2C7F19850090951B /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696BA2C7F19850090951B /* GenreCollectionViewCell.swift */; };
 		CEC696BD2C7F19850090951B /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC696BB2C7F19850090951B /* GenreCollectionViewCell.xib */; };
+		CEC696C12C8010670090951B /* ListMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696C02C8010670090951B /* ListMoviesViewController.swift */; };
+		CEC696C32C80106F0090951B /* ListMovies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC696C22C80106F0090951B /* ListMovies.storyboard */; };
 		F052A8BD2C77273D00814CCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052A8BC2C77273D00814CCB /* AppDelegate.swift */; };
 		F052A8C12C77273D00814CCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052A8C02C77273D00814CCB /* ViewController.swift */; };
 		F052A8C42C77273D00814CCB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F052A8C32C77273D00814CCB /* Base */; };
@@ -199,6 +201,8 @@
 		CEC696B62C7DC42F0090951B /* SearchNameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchNameTableViewCell.xib; sourceTree = "<group>"; };
 		CEC696BA2C7F19850090951B /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEC696BB2C7F19850090951B /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
+		CEC696C02C8010670090951B /* ListMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesViewController.swift; sourceTree = "<group>"; };
+		CEC696C22C80106F0090951B /* ListMovies.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListMovies.storyboard; sourceTree = "<group>"; };
 		F052A8B92C77273D00814CCB /* FLixToo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLixToo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F052A8BC2C77273D00814CCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F052A8C02C77273D00814CCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -663,6 +667,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CEC696BF2C80102B0090951B /* ListMovies */ = {
+			isa = PBXGroup;
+			children = (
+				CEC696C02C8010670090951B /* ListMoviesViewController.swift */,
+				CEC696C22C80106F0090951B /* ListMovies.storyboard */,
+			);
+			path = ListMovies;
+			sourceTree = "<group>";
+		};
 		E2086D2F9A04F5D6D4C09DEA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +723,7 @@
 		F052A8D02C77297A00814CCB /* Scence */ = {
 			isa = PBXGroup;
 			children = (
+				CEC696BF2C80102B0090951B /* ListMovies */,
 				056BC8D92C7CE4340096A2FC /* ActorProfile */,
 				05544AC62C7B63BC0083B591 /* MovieDetail */,
 				0537EDCA2C7A2BCC004F06A9 /* Genres */,
@@ -1265,6 +1279,7 @@
 				CEC696AF2C7D7BD20090951B /* PlaceTableViewCell.xib in Resources */,
 				0537EDCF2C7A2C3A004F06A9 /* MoviePosterCell.xib in Resources */,
 				0537EDD42C7A3653004F06A9 /* SettingOptionCell.xib in Resources */,
+				CEC696C32C80106F0090951B /* ListMovies.storyboard in Resources */,
 				F052A8C62C77273F00814CCB /* Assets.xcassets in Resources */,
 				05F685E42C7A072900EC6DF3 /* CategoryCell.xib in Resources */,
 				F0770BE22C784752007F522F /* Search.storyboard in Resources */,
@@ -1348,6 +1363,7 @@
 				05544AEA2C7B63DC0083B591 /* MovieDetailViewController.swift in Sources */,
 				05544AE42C7B63DC0083B591 /* MovieDetailProtocol.swift in Sources */,
 				F0770BDF2C784752007F522F /* SearchRouter.swift in Sources */,
+				CEC696C12C8010670090951B /* ListMoviesViewController.swift in Sources */,
 				CEC696BC2C7F19850090951B /* GenreCollectionViewCell.swift in Sources */,
 				056BC8F92C7CE4580096A2FC /* ActorProfileViewController.swift in Sources */,
 				F0770B952C7846C3007F522F /* LibraryAssembly.swift in Sources */,

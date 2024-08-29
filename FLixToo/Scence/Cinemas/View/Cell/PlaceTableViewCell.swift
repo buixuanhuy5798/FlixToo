@@ -14,7 +14,7 @@ final class PlaceTableViewCell: UITableViewCell, NibReusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        selectionStyle = .none
     }
 
     func configCell(title: String) {

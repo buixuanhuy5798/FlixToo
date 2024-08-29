@@ -6,14 +6,13 @@
 //
 
 import UIKit
+import Reusable
 
 final class GenresViewController: BaseViewController {
 
     @IBOutlet weak var movieButton: UIButton!
     @IBOutlet weak var showsButton: UIButton!
     @IBOutlet weak var genresCollectionView: UICollectionView!
-    
-    var presenter: GenresPresenterProtocol!
 
     var movieGenres: [GenreModel] = [
         .init(id: 28, name: "Action", image: UIImage(named: "img_movie_action") ?? UIImage()),
@@ -34,7 +33,7 @@ final class GenresViewController: BaseViewController {
         .init(id: 10770, name: "TV Movie", image: UIImage(named: "img_movie_tv") ?? UIImage()),
         .init(id: 53, name: "Thriller", image: UIImage(named: "img_movie_thriller") ?? UIImage()),
         .init(id: 10752, name: "War", image: UIImage(named: "img_movie_war") ?? UIImage()),
-        .init(id: 37, name: "Western", image: UIImage(named: "img_movie_weatern") ?? UIImage()),
+        .init(id: 37, name: "Western", image: UIImage(named: "img_movie_western") ?? UIImage()),
     ]
     
     var tvGenres: [GenreModel] = [
@@ -53,19 +52,72 @@ final class GenresViewController: BaseViewController {
         .init(id: 10766, name: "Soap", image: UIImage(named: "img_tv_soap") ?? UIImage()),
         .init(id: 10767, name: "Talk", image: UIImage(named: "img_tv_talk") ?? UIImage()),
         .init(id: 10768, name: "War & Polities", image: UIImage(named: "img_tv_war") ?? UIImage()),
-        .init(id: 37, name: "Western", image: UIImage(named: "img_tv_western") ?? UIImage()),
+        .init(id: 37, name: "Western", image: UIImage(named: "img_tv_westerm") ?? UIImage()),
     ]
     
+    var isMovieGenres = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.onViewDidLoad()
+        setupView()
+    }
+    
+    @IBAction func handleMovieButton(_ sender: Any) {
+        isMovieGenres = true
+        genresCollectionView.reloadData()
+    }
+    
+    
+    @IBAction func handleTShowsButton(_ sender: Any) {
+        isMovieGenres = false
+        genresCollectionView.reloadData()
     }
     
     private func setupView() {
+        showBackButton = true
+        title = "Genres"
+        genresCollectionView.register(cellType: GenreCollectionViewCell.self)
+        let layout = UICollectionViewFlowLayout()
+        let itemWitdh = (Screen.width - 48) / 2
+        let itemHeight = itemWitdh * 96/158 + 16
+        layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
+        layout.minimumLineSpacing = 16
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.minimumInteritemSpacing = 16
+        layout.scrollDirection = .vertical
+        genresCollectionView.collectionViewLayout = layout
+        genresCollectionView.showsHorizontalScrollIndicator = false
+        genresCollectionView.delegate = self
+        genresCollectionView.dataSource = self
         
+        genresCollectionView.reloadData()
     }
 }
 
+extension GenresViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if isMovieGenres {
+            return movieGenres.count
+        }
+        return tvGenres.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: GenreCollectionViewCell.self)
+        if isMovieGenres {
+            let item = movieGenres[indexPath.row]
+            cell.configCell(title: item.name, image: item.image)
+        } else {
+            let item = tvGenres[indexPath.row]
+            cell.configCell(title: item.name, image: item.image)
+        }
+       
+        return cell
+    }
+}
 extension GenresViewController:GenresViewProtocol {
+}
+
+extension GenresViewController: StoryboardSceneBased {
+    static var sceneStoryboard: UIStoryboard = Storyboards.genres
 }

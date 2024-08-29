@@ -28,7 +28,7 @@ class MoviePosterCell: UICollectionViewCell, NibReusable {
             options: [
                 .loadDiskFileSynchronously,
                 .cacheOriginalImage,
-                .transition(.fade(0.1)),
+                .transition(.fade(0.15)),
             ])
     }
     
