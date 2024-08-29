@@ -7,6 +7,7 @@
 
 import UIKit
 import Reusable
+import SVProgressHUD
 
 final class GenresViewController: BaseViewController {
 
@@ -62,20 +63,43 @@ final class GenresViewController: BaseViewController {
         setupView()
     }
     
-    @IBAction func handleMovieButton(_ sender: Any) {
+    @IBAction func handleMovieButton(_ sender: UIButton) {
         isMovieGenres = true
+        sender.setTitleColor(.white, for: .normal)
+        sender.backgroundColor = UIColor(hex: "5666F8")
+        showsButton.setTitleColor(UIColor(hex: "AAAAAA"), for: .normal)
+        showsButton.backgroundColor = UIColor(hex: "272727")
+    
         genresCollectionView.reloadData()
     }
     
     
-    @IBAction func handleTShowsButton(_ sender: Any) {
+    @IBAction func handleTShowsButton(_ sender: UIButton) {
         isMovieGenres = false
+        sender.setTitleColor(.white, for: .normal)
+        sender.backgroundColor = UIColor(hex: "5666F8")
+        movieButton.setTitleColor(UIColor(hex: "AAAAAA"), for: .normal)
+        movieButton.backgroundColor = UIColor(hex: "272727")
         genresCollectionView.reloadData()
     }
     
     private func setupView() {
         showBackButton = true
         title = "Genres"
+        
+        if isMovieGenres {
+            movieButton.setTitleColor(.white, for: .normal)
+            movieButton.backgroundColor = UIColor(hex: "5666F8")
+            showsButton.setTitleColor(UIColor(hex: "AAAAAA"), for: .normal)
+            showsButton.backgroundColor = UIColor(hex: "272727")
+        } else {
+            showsButton.setTitleColor(.white, for: .normal)
+            showsButton.backgroundColor = UIColor(hex: "5666F8")
+            movieButton.setTitleColor(UIColor(hex: "AAAAAA"), for: .normal)
+            movieButton.backgroundColor = UIColor(hex: "272727")
+        }
+        
+        SVProgressHUD.show()
         genresCollectionView.register(cellType: GenreCollectionViewCell.self)
         let layout = UICollectionViewFlowLayout()
         let itemWitdh = (Screen.width - 48) / 2
@@ -91,6 +115,10 @@ final class GenresViewController: BaseViewController {
         genresCollectionView.dataSource = self
         
         genresCollectionView.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            SVProgressHUD.dismiss()
+        }
     }
 }
 
@@ -113,6 +141,17 @@ extension GenresViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ListMoviesViewController.instantiate()
+        
+        if isMovieGenres {
+            vc.screenType = .movie(model: movieGenres[indexPath.row])
+        } else {
+            vc.screenType = .tv(model: tvGenres[indexPath.row])
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension GenresViewController:GenresViewProtocol {

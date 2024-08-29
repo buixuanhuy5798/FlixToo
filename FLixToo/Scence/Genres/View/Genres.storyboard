@@ -31,6 +31,11 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Movie">
                                                     <fontDescription key="titleFontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="14"/>
                                                 </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handleMovieButton:" destination="HPT-UI-QO4" eventType="touchUpInside" id="S7e-lA-5if"/>
                                                 </connections>
@@ -43,6 +48,11 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Shows">
                                                     <fontDescription key="titleFontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="14"/>
                                                 </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handleTShowsButton:" destination="HPT-UI-QO4" eventType="touchUpInside" id="Dlo-jB-bfU"/>
                                                 </connections>

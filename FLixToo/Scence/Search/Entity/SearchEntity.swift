@@ -33,6 +33,7 @@ struct TvShowCommonInfomation: Codable {
     let firstAirDate: String?
     let voteAverage: Double?
     let voteCount: Int?
+    let originalTitle: String?
 
     enum CodingKeys: String, CodingKey {
         case adult
@@ -46,5 +47,6 @@ struct TvShowCommonInfomation: Codable {
         case firstAirDate = "first_air_date"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+        case originalTitle = "original_title"
     }
 }

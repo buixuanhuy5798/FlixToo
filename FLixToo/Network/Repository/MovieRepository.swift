@@ -95,4 +95,12 @@ struct MovieRepository: MovieRepositoryType {
     func getBackdropImages(id: Int) -> Single<BackdropsMovie> {
         return api.request(router: .getAllBackdrops(id: id), checking: .unchecked)
     }
+    
+    func getMoviesByGenre(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>> {
+        return api.request(router: .getMoviesByGenre(id: id, page: page), checking: checking)
+    }
+    
+    func getShowsByGenre(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>> {
+        return api.request(router: .getMoviesByGenre(id: id, page: page), checking: checking)
+    }
 }

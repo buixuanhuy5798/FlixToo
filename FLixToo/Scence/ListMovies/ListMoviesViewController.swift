@@ -13,6 +13,8 @@ enum ListMoviesType {
     case popular
     case upcomming
     case nowPlaying
+    case movie(model: GenreModel)
+    case tv(model: GenreModel)
 }
 
 final class ListMoviesViewController: BaseViewController {
@@ -24,6 +26,7 @@ final class ListMoviesViewController: BaseViewController {
     var screenType: ListMoviesType = .popular
     
     private var movies: [MovieCommonInfomation] = []
+    private var shows: [TvShowCommonInfomation] = []
     
     private var page: Int = 1
     private var hasLoadMore: Bool = true
@@ -32,7 +35,13 @@ final class ListMoviesViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        fetchPopularMovies()
+        
+        switch screenType {
+        case .tv(let model):
+            fetchTvShows(id: model.id)
+        default:
+            fetchPopularMovies()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +64,10 @@ final class ListMoviesViewController: BaseViewController {
             title = "Upcomming Movies"
         case .nowPlaying:
             title = "Nowplaying Movies"
+        case .movie(let model):
+            title = model.name
+        case .tv(let model):
+            title = model.name
         }
         
         moviesCollectionView.register(cellType: MoviePosterCell.self)
@@ -81,6 +94,10 @@ extension ListMoviesViewController {
         case .upcomming:
             return movieRepository.getListUpcomingMovies(page: page, checking: type)
         case .nowPlaying:
+            return movieRepository.getListNowPlayingMovies(page: page, checking: type)
+        case .movie(let model):
+            return movieRepository.getMoviesByGenre(id: model.id, page: page, checking: type)
+        default:
             return movieRepository.getListNowPlayingMovies(page: page, checking: type)
         }
     }
@@ -121,22 +138,77 @@ extension ListMoviesViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    private func fetchTvShows(id: Int) {
+        isLoading = true
+        movieRepository.getShowsByGenre(id: id, page: page, checking: .checked)
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.isLoading = false
+                DispatchQueue.main.async {
+                    self.shows = response.results ?? []
+                    self.hasLoadMore = response.page ?? 0 < response.totalPage ?? 0
+                    self.moviesCollectionView.reloadData()
+                    self.moviesCollectionView.setContentOffset(CGPoint.zero, animated: false)
+                }
+            }, onFailure: { [weak self] error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func fetchMoreTvShows(id: Int) {
+        guard !isLoading else { return }
+        isLoading = true
+        page += 1
+        movieRepository.getShowsByGenre(id: id, page: page, checking: .unchecked)
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.isLoading = false
+                DispatchQueue.main.async {
+                    self.shows.append(contentsOf: response.results ?? [])
+                    self.hasLoadMore = response.page ?? 0 < response.totalPage ?? 0
+                    self.moviesCollectionView.reloadData()
+                }
+            }, onFailure: { [weak self] error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        switch screenType {
+        case .tv:
+            return shows.count
+        default:
+            return movies.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
-        cell.setContentForCell(data: movies[indexPath.row])
+        
+        switch screenType {
+        case .tv:
+            cell.setContentForCell(data: shows[indexPath.row])
+        default:
+            cell.setContentForCell(data: movies[indexPath.row])
+        }
+    
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard hasLoadMore, indexPath.item == movies.count-1 else { return }
-        self.fetchMorePopularMovies()
+        switch screenType {
+        case .tv(let model):
+            guard hasLoadMore, indexPath.item == shows.count-1 else { return }
+            self.fetchMoreTvShows(id: model.id)
+        default:
+            guard hasLoadMore, indexPath.item == movies.count-1 else { return }
+            self.fetchMorePopularMovies()
+        }
     }
 }
 

@@ -34,7 +34,7 @@ class MoviePosterCell: UICollectionViewCell, NibReusable {
     
     func setContentForCell(data: TvShowCommonInfomation) {
         nameLabel.numberOfLines = 2
-        nameLabel.text = data.originalName
+        nameLabel.text = data.originalTitle
         imageView.kf.setImage(
             with: Utils.getUrlImage(path: data.posterPath ?? ""),
             options: [

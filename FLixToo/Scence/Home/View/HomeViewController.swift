@@ -201,9 +201,12 @@ extension HomeViewController: UICollectionViewDelegate {
             switch data[indexPath.row] {
             case .movie:
                 let vc = GenresViewController.instantiate()
+                vc.isMovieGenres = true
                 navigationController?.pushViewController(vc, animated: true)
             case .show:
-                print("Explore Show")
+                let vc = GenresViewController.instantiate()
+                vc.isMovieGenres = false
+                navigationController?.pushViewController(vc, animated: true)
             }
         case .tredingMovies(let movies):
             print("SELECT MOVIE: \(movies[indexPath.row].originalTitle)")
