@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Urbanist-SemiBold.ttf">
+            <string>Urbanist-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="LibaryTagCollectionViewCell" customModule="FLixToo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="139" height="78"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="139" height="78"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MX9-90-7Zw">
+                        <rect key="frame" x="0.0" y="0.0" width="139" height="78"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXd-8l-DoQ">
+                                <rect key="frame" x="12" y="6" width="115" height="66"/>
+                                <fontDescription key="fontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NXd-8l-DoQ" firstAttribute="centerX" secondItem="MX9-90-7Zw" secondAttribute="centerX" id="3ZW-Xf-brE"/>
+                            <constraint firstAttribute="bottom" secondItem="NXd-8l-DoQ" secondAttribute="bottom" constant="6" id="NsG-Lq-J4u"/>
+                            <constraint firstItem="NXd-8l-DoQ" firstAttribute="top" secondItem="MX9-90-7Zw" secondAttribute="top" constant="6" id="WjM-9a-GO2"/>
+                            <constraint firstItem="NXd-8l-DoQ" firstAttribute="centerY" secondItem="MX9-90-7Zw" secondAttribute="centerY" id="YBU-iW-3do"/>
+                            <constraint firstItem="NXd-8l-DoQ" firstAttribute="leading" secondItem="MX9-90-7Zw" secondAttribute="leading" constant="12" id="gZO-U0-77T"/>
+                            <constraint firstAttribute="trailing" secondItem="NXd-8l-DoQ" secondAttribute="trailing" constant="12" id="yyf-6Y-SBd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="MX9-90-7Zw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1MI-ww-mjx"/>
+                <constraint firstItem="MX9-90-7Zw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mee-EV-VO8"/>
+                <constraint firstAttribute="trailing" secondItem="MX9-90-7Zw" secondAttribute="trailing" id="RSF-hp-E5C"/>
+                <constraint firstAttribute="bottom" secondItem="MX9-90-7Zw" secondAttribute="bottom" id="bG2-tO-BKh"/>
+            </constraints>
+            <size key="customSize" width="139" height="78"/>
+            <connections>
+                <outlet property="layerView" destination="MX9-90-7Zw" id="Ckn-9g-N8X"/>
+                <outlet property="titleLabel" destination="NXd-8l-DoQ" id="2IU-Ad-TPS"/>
+            </connections>
+            <point key="canvasLocation" x="40.458015267175568" y="51.408450704225352"/>
+        </collectionViewCell>
+    </objects>
+</document>

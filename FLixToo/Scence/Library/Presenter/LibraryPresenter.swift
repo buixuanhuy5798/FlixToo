@@ -13,6 +13,9 @@ final class LibraryPresenter: LibraryPresenterProtocol {
     var interactor: LibraryInteractorInputProtocol!
     var router: LibraryRouterProtocol!
     
+    var tags: [LibraryTag] = LibraryTag.allCases
+    var tagSelected: LibraryTag = .favorite
+    
     func onViewDidLoad() {
     }
 }

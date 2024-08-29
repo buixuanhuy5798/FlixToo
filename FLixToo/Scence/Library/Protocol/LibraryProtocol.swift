@@ -14,6 +14,8 @@ protocol LibraryPresenterProtocol: AnyObject {
     var view: LibraryViewProtocol? { get set }
     var interactor: LibraryInteractorInputProtocol! { get set }
     var router: LibraryRouterProtocol! { get set }
+    var tags: [LibraryTag] { get set }
+    var tagSelected: LibraryTag { get set }
     func onViewDidLoad()
 }
 

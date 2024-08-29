@@ -44,3 +44,55 @@ extension UIView {
         layer.masksToBounds = true
     }
 }
+
+extension UIView {
+    func applyGradient(colors: [UIColor], locations: [NSNumber]? = nil, startPoint: CGPoint = CGPoint(x: 0.5, y: 0.0), endPoint: CGPoint = CGPoint(x: 0.5, y: 1.0)) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.locations = locations
+        gradientLayer.startPoint = startPoint
+        gradientLayer.endPoint = endPoint
+        gradientLayer.frame = self.bounds
+        
+        if let sublayers = self.layer.sublayers {
+            for layer in sublayers where layer is CAGradientLayer {
+                layer.removeFromSuperlayer()
+            }
+        }
+        
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    func applyGradient(colors: [UIColor], cornerRadius: CGFloat, locations: [NSNumber]? = nil, startPoint: CGPoint = CGPoint(x: 0.5, y: 0.0), endPoint: CGPoint = CGPoint(x: 0.5, y: 1.0)) {
+            // Remove existing gradient layer if any
+            if let sublayers = self.layer.sublayers {
+                for layer in sublayers where layer is CAGradientLayer {
+                    layer.removeFromSuperlayer()
+                }
+            }
+            
+            // Create and configure the gradient layer
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = colors.map { $0.cgColor }
+            gradientLayer.locations = locations
+            gradientLayer.startPoint = startPoint
+            gradientLayer.endPoint = endPoint
+            gradientLayer.frame = self.bounds
+            gradientLayer.cornerRadius = cornerRadius
+            
+            // Add the gradient layer to the view
+            self.layer.insertSublayer(gradientLayer, at: 0)
+            
+            // Apply the corner radius to the view
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+        }
+    
+    func removeGradientLayer() {
+        if let sublayers = self.layer.sublayers {
+            for layer in sublayers where layer is CAGradientLayer {
+                layer.removeFromSuperlayer()
+            }
+        }
+    }
+}
