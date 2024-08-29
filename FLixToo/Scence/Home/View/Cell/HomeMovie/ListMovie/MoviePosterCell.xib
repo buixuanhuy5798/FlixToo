@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0m-SB-Dsr" customClass="VerticalAlignedLabel" customModule="FLixToo" customModuleProvider="target">
-                        <rect key="frame" x="8" y="334" width="204" height="20.333333333333314"/>
+                        <rect key="frame" x="0.0" y="334" width="220" height="20.333333333333314"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -42,8 +42,8 @@
                 <constraint firstItem="KIu-mu-P37" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8aB-L9-7Ce"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="h0m-SB-Dsr" secondAttribute="bottom" constant="4" id="HLW-Vb-0W0"/>
                 <constraint firstAttribute="trailing" secondItem="KIu-mu-P37" secondAttribute="trailing" id="N4J-Dr-6ij"/>
-                <constraint firstAttribute="trailing" secondItem="h0m-SB-Dsr" secondAttribute="trailing" constant="8" id="e2h-uH-Ikx"/>
-                <constraint firstItem="h0m-SB-Dsr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="h9H-Ch-Ls3"/>
+                <constraint firstAttribute="trailing" secondItem="h0m-SB-Dsr" secondAttribute="trailing" id="e2h-uH-Ikx"/>
+                <constraint firstItem="h0m-SB-Dsr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="h9H-Ch-Ls3"/>
                 <constraint firstItem="h0m-SB-Dsr" firstAttribute="top" secondItem="KIu-mu-P37" secondAttribute="bottom" constant="4" id="mqJ-xN-UPt"/>
             </constraints>
             <size key="customSize" width="220" height="384"/>

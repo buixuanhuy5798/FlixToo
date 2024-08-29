@@ -90,16 +90,16 @@ enum HomeCollectionSectionData {
 
 
 struct MovieCommonInfomation: Codable {
-    let adult: Bool
-    let backdropPath: String
-    let genreIDS: [Int]
-    let id: Int
-    let originalLanguage, originalTitle, overview: String
-    let popularity: Double
-    let posterPath, releaseDate, title: String
-    let video: Bool
-    let voteAverage: Double
-    let voteCount: Int
+    let adult: Bool?
+    let backdropPath: String?
+    let genreIDS: [Int]?
+    let id: Int?
+    let originalLanguage, originalTitle, overview: String?
+    let popularity: Double?
+    let posterPath, releaseDate, title: String?
+    let video: Bool?
+    let voteAverage: Double?
+    let voteCount: Int?
 
     enum CodingKeys: String, CodingKey {
         case adult
@@ -118,9 +118,9 @@ struct MovieCommonInfomation: Codable {
 }
 
 struct MovieProvider: Codable {
-    let displayPriority: Int
-    let logoPath, providerName: String
-    let providerID: Int
+    let displayPriority: Int?
+    let logoPath, providerName: String?
+    let providerID: Int?
 
     enum CodingKeys: String, CodingKey {
         case displayPriority = "display_priority"
