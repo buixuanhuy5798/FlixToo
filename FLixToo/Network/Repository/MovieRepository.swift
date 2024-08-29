@@ -39,6 +39,10 @@ protocol MovieRepositoryType {
     func getListPopularTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
     func getListUpcomingTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
     func getListTopRatedTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
+    
+    func getSimilarMove(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>>
+    func getMovieCredit(id: Int) -> Single<MovieCredit>
+    func getBackdropImages(id: Int) -> Single<BackdropsMovie>
 }
 
 struct MovieRepository: MovieRepositoryType {
@@ -78,5 +82,17 @@ struct MovieRepository: MovieRepositoryType {
     
     func getListTopRatedTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>> {
         return api.request(router: .getListTopRatedTVShow(page: page), checking: checking)
+    }
+    
+    func getMovieCredit(id: Int) -> Single<MovieCredit> {
+        return api.request(router: .getMovieCredit(id: id), checking: .unchecked)
+    }
+    
+    func getSimilarMove(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>> {
+        return api.request(router: .getSimilarMovie(id: id, page: page), checking: checking)
+    }
+    
+    func getBackdropImages(id: Int) -> Single<BackdropsMovie> {
+        return api.request(router: .getAllBackdrops(id: id), checking: .unchecked)
     }
 }

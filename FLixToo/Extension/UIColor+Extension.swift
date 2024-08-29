@@ -7,6 +7,15 @@
 
 import UIKit
 
+extension UIImageView {
+    func blurBottom() {
+        let gradientLayer2 = CAGradientLayer()
+        gradientLayer2.frame = CGRect(origin: CGPoint(x: 0, y: (self.frame.size.height-self.frame.size.height*0.25)), size: CGSize(width: self.frame.size.width, height: self.frame.size.height*0.25))
+        gradientLayer2.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.7).cgColor]
+        layer.addSublayer(gradientLayer2)
+    }
+}
+
 extension UIColor {
     convenience init(hex: String) {
         var hexString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

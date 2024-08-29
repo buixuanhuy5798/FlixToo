@@ -120,7 +120,7 @@ extension ActorProfileViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = MovieDetailViewController.instantiate()
         vc.presenter.id = presenter.commonInfo?.knownFor?[indexPath.row].id
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

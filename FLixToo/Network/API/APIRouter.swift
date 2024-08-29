@@ -22,6 +22,10 @@ enum APIRouter {
     case getListUpcomingTVShow(page: Int)
     case getListTopRatedTVShow(page: Int)
     
+    case getMovieCredit(id: Int)
+    case getSimilarMovie(id: Int, page: Int)
+    case getAllBackdrops(id: Int)
+    
     var method: HTTPMethod {
         switch self {
         default:
@@ -63,6 +67,12 @@ enum APIRouter {
             return "/tv/on_the_air"
         case .getListTopRatedTVShow:
             return "/tv/top_rated"
+        case .getMovieCredit(let id):
+            return "/movie/\(id)/credits"
+        case .getSimilarMovie(let id, _):
+            return "/movie/\(id)/similar"
+        case .getAllBackdrops(let id):
+            return "/movie/\(id)/images"
         }
     }
     
@@ -83,6 +93,8 @@ enum APIRouter {
         case .getListUpcomingTVShow(let page):
             return ["page": page]
         case .getListTopRatedTVShow(let page):
+            return ["page": page]
+        case .getSimilarMovie(_, let page):
             return ["page": page]
         default:
             return nil

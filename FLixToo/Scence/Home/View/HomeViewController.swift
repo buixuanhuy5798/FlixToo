@@ -231,6 +231,6 @@ extension HomeViewController: UICollectionViewDelegate {
     func openMovieDetail(movie: MovieCommonInfomation) {
         let vc = MovieDetailViewController.instantiate()
         vc.presenter.id = movie.id
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

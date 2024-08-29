@@ -9,6 +9,10 @@ import UIKit
 
 protocol MovieDetailViewProtocol: AnyObject {
     func updateMovieDetail(data: MovieDetail)
+    func updateListCredit(credit: MovieCredit)
+    func updateSimilarMovies(movies: [MovieCommonInfomation])
+    func updateBackdrops(backdrop: BackdropsMovie)
+    func showError(message: String)
 }
 
 protocol MovieDetailPresenterProtocol: AnyObject {
@@ -24,11 +28,20 @@ protocol MovieDetailInteractorInputProtocol: AnyObject {
     var output: MovieDetailInteractorOutputProtocol? { get set }
     
     func getMovieDetail(id: String)
+    func getMovieCredit(id: Int)
+    func getSimilarMovie(id: Int, page: Int, checking: CheckingType)
+    func getAllBackdrops(id: Int)
 }
 
 protocol MovieDetailInteractorOutputProtocol: AnyObject {
     func getMovieDetailSuccess(detail: MovieDetail)
     func getMovieDetailFail(message: String)
+    func getMovieCreditSuccess(credit: MovieCredit)
+    func getMovieCreditFail(message: String)
+    func getSimilarMovieSuccess(movies: [MovieCommonInfomation])
+    func getSimilarMovieFail(message: String)
+    func getAllBackdropSuccess(backdrop: BackdropsMovie)
+    func getAllBackdropFail(message: String)
 }
 
 protocol MovieDetailRouterProtocol: AnyObject {

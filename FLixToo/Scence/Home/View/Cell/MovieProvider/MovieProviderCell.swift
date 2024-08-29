@@ -19,7 +19,7 @@ class MovieProviderCell: UICollectionViewCell, NibReusable {
     
     func setContentForCell(data: MovieProvider) {
         imageView.kf.setImage(
-            with: Utils.getUrlImage(path: data.logoPath),
+            with: Utils.getUrlImage(path: data.logoPath ?? ""),
             options: [
                 .loadDiskFileSynchronously,
                 .cacheOriginalImage,
