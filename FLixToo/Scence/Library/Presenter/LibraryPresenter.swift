@@ -15,6 +15,10 @@ final class LibraryPresenter: LibraryPresenterProtocol {
     
     var tags: [LibraryTag] = LibraryTag.allCases
     var tagSelected: LibraryTag = .favorite
+    var favList: [SaveData] = UserInfomation.favList
+    var watchLaterList: [SaveData] = UserInfomation.watchLaterList
+    var watchedList: [SaveData] = UserInfomation.watchedList
+    var dislikedList: [SaveData] = UserInfomation.dislikeList
     
     func onViewDidLoad() {
     }

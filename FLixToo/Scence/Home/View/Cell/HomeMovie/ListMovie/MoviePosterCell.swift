@@ -21,6 +21,17 @@ class MoviePosterCell: UICollectionViewCell, NibReusable {
         nameLabel.textColor = .white
     }
     
+    func setContentForCell(data: SaveData) {
+        nameLabel.text = data.name
+        imageView.kf.setImage(
+            with: Utils.getUrlImage(path: data.imagePath ?? ""),
+            options: [
+                .loadDiskFileSynchronously,
+                .cacheOriginalImage,
+                .transition(.fade(0.15)),
+            ])
+    }
+    
     func setContentForCell(data: MovieCommonInfomation) {
         nameLabel.text = data.originalTitle
         imageView.kf.setImage(

@@ -16,6 +16,10 @@ protocol LibraryPresenterProtocol: AnyObject {
     var router: LibraryRouterProtocol! { get set }
     var tags: [LibraryTag] { get set }
     var tagSelected: LibraryTag { get set }
+    var favList: [SaveData] { get set }
+    var watchLaterList: [SaveData] { get set }
+    var watchedList: [SaveData] { get set }
+    var dislikedList: [SaveData] { get set }
     func onViewDidLoad()
 }
 

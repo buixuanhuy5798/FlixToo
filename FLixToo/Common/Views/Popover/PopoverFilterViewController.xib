@@ -82,6 +82,9 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <imageReference key="image" image="checkmark.square.fill" catalog="system" symbolScale="large"/>
                             </state>
+                            <connections>
+                                <action selector="handleMovieButton:" destination="-1" eventType="touchUpInside" id="ahC-wR-bI3"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRY-uq-RPi">
                             <rect key="frame" x="112.33333333333331" y="97.666666666666671" width="120" height="23.666666666666671"/>
@@ -95,6 +98,9 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <imageReference key="image" image="square.fill" catalog="system" symbolScale="large"/>
                             </state>
+                            <connections>
+                                <action selector="handleTVShowsButton:" destination="-1" eventType="touchUpInside" id="tq5-Oi-dWe"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulB-Yw-FPg">
                             <rect key="frame" x="16" y="132" width="208" height="32"/>
@@ -159,7 +165,7 @@
             <color red="0.66699999570846558" green="0.66699999570846558" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="#D4D4D4">
-            <color red="0.83137254901960778" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.83099997043609619" green="0.83099997043609619" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
