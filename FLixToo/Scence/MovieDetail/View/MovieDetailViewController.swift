@@ -11,6 +11,7 @@ import Reusable
 
 class MovieDetailViewController: UIViewController {
 
+    @IBOutlet weak var commentTableView: UITableView!
     @IBOutlet weak var allBackdropImageView: UIImageView!
     @IBOutlet weak var backdropLabel: UILabel!
     @IBOutlet weak var heightOfSimilarCollectionView: NSLayoutConstraint!
@@ -36,6 +37,7 @@ class MovieDetailViewController: UIViewController {
     var cast = [Cast]()
     var crew = [Cast]()
     var similarMovies = [MovieCommonInfomation]()
+    var comment = [Comment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +69,10 @@ class MovieDetailViewController: UIViewController {
         backdropLabel.textColor = .white
         setUpCrewCollectionView()
         setUpSimilarCollectionView()
+        setUpTableView()
+    }
+    
+    @IBAction func handleTapSeeAll(_ sender: Any) {
         
     }
     
@@ -82,6 +88,11 @@ class MovieDetailViewController: UIViewController {
 }
 
 extension MovieDetailViewController:MovieDetailViewProtocol {
+    func updateComment(comment: [Comment]) {
+        self.comment = comment
+        commentTableView.reloadData()
+    }
+    
     func updateBackdrops(backdrop: BackdropsMovie) {
         let path = backdrop.backdrops?.randomElement()?.filePath ?? ""
         allBackdropImageView.kf.setImage(
@@ -185,8 +196,8 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
         layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
         actorCollectionView.collectionViewLayout = layout
         actorCollectionView.dataSource = self
+        actorCollectionView.delegate = self
         actorCollectionView.register(cellType: MoviePosterCell.self)
-        
     }
     
     private func setUpSimilarCollectionView() {
@@ -202,11 +213,31 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
         heightOfSimilarCollectionView.constant = itemHeight + 8
         similarCollectionView.collectionViewLayout = layout
         similarCollectionView.dataSource = self
+        similarCollectionView.delegate = self
         similarCollectionView.register(cellType: MoviePosterCell.self)
+    }
+    
+    private func setUpTableView() {
+        commentTableView.register(cellType: CommentCell.self)
+        commentTableView.dataSource = self
+        commentTableView.rowHeight = UITableView.automaticDimension
     }
     
     func showError(message: String) {
         showCommonError(message: message)
+    }
+}
+
+extension MovieDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comment.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
+        cell.setContentForCell(comment: comment[indexPath.row])
+        
+        return cell
     }
 }
 
@@ -237,6 +268,33 @@ extension MovieDetailViewController: UICollectionViewDataSource {
             return cell
         }
         return UICollectionViewCell()
+    }
+}
+
+extension MovieDetailViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == similarCollectionView {
+            openMovieDetail(movie: similarMovies[indexPath.row])
+        } else if collectionView == actorCollectionView {
+            let vc = ActorProfileViewController.instantiate()
+            vc.presenter.commonInfo = ActorCommonInfo(id: cast[indexPath.row].id,
+                                                      name: cast[indexPath.row].name,
+                                                      originalName: cast[indexPath.row].originalName,
+                                                      mediaType: nil,
+                                                      adult: cast[indexPath.row].adult,
+                                                      popularity: cast[indexPath.row].popularity,
+                                                      gender: cast[indexPath.row].gender,
+                                                      knownForDepartment: nil,
+                                                      profilePath: cast[indexPath.row].profilePath,
+                                                      knownFor: nil)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func openMovieDetail(movie: MovieCommonInfomation) {
+        let vc = MovieDetailViewController.instantiate()
+        vc.presenter.id = movie.id
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

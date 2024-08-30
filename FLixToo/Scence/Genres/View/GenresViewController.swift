@@ -63,6 +63,11 @@ final class GenresViewController: BaseViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     @IBAction func handleMovieButton(_ sender: UIButton) {
         isMovieGenres = true
         sender.setTitleColor(.white, for: .normal)

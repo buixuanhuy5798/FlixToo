@@ -41,6 +41,11 @@
 		056BC8FC2C7CE4580096A2FC /* ActorProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BC8F12C7CE4580096A2FC /* ActorProfileRouter.swift */; };
 		056BC8FD2C7CE4580096A2FC /* ActorProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BC8F32C7CE4580096A2FC /* ActorProfileInteractor.swift */; };
 		056BC8FE2C7CE4580096A2FC /* ActorProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BC8F52C7CE4580096A2FC /* ActorProfileProtocol.swift */; };
+		056BF3012C80C10700926933 /* HomeHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056BF3002C80C10700926933 /* HomeHeaderTableView.xib */; };
+		056BF3052C80C13600926933 /* HomeHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BF3042C80C13600926933 /* HomeHeaderTableView.swift */; };
+		056BF3072C80CFC700926933 /* ListCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BF3062C80CFC700926933 /* ListCommentViewController.swift */; };
+		056BF30B2C80D3F400926933 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056BF30A2C80D3F400926933 /* CommentCell.xib */; };
+		056BF30C2C80D3F400926933 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BF3092C80D3F400926933 /* CommentCell.swift */; };
 		056DA9B72C7E07BB00420344 /* ActorInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056DA9B62C7E07BB00420344 /* ActorInfoView.xib */; };
 		05F685E42C7A072900EC6DF3 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05F685E32C7A072900EC6DF3 /* CategoryCell.xib */; };
 		05F685E52C7A072900EC6DF3 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F685E22C7A072900EC6DF3 /* CategoryCell.swift */; };
@@ -177,6 +182,11 @@
 		056BC8F12C7CE4580096A2FC /* ActorProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActorProfileRouter.swift; sourceTree = "<group>"; };
 		056BC8F32C7CE4580096A2FC /* ActorProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActorProfileInteractor.swift; sourceTree = "<group>"; };
 		056BC8F52C7CE4580096A2FC /* ActorProfileProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActorProfileProtocol.swift; sourceTree = "<group>"; };
+		056BF3002C80C10700926933 /* HomeHeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderTableView.xib; sourceTree = "<group>"; };
+		056BF3042C80C13600926933 /* HomeHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderTableView.swift; sourceTree = "<group>"; };
+		056BF3062C80CFC700926933 /* ListCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCommentViewController.swift; sourceTree = "<group>"; };
+		056BF3092C80D3F400926933 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		056BF30A2C80D3F400926933 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		056DA9B62C7E07BB00420344 /* ActorInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActorInfoView.xib; sourceTree = "<group>"; };
 		05F685E22C7A072900EC6DF3 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		05F685E32C7A072900EC6DF3 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
@@ -546,9 +556,27 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		056BF2FF2C80C0ED00926933 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				056BF3002C80C10700926933 /* HomeHeaderTableView.xib */,
+				056BF3042C80C13600926933 /* HomeHeaderTableView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		056BF3082C80CFDB00926933 /* ListComment */ = {
+			isa = PBXGroup;
+			children = (
+				056BF3062C80CFC700926933 /* ListCommentViewController.swift */,
+			);
+			path = ListComment;
+			sourceTree = "<group>";
+		};
 		05F685E12C7A066800EC6DF3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				056BF2FF2C80C0ED00926933 /* Header */,
 				056BC8D42C7CDBB60096A2FC /* Actor */,
 				05FB82592C7B34A8004FA411 /* MovieProvider */,
 				05FB82532C7B2EB6004FA411 /* HomeMovie */,
@@ -741,6 +769,7 @@
 		F052A8D02C77297A00814CCB /* Scence */ = {
 			isa = PBXGroup;
 			children = (
+				056BF3082C80CFDB00926933 /* ListComment */,
 				CEC696BF2C80102B0090951B /* ListMovies */,
 				056BC8D92C7CE4340096A2FC /* ActorProfile */,
 				05544AC62C7B63BC0083B591 /* MovieDetail */,
@@ -1234,6 +1263,8 @@
 			children = (
 				F0E7E1F62C801389009ADE62 /* MovieCreditCollectionViewCell.swift */,
 				F0E7E1F72C801389009ADE62 /* MovieCreditCollectionViewCell.xib */,
+				056BF3092C80D3F400926933 /* CommentCell.swift */,
+				056BF30A2C80D3F400926933 /* CommentCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1301,6 +1332,7 @@
 				F052A8D32C7729C200814CCB /* Introduce.storyboard in Resources */,
 				CEC696CD2C80A09C0090951B /* LibaryTagCollectionViewCell.xib in Resources */,
 				056DA9B72C7E07BB00420344 /* ActorInfoView.xib in Resources */,
+				056BF30B2C80D3F400926933 /* CommentCell.xib in Resources */,
 				F0770BBC2C784718007F522F /* Cinemas.storyboard in Resources */,
 				F052A8E92C78350C00814CCB /* Poppins-SemiBold.ttf in Resources */,
 				F0770C152C784F84007F522F /* Urbanist-Bold.ttf in Resources */,
@@ -1319,6 +1351,7 @@
 				CEC696B82C7DC42F0090951B /* SearchNameTableViewCell.xib in Resources */,
 				F0770B442C7837F4007F522F /* Urbanist-SemiBold.ttf in Resources */,
 				F052A8C92C77273F00814CCB /* Base in Resources */,
+				056BF3012C80C10700926933 /* HomeHeaderTableView.xib in Resources */,
 				F052A8DD2C78183600814CCB /* Poppins-Regular.ttf in Resources */,
 				F052A8DA2C7817CC00814CCB /* AbrilFatface-Regular.ttf in Resources */,
 				05FB82512C7B0DFB004FA411 /* BounderListMovieCell.xib in Resources */,
@@ -1406,6 +1439,7 @@
 				F0770C0A2C784786007F522F /* HomeViewController.swift in Sources */,
 				056BC8FA2C7CE4580096A2FC /* ActorProfileEntity.swift in Sources */,
 				05544AC22C7B57D40083B591 /* GenresViewController.swift in Sources */,
+				056BF3052C80C13600926933 /* HomeHeaderTableView.swift in Sources */,
 				F0770BE42C784752007F522F /* SearchProtocol.swift in Sources */,
 				CEC696B72C7DC42F0090951B /* SearchNameTableViewCell.swift in Sources */,
 				05FB825C2C7B34C0004FA411 /* MovieProviderCell.swift in Sources */,
@@ -1426,6 +1460,7 @@
 				053642672C7E2F8F000A346A /* ActorInfoView.swift in Sources */,
 				05544ABD2C7B57D40083B591 /* GenresRouter.swift in Sources */,
 				05544AE52C7B63DC0083B591 /* MovieDetailAssembly.swift in Sources */,
+				056BF3072C80CFC700926933 /* ListCommentViewController.swift in Sources */,
 				F052A8E52C78236400814CCB /* UIColor+Extension.swift in Sources */,
 				05544AE72C7B63DC0083B591 /* MovieDetailEntity.swift in Sources */,
 				056BC8FC2C7CE4580096A2FC /* ActorProfileRouter.swift in Sources */,
@@ -1438,6 +1473,7 @@
 				F052A8C12C77273D00814CCB /* ViewController.swift in Sources */,
 				F052A8BD2C77273D00814CCB /* AppDelegate.swift in Sources */,
 				F0770C032C784786007F522F /* HomeRouter.swift in Sources */,
+				056BF30C2C80D3F400926933 /* CommentCell.swift in Sources */,
 				F0770C062C784786007F522F /* HomeInteractor.swift in Sources */,
 				05FB82392C7ADF9D004FA411 /* APIError.swift in Sources */,
 				F0770C0C2C7847F3007F522F /* SwiftInject+SetUp.swift in Sources */,

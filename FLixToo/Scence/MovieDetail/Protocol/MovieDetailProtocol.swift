@@ -12,6 +12,7 @@ protocol MovieDetailViewProtocol: AnyObject {
     func updateListCredit(credit: MovieCredit)
     func updateSimilarMovies(movies: [MovieCommonInfomation])
     func updateBackdrops(backdrop: BackdropsMovie)
+    func updateComment(comment: [Comment])
     func showError(message: String)
 }
 
@@ -31,6 +32,7 @@ protocol MovieDetailInteractorInputProtocol: AnyObject {
     func getMovieCredit(id: Int)
     func getSimilarMovie(id: Int, page: Int, checking: CheckingType)
     func getAllBackdrops(id: Int)
+    func getComment(id: Int, page: Int, checking: CheckingType)
 }
 
 protocol MovieDetailInteractorOutputProtocol: AnyObject {
@@ -42,6 +44,7 @@ protocol MovieDetailInteractorOutputProtocol: AnyObject {
     func getSimilarMovieFail(message: String)
     func getAllBackdropSuccess(backdrop: BackdropsMovie)
     func getAllBackdropFail(message: String)
+    func getCommentSuccess(comment: [Comment])
 }
 
 protocol MovieDetailRouterProtocol: AnyObject {

@@ -25,6 +25,7 @@ enum APIRouter {
     case getMovieCredit(id: Int)
     case getSimilarMovie(id: Int, page: Int)
     case getAllBackdrops(id: Int)
+    case getReview(id: Int, page: Int)
     
     case getMoviesByGenre(id: Int, page: Int)
     case getShowsByGenre(id: Int, page: Int)
@@ -80,6 +81,8 @@ enum APIRouter {
             return "/discover/movie"
         case .getShowsByGenre:
             return "/discover/tv"
+        case .getReview(let id, _):
+            return "/movie/\(id)/reviews"
         }
     }
     
@@ -121,6 +124,8 @@ enum APIRouter {
                 "language": "en-US",
                 "sort_by": "popularity.desc"
             ]
+        case .getReview(_, let page):
+            return ["page": page]
         default:
             return nil
         }

@@ -52,6 +52,7 @@ final class ListMoviesViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         moviesCollectionView.reloadData()
+        tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -64,7 +65,7 @@ final class ListMoviesViewController: BaseViewController {
         
         switch screenType {
         case .popular:
-            title = "Popular Movies"
+            title = "Trending Movies"
         case .upcomming:
             title = "Upcomming Movies"
         case .nowPlaying:
@@ -273,6 +274,16 @@ extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDa
             guard hasLoadMore, indexPath.item == movies.count-1 else { return }
             self.fetchMorePopularMovies()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        openMovieDetail(movie: movies[indexPath.row])
+    }
+    
+    func openMovieDetail(movie: MovieCommonInfomation) {
+        let vc = MovieDetailViewController.instantiate()
+        vc.presenter.id = movie.id
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

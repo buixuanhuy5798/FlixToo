@@ -69,4 +69,21 @@ final class MovieDetailInteractor: MovieDetailInteractorInputProtocol {
         })
         .disposed(by: disposebag)
     }
+    
+    func getComment(id: Int, page: Int, checking: CheckingType) {
+        repository.getReview(id: id, page: page, checking: checking).subscribe(onSuccess: { [weak self] response in
+            guard let results = response.results else {
+                return
+            }
+            self?.output?.getCommentSuccess(comment: results)
+        }, onFailure: { [weak self] error in
+            if let error = error as? APIErrorResponse {
+                self?.output?.getSimilarMovieFail(message: error.message ?? "")
+            } else {
+                self?.output?.getSimilarMovieFail(message: error.localizedDescription)
+            }
+        })
+        .disposed(by: disposebag)
+    }
+    
 }

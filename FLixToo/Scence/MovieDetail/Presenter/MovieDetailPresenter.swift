@@ -20,6 +20,7 @@ final class MovieDetailPresenter: MovieDetailPresenterProtocol {
         interactor.getMovieCredit(id: id)
         interactor.getSimilarMovie(id: id, page: 1, checking: .unchecked)
         interactor.getAllBackdrops(id: id)
+        interactor.getComment(id: id, page: 1, checking: .unchecked)
     }
 }
 
@@ -54,5 +55,9 @@ extension MovieDetailPresenter:MovieDetailInteractorOutputProtocol {
     
     func getAllBackdropFail(message: String) {
         view?.showError(message: message)
+    }
+    
+    func getCommentSuccess(comment: [Comment]) {
+        view?.updateComment(comment: comment)
     }
 }

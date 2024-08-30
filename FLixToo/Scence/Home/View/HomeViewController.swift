@@ -55,43 +55,31 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BounderListMovieCell.self)
-//        cell.setContentForCell(type: presenter.data[indexPath.section])
         return cell
     }
 }
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView()
-        header.backgroundColor = .clear
-        let titleLabel = UILabel()
-        header.addSubview(titleLabel)
-        titleLabel.textColor = .white
-        titleLabel.font = Typography.fontSemibold18
-        titleLabel.text = presenter.data[section].getTitle()
-        titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(0)
-            $0.bottom.equalToSuperview().inset(16)
-            $0.leading.equalToSuperview().offset(16)
-            $0.center.equalToSuperview()
-        }
-        let iconNext = UIImageView(image: UIImage(named: "icon_next"))
-        header.addSubview(iconNext)
-        iconNext.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(0)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.height.equalTo(14)
-            $0.width.equalTo(8)
-        }
-        switch presenter.data[section] {
+        let headerView = HomeHeaderTableView()
+        var hiddenIconNext = false
+        var iconImage: UIImage? = nil
+        let type = presenter.data[section]
+        switch type {
         case .categories, .popularPeople:
-            iconNext.isHidden = true
+            hiddenIconNext = true
+        case .topRatedShow:
+            iconImage = UIImage(named: "logo_top_rated")
         case .movieProviders:
             return nil
         default:
             break
         }
-        return header
+        headerView.setContentForCell(title: type.getTitle(), icon: iconImage, hiddenIconNext: hiddenIconNext)
+        headerView.didTapHeader = { [weak self] in
+            self?.handleTapHeader(type: type)
+        }
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -140,7 +128,7 @@ extension HomeViewController: UITableViewDelegate {
         case .movieProviders:
             return 24
         case .popularPeople:
-            return 24
+            return 32
         default:
             return 0
         }
@@ -209,18 +197,14 @@ extension HomeViewController: UICollectionViewDelegate {
                 navigationController?.pushViewController(vc, animated: true)
             }
         case .tredingMovies(let movies):
-            print("SELECT MOVIE: \(movies[indexPath.row].originalTitle)")
             openMovieDetail(movie: movies[indexPath.row])
         case .upcoming(let movies):
-            print("SELECT MOVIE: \(movies[indexPath.row].originalTitle)")
             openMovieDetail(movie: movies[indexPath.row])
         case .nowPlaying(let movies):
-            print("SELECT MOVIE: \(movies[indexPath.row].originalTitle)")
             openMovieDetail(movie: movies[indexPath.row])
         case .movieProviders(let providers):
             print("SELECT PROVIDER: \(providers[indexPath.row].providerName)")
         case .popularPeople(let actor):
-            print("SELECT ACTOR: \(actor[indexPath.row].name)")
             presenter.openActorDetail(info: actor[indexPath.row])
         case .trendingShow(let shows):
             print("SELECT SHOWS: \(shows[indexPath.row].originalName)")
@@ -228,15 +212,39 @@ extension HomeViewController: UICollectionViewDelegate {
             print("SELECT SHOWS: \(shows[indexPath.row].originalName)")
         case .topRatedShow(let shows):
             print("SELECT SHOWS: \(shows[indexPath.row].originalName)")
-//            presenter.openActorDetail(info: shows[indexPath.row])
         }
     }
     
     func openMovieDetail(movie: MovieCommonInfomation) {
-//        let vc = MovieDetailViewController.instantiate()
-//        vc.presenter.id = movie.id
-//        present(vc, animated: true)
-        let vc = ListMoviesViewController.instantiate()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = MovieDetailViewController.instantiate()
+        vc.presenter.id = movie.id
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension HomeViewController {
+    func handleTapHeader(type: HomeCollectionSectionData) {
+        switch type {
+        case .categories, .popularPeople, .movieProviders:
+            return
+        case .tredingMovies(let array):
+            let vc = ListMoviesViewController.instantiate()
+            vc.screenType = .popular
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .nowPlaying(let array):
+            let vc = ListMoviesViewController.instantiate()
+            vc.screenType = .nowPlaying
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .upcoming(let array):
+            let vc = ListMoviesViewController.instantiate()
+            vc.screenType = .upcomming
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .trendingShow(let array):
+            print("OPEN TRENDING SHOW")
+        case .upcomingShow(let array):
+            print("OPEN UPCOMMING SHOW")
+        case .topRatedShow(let array):
+            print("OPEN TOP RATED SHOW")
+        }
     }
 }
