@@ -27,7 +27,7 @@ class MovieTrailerController: BaseViewController {
             guard let results = response.results else {
                 return
             }
-            self?.video = results
+            self?.video = results.filter { $0.typeVid == .trailer }
             self?.tableView.reloadData()
             print("RESULT VID: \(self?.video.count)")
         }, onFailure: { [weak self] error in
@@ -59,7 +59,6 @@ extension MovieTrailerController: UITableViewDataSource {
 
 extension MovieTrailerController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let path = "https://www.youtube.com/watch?v=\(video[indexPath.row].key ?? "")"
         let vc = PlayYoutubeController.instantiate()
         vc.key = video[indexPath.row].key ?? ""
         navigationController?.pushViewController(vc, animated: true)
