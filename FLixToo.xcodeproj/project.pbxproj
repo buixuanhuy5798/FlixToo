@@ -64,6 +64,8 @@
 		05FB825C2C7B34C0004FA411 /* MovieProviderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FB825A2C7B34C0004FA411 /* MovieProviderCell.swift */; };
 		05FB825D2C7B34C0004FA411 /* MovieProviderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05FB825B2C7B34C0004FA411 /* MovieProviderCell.xib */; };
 		92805A6365E23FBFE1CF2C0E /* Pods_FLixToo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5886DFD0C20F1D36B1D05A /* Pods_FLixToo.framework */; };
+		CE80B5552C81BCD100E024DB /* PopoverFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80B5532C81BCD100E024DB /* PopoverFilterViewController.swift */; };
+		CE80B5562C81BCD100E024DB /* PopoverFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE80B5542C81BCD100E024DB /* PopoverFilterViewController.xib */; };
 		CEC696AE2C7D7BD20090951B /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696AC2C7D7BD20090951B /* PlaceTableViewCell.swift */; };
 		CEC696AF2C7D7BD20090951B /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC696AD2C7D7BD20090951B /* PlaceTableViewCell.xib */; };
 		CEC696B22C7D81540090951B /* CenimaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696B02C7D81540090951B /* CenimaTableViewCell.swift */; };
@@ -207,6 +209,8 @@
 		3A719AB4B277AB458B1EDAB7 /* Pods-FLixToo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLixToo.debug.xcconfig"; path = "Target Support Files/Pods-FLixToo/Pods-FLixToo.debug.xcconfig"; sourceTree = "<group>"; };
 		3DEB40B140CDEA9C6441E4E6 /* Pods-FLixToo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLixToo.release.xcconfig"; path = "Target Support Files/Pods-FLixToo/Pods-FLixToo.release.xcconfig"; sourceTree = "<group>"; };
 		9F5886DFD0C20F1D36B1D05A /* Pods_FLixToo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FLixToo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE80B5532C81BCD100E024DB /* PopoverFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverFilterViewController.swift; sourceTree = "<group>"; };
+		CE80B5542C81BCD100E024DB /* PopoverFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverFilterViewController.xib; sourceTree = "<group>"; };
 		CEC696AC2C7D7BD20090951B /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		CEC696AD2C7D7BD20090951B /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
 		CEC696B02C7D81540090951B /* CenimaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenimaTableViewCell.swift; sourceTree = "<group>"; };
@@ -675,6 +679,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE80B54E2C81BC2800E024DB /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				CE80B5532C81BCD100E024DB /* PopoverFilterViewController.swift */,
+				CE80B5542C81BCD100E024DB /* PopoverFilterViewController.xib */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
 		CEC696AB2C7D7BB20090951B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -838,6 +851,7 @@
 		F052A8E02C78220700814CCB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE80B54E2C81BC2800E024DB /* Popover */,
 				F052A8E12C78221100814CCB /* BaseButton.swift */,
 				F0770C122C784EB5007F522F /* BaseViewController.swift */,
 				05FB82492C7B0BB4004FA411 /* VerticalAlignedLabel.swift */,
@@ -1335,6 +1349,7 @@
 				056BF30B2C80D3F400926933 /* CommentCell.xib in Resources */,
 				F0770BBC2C784718007F522F /* Cinemas.storyboard in Resources */,
 				F052A8E92C78350C00814CCB /* Poppins-SemiBold.ttf in Resources */,
+				CE80B5562C81BCD100E024DB /* PopoverFilterViewController.xib in Resources */,
 				F0770C152C784F84007F522F /* Urbanist-Bold.ttf in Resources */,
 				F0E7E1F42C7EDFA5009ADE62 /* Urbanist-Medium.ttf in Resources */,
 				CEC696AF2C7D7BD20090951B /* PlaceTableViewCell.xib in Resources */,
@@ -1495,6 +1510,7 @@
 				F0770B4B2C783B1E007F522F /* ScreenInfomation.swift in Sources */,
 				F0770B962C7846C3007F522F /* LibraryProtocol.swift in Sources */,
 				CEC696AE2C7D7BD20090951B /* PlaceTableViewCell.swift in Sources */,
+				CE80B5552C81BCD100E024DB /* PopoverFilterViewController.swift in Sources */,
 				05544AC02C7B57D40083B591 /* GenresInteractor.swift in Sources */,
 				0537EDD32C7A3653004F06A9 /* SettingOptionCell.swift in Sources */,
 				F0770C052C784786007F522F /* HomeEntity.swift in Sources */,

@@ -26,6 +26,19 @@ class SettingViewController: BaseViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(cellType: SettingOptionCell.self)
     }
+    
+    func requestAppStoreReview() {
+//        let hasRequestedReviewKey = "hasRequestedReview"
+//
+//        let hasRequestedReview = UserDefaults.standard.bool(forKey: hasRequestedReviewKey)
+//
+//        if !hasRequestedReview {
+//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+//                SKStoreReviewController.requestReview(in: windowScene)
+//                UserDefaults.standard.set(true, forKey: hasRequestedReviewKey)
+//            }
+//        }
+    }
 }
 
 extension SettingViewController: UITableViewDataSource {
