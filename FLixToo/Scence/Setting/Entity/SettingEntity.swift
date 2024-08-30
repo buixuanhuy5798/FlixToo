@@ -13,6 +13,8 @@ enum SettingOption {
     case shareApp
     case rateApp
     case appIcon
+    case appName
+    case appVersion
     
     func getTitle() -> String {
         switch self {
@@ -26,6 +28,10 @@ enum SettingOption {
             return "Rate App"
         case .appIcon:
             return "App icons"
+        case .appName:
+            return "App name"
+        case .appVersion:
+            return "Version"
         }
     }
     
@@ -41,6 +47,8 @@ enum SettingOption {
             return UIImage(named: "setting_rate_app")
         case .appIcon:
             return UIImage(named: "setting_app_icons")
+        default:
+            return nil
         }
     }
 }

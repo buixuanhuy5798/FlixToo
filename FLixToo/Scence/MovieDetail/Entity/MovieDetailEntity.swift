@@ -188,30 +188,23 @@ struct Backdrop: Codable {
 
 // MARK: - Result
 struct MovieVideo: Codable {
-    let iso639_1: ISO639_1?
-    let iso3166_1: ISO3166_1?
     let name, key: String?
     let site: Site?
     let size: Int?
-    let type: VideoType?
+    let type: String?
     let official: Bool?
     let publishedAt, id: String?
-
+    
+    var typeVid: VideoType? {
+        guard let type = type else { return nil }
+        return VideoType(rawValue: type)
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case iso639_1 = "iso_639_1"
-        case iso3166_1 = "iso_3166_1"
         case name, key, site, size, type, official
         case publishedAt = "published_at"
         case id
     }
-}
-
-enum ISO3166_1: String, Codable {
-    case us = "US"
-}
-
-enum ISO639_1: String, Codable {
-    case en = "en"
 }
 
 enum Site: String, Codable {
@@ -224,4 +217,5 @@ enum VideoType: String, Codable {
     case featurette = "Featurette"
     case teaser = "Teaser"
     case trailer = "Trailer"
+    case clip = "Clip"
 }

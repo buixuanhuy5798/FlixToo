@@ -24,8 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func navigateScreen() {
-        let introduceController = MainTabBarController()
-        window?.rootViewController = introduceController
+        if UserInfomation.firstLauchApp {
+            let introduceController = IntroduceViewController.instantiate()
+            window?.rootViewController = introduceController
+            UserInfomation.firstLauchApp = false
+        } else {
+            let home = MainTabBarController()
+            window?.rootViewController = home
+        }
     }
 }
 

@@ -13,7 +13,7 @@ class SettingViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: SettingPresenterProtocol!
-    var settingData: [[SettingOption]] = [[.contactUs, .privacyPolicy, .shareApp, .rateApp], [.appIcon]]
+    var settingData: [[SettingOption]] = [[.contactUs, .privacyPolicy, .shareApp, .rateApp], [.appIcon], [.appName, .appVersion]]
     var sectionTitle = ["General", "About App", ""]
     
     override func viewDidLoad() {
@@ -25,6 +25,7 @@ class SettingViewController: BaseViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(cellType: SettingOptionCell.self)
+        tableView.register(cellType: SettingInfomationCellTableViewCell.self)
     }
     
     func requestAppStoreReview() {
@@ -43,7 +44,7 @@ class SettingViewController: BaseViewController {
 
 extension SettingViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,14 +52,27 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SettingOptionCell.self)
-        cell.setContentForCell(data: settingData[indexPath.section][indexPath.row])
-        return cell
+        if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SettingInfomationCellTableViewCell.self)
+            if indexPath.row == 0 {
+                cell.setContentForCell(title: "App name", content: "FlixToo")
+            } else {
+                cell.setContentForCell(title: "Version", content: UIApplication.appVersion ?? "")
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SettingOptionCell.self)
+            cell.setContentForCell(data: settingData[indexPath.section][indexPath.row])
+            return cell
+        }
     }
 }
 
 extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 2 {
+            return nil
+        }
         let header = UIView()
         header.backgroundColor = .clear
         let titleLabel = UILabel()
