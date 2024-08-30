@@ -3,6 +3,7 @@ PODS:
   - Cosmos (25.0.1)
   - Kingfisher (7.11.0)
   - MASegmentedControl (0.0.5)
+  - PanModal (1.2.7)
   - Reusable (4.1.2):
     - Reusable/Storyboard (= 4.1.2)
     - Reusable/View (= 4.1.2)
@@ -22,12 +23,14 @@ PODS:
   - Swinject (2.7.1)
   - SwinjectStoryboard (2.2.1):
     - Swinject (~> 2.7.1)
+  - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
   - Alamofire
   - Cosmos
   - Kingfisher (~> 7.0)
   - MASegmentedControl
+  - PanModal
   - Reusable
   - RxCocoa
   - RxSwift
@@ -36,6 +39,7 @@ DEPENDENCIES:
   - SwiftKeychainWrapper
   - Swinject (= 2.7.1)
   - SwinjectStoryboard (= 2.2.1)
+  - YouTubePlayer
 
 SPEC REPOS:
   trunk:
@@ -43,6 +47,7 @@ SPEC REPOS:
     - Cosmos
     - Kingfisher
     - MASegmentedControl
+    - PanModal
     - Reusable
     - RxCocoa
     - RxRelay
@@ -52,12 +57,14 @@ SPEC REPOS:
     - SwiftKeychainWrapper
     - Swinject
     - SwinjectStoryboard
+    - YouTubePlayer
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   Cosmos: 02db0a1c953107049bfd2d7af19ceef55ecb7e98
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   MASegmentedControl: 9b58f9ba3a562a739b63b29e4ca2b9dc4d9c62cb
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
@@ -67,7 +74,8 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: fe54ea9494a75348b1f3126e5e278e674f5684ad
+  YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: dc396de78bd0aaec269f3d2db474e292b3ea8693
+PODFILE CHECKSUM: 502df351a3c2d0307d6a2237bf7e2c30908f211d
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.14.2

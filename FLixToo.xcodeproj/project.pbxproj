@@ -145,6 +145,11 @@
 		F0E7E1F42C7EDFA5009ADE62 /* Urbanist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0E7E1F32C7EDFA5009ADE62 /* Urbanist-Medium.ttf */; };
 		F0E7E1F82C801389009ADE62 /* MovieCreditCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0E7E1F72C801389009ADE62 /* MovieCreditCollectionViewCell.xib */; };
 		F0E7E1F92C801389009ADE62 /* MovieCreditCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E7E1F62C801389009ADE62 /* MovieCreditCollectionViewCell.swift */; };
+		F0FB04E22C81B9E300510275 /* UserInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB04E12C81B9E300510275 /* UserInfomation.swift */; };
+		F0FF96242C819A720064E535 /* MovieTrailerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FF96232C819A720064E535 /* MovieTrailerController.swift */; };
+		F0FF96272C819B130064E535 /* MovieTrailerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FF96252C819B130064E535 /* MovieTrailerCell.swift */; };
+		F0FF96282C819B130064E535 /* MovieTrailerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FF96262C819B130064E535 /* MovieTrailerCell.xib */; };
+		F0FF962A2C81B1DD0064E535 /* AddToLibraryControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FF96292C81B1DD0064E535 /* AddToLibraryControllerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -290,6 +295,11 @@
 		F0E7E1F32C7EDFA5009ADE62 /* Urbanist-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Medium.ttf"; sourceTree = "<group>"; };
 		F0E7E1F62C801389009ADE62 /* MovieCreditCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCreditCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0E7E1F72C801389009ADE62 /* MovieCreditCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCreditCollectionViewCell.xib; sourceTree = "<group>"; };
+		F0FB04E12C81B9E300510275 /* UserInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomation.swift; sourceTree = "<group>"; };
+		F0FF96232C819A720064E535 /* MovieTrailerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrailerController.swift; sourceTree = "<group>"; };
+		F0FF96252C819B130064E535 /* MovieTrailerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrailerCell.swift; sourceTree = "<group>"; };
+		F0FF96262C819B130064E535 /* MovieTrailerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTrailerCell.xib; sourceTree = "<group>"; };
+		F0FF96292C81B1DD0064E535 /* AddToLibraryControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToLibraryControllerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -463,6 +473,8 @@
 				F0E7E1F52C801106009ADE62 /* Cell */,
 				05544ADF2C7B63DC0083B591 /* MovieDetail.storyboard */,
 				05544AE02C7B63DC0083B591 /* MovieDetailViewController.swift */,
+				F0FF96232C819A720064E535 /* MovieTrailerController.swift */,
+				F0FF96292C81B1DD0064E535 /* AddToLibraryControllerViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1254,6 +1266,7 @@
 				F0770C102C7849FC007F522F /* Utils.swift */,
 				05FB82422C7B0430004FA411 /* KeychainStorage.swift */,
 				05FB824B2C7B0D31004FA411 /* AppConstant.swift */,
+				F0FB04E12C81B9E300510275 /* UserInfomation.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1265,6 +1278,8 @@
 				F0E7E1F72C801389009ADE62 /* MovieCreditCollectionViewCell.xib */,
 				056BF3092C80D3F400926933 /* CommentCell.swift */,
 				056BF30A2C80D3F400926933 /* CommentCell.xib */,
+				F0FF96252C819B130064E535 /* MovieTrailerCell.swift */,
+				F0FF96262C819B130064E535 /* MovieTrailerCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1347,6 +1362,7 @@
 				F0770B462C7838C9007F522F /* IntroducePageView.xib in Resources */,
 				056BC8F82C7CE4580096A2FC /* ActorProfile.storyboard in Resources */,
 				F0770C092C784786007F522F /* Home.storyboard in Resources */,
+				F0FF96282C819B130064E535 /* MovieTrailerCell.xib in Resources */,
 				05FB825D2C7B34C0004FA411 /* MovieProviderCell.xib in Resources */,
 				CEC696B82C7DC42F0090951B /* SearchNameTableViewCell.xib in Resources */,
 				F0770B442C7837F4007F522F /* Urbanist-SemiBold.ttf in Resources */,
@@ -1428,6 +1444,7 @@
 				F0770BDF2C784752007F522F /* SearchRouter.swift in Sources */,
 				CEC696C12C8010670090951B /* ListMoviesViewController.swift in Sources */,
 				CEC696BC2C7F19850090951B /* GenreCollectionViewCell.swift in Sources */,
+				F0FF96272C819B130064E535 /* MovieTrailerCell.swift in Sources */,
 				056BC8F92C7CE4580096A2FC /* ActorProfileViewController.swift in Sources */,
 				F0770B952C7846C3007F522F /* LibraryAssembly.swift in Sources */,
 				CEC696CC2C80A09C0090951B /* LibaryTagCollectionViewCell.swift in Sources */,
@@ -1435,6 +1452,7 @@
 				F0770C0E2C7848A6007F522F /* MainTabBarController.swift in Sources */,
 				05544AE62C7B63DC0083B591 /* MovieDetailPresenter.swift in Sources */,
 				F0770B762C78463A007F522F /* SettingViewController.swift in Sources */,
+				F0FB04E22C81B9E300510275 /* UserInfomation.swift in Sources */,
 				056BC8FE2C7CE4580096A2FC /* ActorProfileProtocol.swift in Sources */,
 				F0770C0A2C784786007F522F /* HomeViewController.swift in Sources */,
 				056BC8FA2C7CE4580096A2FC /* ActorProfileEntity.swift in Sources */,
@@ -1465,6 +1483,7 @@
 				05544AE72C7B63DC0083B591 /* MovieDetailEntity.swift in Sources */,
 				056BC8FC2C7CE4580096A2FC /* ActorProfileRouter.swift in Sources */,
 				F0770B732C78463A007F522F /* SettingInteractor.swift in Sources */,
+				F0FF962A2C81B1DD0064E535 /* AddToLibraryControllerViewController.swift in Sources */,
 				F0770B9A2C7846C3007F522F /* LibraryViewController.swift in Sources */,
 				05544AC42C7B57D40083B591 /* GenresProtocol.swift in Sources */,
 				F0E7E1F02C7ED504009ADE62 /* Date+Extension.swift in Sources */,
@@ -1501,6 +1520,7 @@
 				F0770BB92C784718007F522F /* CinemasInteractor.swift in Sources */,
 				F0770BDE2C784752007F522F /* SearchInteractor.swift in Sources */,
 				05FB82432C7B0430004FA411 /* KeychainStorage.swift in Sources */,
+				F0FF96242C819A720064E535 /* MovieTrailerController.swift in Sources */,
 				F0770C082C784786007F522F /* HomePresenter.swift in Sources */,
 				F0E7E1EE2C7ECE6C009ADE62 /* UIViewController+Extension.swift in Sources */,
 				F0770C112C7849FC007F522F /* Utils.swift in Sources */,

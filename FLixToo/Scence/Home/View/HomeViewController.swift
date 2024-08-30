@@ -240,11 +240,17 @@ extension HomeViewController {
             vc.screenType = .upcomming
             self.navigationController?.pushViewController(vc, animated: true)
         case .trendingShow(let array):
-            print("OPEN TRENDING SHOW")
+            let vc = ListMoviesViewController.instantiate()
+            vc.screenType = .trendingShows
+            self.navigationController?.pushViewController(vc, animated: true)
         case .upcomingShow(let array):
-            print("OPEN UPCOMMING SHOW")
+            let vc = ListMoviesViewController.instantiate()
+            vc.screenType = .upcommingShows
+            self.navigationController?.pushViewController(vc, animated: true)
         case .topRatedShow(let array):
-            print("OPEN TOP RATED SHOW")
+            let vc = ListMoviesViewController.instantiate()
+            vc.screenType = .topRatedShows
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

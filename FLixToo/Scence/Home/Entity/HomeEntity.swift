@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum HomeCategoryOption {
+enum HomeCategoryOption: Codable {
     case movie
     case show
     
