@@ -13,6 +13,9 @@ enum ListMoviesType {
     case popular
     case upcomming
     case nowPlaying
+    case upcommingShows
+    case topRatedShows
+    case trendingShows
     case movie(model: GenreModel)
     case tv(model: GenreModel)
 }
@@ -39,6 +42,8 @@ final class ListMoviesViewController: BaseViewController {
         switch screenType {
         case .tv(let model):
             fetchTvShows(id: model.id)
+        case .trendingShows, .upcommingShows, .topRatedShows:
+            fetchTvShows()
         default:
             fetchPopularMovies()
         }
@@ -64,6 +69,12 @@ final class ListMoviesViewController: BaseViewController {
             title = "Upcomming Movies"
         case .nowPlaying:
             title = "Nowplaying Movies"
+        case .trendingShows:
+            title = "Trending Shows"
+        case .upcommingShows:
+            title = "Upcomming Shows"
+        case .topRatedShows:
+            title = "Top Rated Shows"
         case .movie(let model):
             title = model.name
         case .tv(let model):
@@ -100,6 +111,56 @@ extension ListMoviesViewController {
         default:
             return movieRepository.getListNowPlayingMovies(page: page, checking: type)
         }
+    }
+    
+    private func fetchShows(type: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>> {
+        switch screenType {
+        case .trendingShows:
+            return movieRepository.getListPopularTVShow(page: page, checking: type)
+        case .upcommingShows:
+            return movieRepository.getListUpcomingTVShow(page: page, checking: type)
+        case .topRatedShows:
+            return movieRepository.getListTopRatedTVShow(page: page, checking: type)
+        default:
+            return movieRepository.getListTopRatedTVShow(page: page, checking: type)
+        }
+    }
+    
+    private func fetchTvShows() {
+        isLoading = true
+        fetchShows(type: .checked)
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.isLoading = false
+                DispatchQueue.main.async {
+                    self.shows = response.results ?? []
+                    self.hasLoadMore = response.page ?? 0 < response.totalPage ?? 0
+                    self.moviesCollectionView.reloadData()
+                    self.moviesCollectionView.setContentOffset(CGPoint.zero, animated: false)
+                }
+            }, onFailure: { [weak self] error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func fetchMoreTvShows() {
+        guard !isLoading else { return }
+        isLoading = true
+        page += 1
+        fetchShows(type: .unchecked)
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.isLoading = false
+                DispatchQueue.main.async {
+                    self.shows.append(contentsOf: response.results ?? [])
+                    self.hasLoadMore = response.page ?? 0 < response.totalPage ?? 0
+                    self.moviesCollectionView.reloadData()
+                }
+            }, onFailure: { [weak self] error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func fetchPopularMovies() {
@@ -180,7 +241,7 @@ extension ListMoviesViewController {
 extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch screenType {
-        case .tv:
+        case .tv, .trendingShows, .upcommingShows, .topRatedShows:
             return shows.count
         default:
             return movies.count
@@ -191,7 +252,7 @@ extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
         
         switch screenType {
-        case .tv:
+        case .tv, .trendingShows, .upcommingShows, .topRatedShows:
             cell.setContentForCell(data: shows[indexPath.row])
         default:
             cell.setContentForCell(data: movies[indexPath.row])
@@ -205,6 +266,9 @@ extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDa
         case .tv(let model):
             guard hasLoadMore, indexPath.item == shows.count-1 else { return }
             self.fetchMoreTvShows(id: model.id)
+        case .trendingShows, .upcommingShows, .topRatedShows:
+            guard hasLoadMore, indexPath.item == shows.count-1 else { return }
+            self.fetchMoreTvShows()
         default:
             guard hasLoadMore, indexPath.item == movies.count-1 else { return }
             self.fetchMorePopularMovies()
