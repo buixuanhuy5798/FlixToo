@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Urbanist-Medium.ttf">
+            <string>Urbanist-Medium</string>
+        </array>
+        <array key="Urbanist-SemiBold.ttf">
+            <string>Urbanist-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopoverFilterViewController" customModule="FLixToo" customModuleProvider="target">
+            <connections>
+                <outlet property="applyButton" destination="ulB-Yw-FPg" id="njt-s1-gPE"/>
+                <outlet property="movieButton" destination="X7P-pk-dUU" id="Q7T-V8-K1N"/>
+                <outlet property="titleLabel" destination="2Bd-6M-PcJ" id="AnO-jW-Gxb"/>
+                <outlet property="tvShowsButton" destination="vRY-uq-RPi" id="bXM-06-PWT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRa-h4-sL0">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="180"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter(2)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bd-6M-PcJ">
+                            <rect key="frame" x="16" y="22" width="47" height="17"/>
+                            <fontDescription key="fontDescription" name="Urbanist-Medium" family="Urbanist" pointSize="14"/>
+                            <color key="textColor" name="#AAAAAA"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjw-s4-Ich">
+                            <rect key="frame" x="170" y="16" width="54" height="29"/>
+                            <fontDescription key="fontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="14"/>
+                            <color key="tintColor" name="AccentColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Clear All"/>
+                            <connections>
+                                <action selector="handleClearAllButton:" destination="-1" eventType="touchUpInside" id="L34-mW-Dl1"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3d-qL-gYc">
+                            <rect key="frame" x="0.0" y="49" width="240" height="1"/>
+                            <color key="backgroundColor" name="#D4D4D4"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="jaK-cq-Ymh"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9f-6V-Z1Y">
+                            <rect key="frame" x="95.333333333333329" y="50" width="1" height="70"/>
+                            <color key="backgroundColor" name="#D4D4D4"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="Vib-lN-gA8"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nt-X7-hzf">
+                            <rect key="frame" x="16.000000000000004" y="62" width="59.333333333333343" height="17"/>
+                            <fontDescription key="fontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="14"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7P-pk-dUU">
+                            <rect key="frame" x="112.33333333333331" y="61.999999999999993" width="90" height="23.666666666666664"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="jzB-hM-Otp"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Movie">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <imageReference key="image" image="checkmark.square.fill" catalog="system" symbolScale="large"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRY-uq-RPi">
+                            <rect key="frame" x="112.33333333333331" y="97.666666666666671" width="120" height="23.666666666666671"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="Gh9-hr-fri"/>
+                            </constraints>
+                            <color key="tintColor" name="#AAAAAA"/>
+                            <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="TV Shows">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulB-Yw-FPg">
+                            <rect key="frame" x="16" y="132" width="208" height="32"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="IYb-i6-Qmz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="12"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Apply Filters">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="16"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="handleApplyButton:" destination="-1" eventType="touchUpInside" id="9cG-w8-PXJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="2Bd-6M-PcJ" firstAttribute="leading" secondItem="mRa-h4-sL0" secondAttribute="leading" constant="16" id="15l-22-Q2T"/>
+                        <constraint firstItem="2Bd-6M-PcJ" firstAttribute="centerY" secondItem="zjw-s4-Ich" secondAttribute="centerY" id="1TO-oR-cxF"/>
+                        <constraint firstItem="j3d-qL-gYc" firstAttribute="top" secondItem="zjw-s4-Ich" secondAttribute="bottom" constant="4" id="AuR-ux-hde"/>
+                        <constraint firstItem="A9f-6V-Z1Y" firstAttribute="top" secondItem="j3d-qL-gYc" secondAttribute="bottom" id="DBZ-WH-9Bf"/>
+                        <constraint firstItem="zjw-s4-Ich" firstAttribute="top" secondItem="mRa-h4-sL0" secondAttribute="top" constant="16" id="EBu-Ck-3WE"/>
+                        <constraint firstItem="8nt-X7-hzf" firstAttribute="top" secondItem="j3d-qL-gYc" secondAttribute="bottom" constant="12" id="NNa-cp-mX2"/>
+                        <constraint firstItem="X7P-pk-dUU" firstAttribute="leading" secondItem="A9f-6V-Z1Y" secondAttribute="trailing" constant="16" id="Nf4-yg-XRH"/>
+                        <constraint firstAttribute="bottom" secondItem="A9f-6V-Z1Y" secondAttribute="bottom" constant="60" id="OFB-sw-XsK"/>
+                        <constraint firstItem="vRY-uq-RPi" firstAttribute="top" secondItem="X7P-pk-dUU" secondAttribute="bottom" constant="12" id="PwB-6i-YUF"/>
+                        <constraint firstItem="vRY-uq-RPi" firstAttribute="leading" secondItem="A9f-6V-Z1Y" secondAttribute="trailing" constant="16" id="TeU-r9-9XV"/>
+                        <constraint firstAttribute="trailing" secondItem="zjw-s4-Ich" secondAttribute="trailing" constant="16" id="Wc2-9T-R7i"/>
+                        <constraint firstAttribute="trailing" secondItem="j3d-qL-gYc" secondAttribute="trailing" id="YBl-aa-bYj"/>
+                        <constraint firstItem="ulB-Yw-FPg" firstAttribute="leading" secondItem="mRa-h4-sL0" secondAttribute="leading" constant="16" id="fe7-XA-aF8"/>
+                        <constraint firstItem="j3d-qL-gYc" firstAttribute="leading" secondItem="mRa-h4-sL0" secondAttribute="leading" id="gVo-0w-Uyu"/>
+                        <constraint firstItem="ulB-Yw-FPg" firstAttribute="centerX" secondItem="mRa-h4-sL0" secondAttribute="centerX" id="mn3-h7-Ag8"/>
+                        <constraint firstItem="8nt-X7-hzf" firstAttribute="leading" secondItem="mRa-h4-sL0" secondAttribute="leading" constant="16" id="nWk-i5-iyJ"/>
+                        <constraint firstItem="X7P-pk-dUU" firstAttribute="top" secondItem="j3d-qL-gYc" secondAttribute="bottom" constant="12" id="rFL-jP-uwd"/>
+                        <constraint firstItem="A9f-6V-Z1Y" firstAttribute="leading" secondItem="8nt-X7-hzf" secondAttribute="trailing" constant="20" id="rNU-eC-mhE"/>
+                        <constraint firstAttribute="bottom" secondItem="ulB-Yw-FPg" secondAttribute="bottom" constant="16" id="sF3-a8-0mF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="mRa-h4-sL0" secondAttribute="bottom" id="RSm-j6-tib"/>
+                <constraint firstItem="mRa-h4-sL0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VcY-wa-KmM"/>
+                <constraint firstItem="mRa-h4-sL0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aWU-Jj-42d"/>
+                <constraint firstAttribute="trailing" secondItem="mRa-h4-sL0" secondAttribute="trailing" id="fDi-0d-vhY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-117.55725190839694" y="-184.50704225352115"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
+        <image name="square.fill" catalog="system" width="128" height="114"/>
+        <namedColor name="#AAAAAA">
+            <color red="0.66699999570846558" green="0.66699999570846558" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="#D4D4D4">
+            <color red="0.83137254901960778" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

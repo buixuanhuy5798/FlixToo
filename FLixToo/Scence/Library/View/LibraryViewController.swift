@@ -8,7 +8,7 @@
 import UIKit
 import Reusable
 
-final class LibraryViewController: BaseViewController {
+final class LibraryViewController: UIViewController {
 
     @IBOutlet weak var tagsCollectionView: UICollectionView!
     
@@ -19,11 +19,13 @@ final class LibraryViewController: BaseViewController {
         presenter.onViewDidLoad()
         setupView()
     }
+    @IBAction func handleFilterButton(_ sender: UIButton) {
+        let popover = PopoverFilterViewController(info: "Filter")
+        presentPopover(self, popover, sender: sender, size: CGSize(width: 240, height: 180), arrowDirection: .up)
+    }
     
     private func setupView() {
-        title = "Library"
-        showBackButton = false
-        
+        navigationController?.navigationBar.isHidden = true
         tagsCollectionView.register(cellType: LibaryTagCollectionViewCell.self)
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
