@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 import Reusable
+import PanModal
 
 class MovieDetailViewController: UIViewController {
 
@@ -77,9 +78,15 @@ class MovieDetailViewController: UIViewController {
     }
     
     @IBAction func handleTapAddToLibraryButton(_ sender: Any) {
+        let vc = AddToLibraryControllerViewController.instantiate()
+        vc.item = SaveData(id: self.detail?.id, name: self.detail?.originalTitle, imagePath: self.detail?.posterPath, type: .movie)
+        navigationController?.presentPanModal(vc)
     }
     
     @IBAction func handleTapWatchTrailerButton(_ sender: Any) {
+        let vc = MovieTrailerController.instantiate()
+        vc.id = presenter.id
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func handleTapClose(_ sender: Any) {

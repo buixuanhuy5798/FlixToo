@@ -18,7 +18,8 @@ pod 'RxCocoa'
 pod 'SwiftKeychainWrapper'
 pod 'MASegmentedControl'
 pod 'Cosmos'
-
+pod 'YouTubePlayer'
+pod 'PanModal'
 end
 
 post_install do |pi|
