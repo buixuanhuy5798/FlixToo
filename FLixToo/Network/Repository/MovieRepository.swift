@@ -45,6 +45,8 @@ protocol MovieRepositoryType {
     func getBackdropImages(id: Int) -> Single<BackdropsMovie>
     func getReview(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[Comment]>>
     func getVideo(id: Int) -> Single<BaseResponse<[MovieVideo]>>
+    func getShowDetail(id: Int) -> Single<ShowDetail>
+    func getShowCredit(id: Int) -> Single<MovieCredit>
 }
 
 struct MovieRepository: MovieRepositoryType {
@@ -112,5 +114,13 @@ struct MovieRepository: MovieRepositoryType {
     
     func getVideo(id: Int) -> Single<BaseResponse<[MovieVideo]>> {
         return api.request(router: .getMovieVideo(id: id), checking: .checked)
+    }
+    
+    func getShowDetail(id: Int) -> Single<ShowDetail> {
+        return api.request(router: .getShowDetail(id: id), checking: .checked)
+    }
+    
+    func getShowCredit(id: Int) -> Single<MovieCredit> {
+        return api.request(router: .getShowCredit(id: id), checking: .unchecked)
     }
 }

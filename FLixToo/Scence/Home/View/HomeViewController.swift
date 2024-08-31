@@ -207,17 +207,23 @@ extension HomeViewController: UICollectionViewDelegate {
         case .popularPeople(let actor):
             presenter.openActorDetail(info: actor[indexPath.row])
         case .trendingShow(let shows):
-            print("SELECT SHOWS: \(shows[indexPath.row].originalName)")
+            openShowDetail(show: shows[indexPath.row])
         case .upcomingShow(let shows):
-            print("SELECT SHOWS: \(shows[indexPath.row].originalName)")
+            openShowDetail(show: shows[indexPath.row])
         case .topRatedShow(let shows):
-            print("SELECT SHOWS: \(shows[indexPath.row].originalName)")
+            openShowDetail(show: shows[indexPath.row])
         }
     }
     
     func openMovieDetail(movie: MovieCommonInfomation) {
         let vc = MovieDetailViewController.instantiate()
         vc.presenter.id = movie.id
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func openShowDetail(show: TvShowCommonInfomation) {
+        let vc = ShowDetailViewController.instantiate()
+        vc.id = show.id
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -227,27 +233,27 @@ extension HomeViewController {
         switch type {
         case .categories, .popularPeople, .movieProviders:
             return
-        case .tredingMovies(let array):
+        case .tredingMovies:
             let vc = ListMoviesViewController.instantiate()
             vc.screenType = .popular
             self.navigationController?.pushViewController(vc, animated: true)
-        case .nowPlaying(let array):
+        case .nowPlaying:
             let vc = ListMoviesViewController.instantiate()
             vc.screenType = .nowPlaying
             self.navigationController?.pushViewController(vc, animated: true)
-        case .upcoming(let array):
+        case .upcoming:
             let vc = ListMoviesViewController.instantiate()
             vc.screenType = .upcomming
             self.navigationController?.pushViewController(vc, animated: true)
-        case .trendingShow(let array):
+        case .trendingShow:
             let vc = ListMoviesViewController.instantiate()
             vc.screenType = .trendingShows
             self.navigationController?.pushViewController(vc, animated: true)
-        case .upcomingShow(let array):
+        case .upcomingShow:
             let vc = ListMoviesViewController.instantiate()
             vc.screenType = .upcommingShows
             self.navigationController?.pushViewController(vc, animated: true)
-        case .topRatedShow(let array):
+        case .topRatedShow:
             let vc = ListMoviesViewController.instantiate()
             vc.screenType = .topRatedShows
             self.navigationController?.pushViewController(vc, animated: true)

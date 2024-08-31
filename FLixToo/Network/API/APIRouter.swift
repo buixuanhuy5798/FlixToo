@@ -31,6 +31,9 @@ enum APIRouter {
     case getShowsByGenre(id: Int, page: Int)
     case getMovieVideo(id: Int)
     
+    case getShowDetail(id: Int)
+    case getShowCredit(id: Int)
+    
     var method: HTTPMethod {
         switch self {
         default:
@@ -86,6 +89,10 @@ enum APIRouter {
             return "/movie/\(id)/reviews"
         case .getMovieVideo(let id):
             return "/movie/\(id)/videos"
+        case .getShowDetail(let id):
+            return "tv/\(id)"
+        case .getShowCredit(let id):
+            return "/tv/\(id)/credits"
         }
     }
     
