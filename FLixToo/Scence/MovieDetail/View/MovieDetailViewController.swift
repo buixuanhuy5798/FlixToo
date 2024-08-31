@@ -89,6 +89,7 @@ class MovieDetailViewController: UIViewController {
     @IBAction func handleTapAddToLibraryButton(_ sender: Any) {
         let vc = AddToLibraryControllerViewController.instantiate()
         vc.item = SaveData(id: self.detail?.id, name: self.detail?.originalTitle, imagePath: self.detail?.posterPath, type: .movie)
+        vc.modalTransitionStyle = .coverVertical
         navigationController?.presentPanModal(vc)
     }
     

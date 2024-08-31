@@ -29,6 +29,11 @@ class SettingViewController: BaseViewController {
         tableView.register(cellType: SettingInfomationCellTableViewCell.self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     func requestAppStoreReview() {
 //        let hasRequestedReviewKey = "hasRequestedReview"
 //
