@@ -39,6 +39,7 @@ class MovieDetailViewController: UIViewController {
     var crew = [Cast]()
     var similarMovies = [MovieCommonInfomation]()
     var comment = [Comment]()
+    var backdrop: BackdropsMovie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +71,15 @@ class MovieDetailViewController: UIViewController {
         backdropLabel.textColor = .white
         setUpCrewCollectionView()
         setUpSimilarCollectionView()
+        allBackdropImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapAllBackdrop)))
+        allBackdropImageView.isUserInteractionEnabled = true
         setUpTableView()
+    }
+    
+    @objc private func handleTapAllBackdrop() {
+        let vc = MovieBackdropImageShowControllerViewController.instantiate()
+        vc.backdrop = backdrop
+        self.present(vc, animated: true)
     }
     
     @IBAction func handleTapSeeAll(_ sender: Any) {
@@ -101,6 +110,7 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
     }
     
     func updateBackdrops(backdrop: BackdropsMovie) {
+        self.backdrop = backdrop
         let path = backdrop.backdrops?.randomElement()?.filePath ?? ""
         allBackdropImageView.kf.setImage(
                 with: Utils.getUrlImage(path: path),

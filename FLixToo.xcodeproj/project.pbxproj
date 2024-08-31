@@ -150,6 +150,7 @@
 		F0FB04E22C81B9E300510275 /* UserInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB04E12C81B9E300510275 /* UserInfomation.swift */; };
 		F0FB04E52C81CD0E00510275 /* SettingInfomationCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB04E32C81CD0E00510275 /* SettingInfomationCellTableViewCell.swift */; };
 		F0FB04E62C81CD0E00510275 /* SettingInfomationCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FB04E42C81CD0E00510275 /* SettingInfomationCellTableViewCell.xib */; };
+		F0FB04E82C82A60D00510275 /* MovieBackdropImageShowControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB04E72C82A60D00510275 /* MovieBackdropImageShowControllerViewController.swift */; };
 		F0FF96242C819A720064E535 /* MovieTrailerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FF96232C819A720064E535 /* MovieTrailerController.swift */; };
 		F0FF96272C819B130064E535 /* MovieTrailerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FF96252C819B130064E535 /* MovieTrailerCell.swift */; };
 		F0FF96282C819B130064E535 /* MovieTrailerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FF96262C819B130064E535 /* MovieTrailerCell.xib */; };
@@ -304,6 +305,7 @@
 		F0FB04E12C81B9E300510275 /* UserInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomation.swift; sourceTree = "<group>"; };
 		F0FB04E32C81CD0E00510275 /* SettingInfomationCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInfomationCellTableViewCell.swift; sourceTree = "<group>"; };
 		F0FB04E42C81CD0E00510275 /* SettingInfomationCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingInfomationCellTableViewCell.xib; sourceTree = "<group>"; };
+		F0FB04E72C82A60D00510275 /* MovieBackdropImageShowControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBackdropImageShowControllerViewController.swift; sourceTree = "<group>"; };
 		F0FF96232C819A720064E535 /* MovieTrailerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrailerController.swift; sourceTree = "<group>"; };
 		F0FF96252C819B130064E535 /* MovieTrailerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrailerCell.swift; sourceTree = "<group>"; };
 		F0FF96262C819B130064E535 /* MovieTrailerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTrailerCell.xib; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				05544AE02C7B63DC0083B591 /* MovieDetailViewController.swift */,
 				F0FF96232C819A720064E535 /* MovieTrailerController.swift */,
 				F0FF96292C81B1DD0064E535 /* AddToLibraryControllerViewController.swift */,
+				F0FB04E72C82A60D00510275 /* MovieBackdropImageShowControllerViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1499,6 +1502,7 @@
 				F0770BE32C784752007F522F /* SearchViewController.swift in Sources */,
 				053642672C7E2F8F000A346A /* ActorInfoView.swift in Sources */,
 				05544ABD2C7B57D40083B591 /* GenresRouter.swift in Sources */,
+				F0FB04E82C82A60D00510275 /* MovieBackdropImageShowControllerViewController.swift in Sources */,
 				05544AE52C7B63DC0083B591 /* MovieDetailAssembly.swift in Sources */,
 				056BF3072C80CFC700926933 /* ListCommentViewController.swift in Sources */,
 				F052A8E52C78236400814CCB /* UIColor+Extension.swift in Sources */,

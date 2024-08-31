@@ -1,6 +1,10 @@
 PODS:
   - Alamofire (5.9.1)
   - Cosmos (25.0.1)
+  - ImageSlideshow/Core (1.9.2)
+  - ImageSlideshow/Kingfisher (1.9.2):
+    - ImageSlideshow/Core
+    - Kingfisher (> 3.0)
   - Kingfisher (7.11.0)
   - MASegmentedControl (0.0.5)
   - PanModal (1.2.7)
@@ -28,6 +32,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Cosmos
+  - ImageSlideshow/Kingfisher
   - Kingfisher (~> 7.0)
   - MASegmentedControl
   - PanModal
@@ -45,6 +50,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Cosmos
+    - ImageSlideshow
     - Kingfisher
     - MASegmentedControl
     - PanModal
@@ -62,6 +68,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   Cosmos: 02db0a1c953107049bfd2d7af19ceef55ecb7e98
+  ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   MASegmentedControl: 9b58f9ba3a562a739b63b29e4ca2b9dc4d9c62cb
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
@@ -76,6 +83,6 @@ SPEC CHECKSUMS:
   SwinjectStoryboard: fe54ea9494a75348b1f3126e5e278e674f5684ad
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 502df351a3c2d0307d6a2237bf7e2c30908f211d
+PODFILE CHECKSUM: 5bf57b9d5c8262e925ac307711ea679482b50e3a
 
 COCOAPODS: 1.14.2

@@ -20,6 +20,8 @@ pod 'MASegmentedControl'
 pod 'Cosmos'
 pod 'YouTubePlayer'
 pod 'PanModal'
+pod "ImageSlideshow/Kingfisher"
+
 end
 
 post_install do |pi|

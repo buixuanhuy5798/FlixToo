@@ -675,6 +675,67 @@
             </objects>
             <point key="canvasLocation" x="2438.9312977099235" y="-239.43661971830988"/>
         </scene>
+        <!--Movie Backdrop Image Show Controller View Controller-->
+        <scene sceneID="H5S-Xi-Fb1">
+            <objects>
+                <viewController storyboardIdentifier="MovieBackdropImageShowControllerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Su-gj-JjA" customClass="MovieBackdropImageShowControllerViewController" customModule="FLixToo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wnc-HK-GTi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOV-tT-pKS" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="16" y="325.33333333333331" width="361" height="226.33333333333331"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vOV-tT-pKS" secondAttribute="height" multiplier="335:210" id="jCf-Hn-tBt"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J28-e5-lcc">
+                                <rect key="frame" x="349" y="281.33333333333331" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="JNs-T4-fQ7"/>
+                                    <constraint firstAttribute="height" constant="32" id="cNK-fG-cHT"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="icon_close"/>
+                                <connections>
+                                    <action selector="handleTapCloseButton:" destination="7Su-gj-JjA" eventType="touchUpInside" id="EdW-Om-3uA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLK-oe-wak">
+                                <rect key="frame" x="16" y="567.66666666666663" width="361" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NGR-s6-qE8"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.60706168831168827" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NGR-s6-qE8" firstAttribute="trailing" secondItem="vOV-tT-pKS" secondAttribute="trailing" constant="16" id="52B-Oz-nIV"/>
+                            <constraint firstItem="RLK-oe-wak" firstAttribute="leading" secondItem="NGR-s6-qE8" secondAttribute="leading" constant="16" id="5ow-eF-L41"/>
+                            <constraint firstItem="NGR-s6-qE8" firstAttribute="trailing" secondItem="RLK-oe-wak" secondAttribute="trailing" constant="16" id="CfG-Io-oYp"/>
+                            <constraint firstItem="vOV-tT-pKS" firstAttribute="top" secondItem="J28-e5-lcc" secondAttribute="bottom" constant="12" id="HOd-kC-m5p"/>
+                            <constraint firstItem="NGR-s6-qE8" firstAttribute="trailing" secondItem="J28-e5-lcc" secondAttribute="trailing" constant="12" id="NNp-Vf-IJg"/>
+                            <constraint firstItem="vOV-tT-pKS" firstAttribute="centerY" secondItem="NGR-s6-qE8" secondAttribute="centerY" id="PN4-zF-l7g"/>
+                            <constraint firstItem="vOV-tT-pKS" firstAttribute="leading" secondItem="NGR-s6-qE8" secondAttribute="leading" constant="16" id="dAh-JI-NYw"/>
+                            <constraint firstItem="RLK-oe-wak" firstAttribute="top" secondItem="vOV-tT-pKS" secondAttribute="bottom" constant="16" id="e65-ka-lz8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageSlideShow" destination="vOV-tT-pKS" id="3Q7-SY-oAT"/>
+                        <outlet property="pageLabel" destination="RLK-oe-wak" id="4UL-b0-gPG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ATG-S4-jRL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3147" y="-239"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_add" width="20" height="20"/>
