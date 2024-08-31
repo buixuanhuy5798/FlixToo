@@ -7,6 +7,7 @@
 
 import UIKit
 import Reusable
+import StoreKit
 
 class SettingViewController: BaseViewController {
 
@@ -94,6 +95,35 @@ extension SettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if indexPath.row == 2 {
+                openShareApp()
+            } else if indexPath.row == 3 {
+                askForReview()
+            }
+        } else if indexPath.section == 1 {
+            setIcon()
+        }
+    }
+    
+    private func openShareApp() {
+        if let name = URL(string: AppConstant.linkDownloadApp), !name.absoluteString.isEmpty {
+          let objectsToShare = [name]
+          let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+          self.present(activityVC, animated: true, completion: nil)
+        }
+    }
+    
+    private func askForReview() {
+        SKStoreReviewController.requestReview()
+    }
+    
+    private func setIcon() {
+        let vc = AppIconController.instantiate()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

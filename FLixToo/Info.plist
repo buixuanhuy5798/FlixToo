@@ -13,5 +13,75 @@
 		<string>Poppins-Regular.ttf</string>
 		<string>Poppins-SemiBold.ttf</string>
 	</array>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>app_icon_original</string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<false/>
+		</dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+            <key>app_icon_original</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>app_icon_original</string>
+                </array>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+			<key>app_icon_orange</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>app_icon_orange</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>app_icon_black_shade</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>app_icon_black_shade</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+            <key>app_icon_white_beans</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>app_icon_white_beans</string>
+                </array>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>app_icon_purple_theme</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>app_icon_purple_theme</string>
+                </array>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>app_icon_yellowish</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>app_icon_yellowish</string>
+                </array>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+		</dict>
+	</dict>
 </dict>
 </plist>
+

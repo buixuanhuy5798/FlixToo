@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AppIconCell" customModule="FLixToo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="209"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="220" height="209"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqy-8S-77g" customClass="VerticalAlignedLabel" customModule="FLixToo" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="126" width="220" height="83"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_select_app_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7M8-er-1lo">
+                        <rect key="frame" x="149" y="4" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="JUm-kZ-6Ih"/>
+                            <constraint firstAttribute="width" constant="24" id="vG3-1Z-oDK"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVL-fW-EsX">
+                        <rect key="frame" x="59" y="16" width="102" height="102"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VtK-Ql-POP">
+                                <rect key="frame" x="16" y="16" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Ea8-mA-BOQ"/>
+                                    <constraint firstAttribute="height" constant="70" id="Oru-tJ-BGr"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VtK-Ql-POP" firstAttribute="centerY" secondItem="VVL-fW-EsX" secondAttribute="centerY" id="3oS-RJ-eeN"/>
+                            <constraint firstItem="VtK-Ql-POP" firstAttribute="centerX" secondItem="VVL-fW-EsX" secondAttribute="centerX" id="HeH-wl-qQ3"/>
+                            <constraint firstItem="VtK-Ql-POP" firstAttribute="leading" secondItem="VVL-fW-EsX" secondAttribute="leading" constant="16" id="bSH-Sf-3Wu"/>
+                            <constraint firstItem="VtK-Ql-POP" firstAttribute="top" secondItem="VVL-fW-EsX" secondAttribute="top" constant="16" id="l3Z-Vo-DmG"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="1" alpha="0.246385535415338" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="7M8-er-1lo" firstAttribute="trailing" secondItem="VVL-fW-EsX" secondAttribute="trailing" constant="12" id="4ry-8D-htC"/>
+                <constraint firstAttribute="bottom" secondItem="aqy-8S-77g" secondAttribute="bottom" id="IOg-IK-qd5"/>
+                <constraint firstItem="VVL-fW-EsX" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="SBd-u2-GlD"/>
+                <constraint firstItem="7M8-er-1lo" firstAttribute="top" secondItem="VVL-fW-EsX" secondAttribute="top" constant="-12" id="WSu-Gd-og6"/>
+                <constraint firstAttribute="trailing" secondItem="aqy-8S-77g" secondAttribute="trailing" id="ZtK-2R-FdI"/>
+                <constraint firstItem="aqy-8S-77g" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cjJ-Va-k6e"/>
+                <constraint firstItem="VVL-fW-EsX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="drQ-U9-p3F"/>
+                <constraint firstItem="aqy-8S-77g" firstAttribute="top" secondItem="VVL-fW-EsX" secondAttribute="bottom" constant="8" id="jlg-Rd-J62"/>
+            </constraints>
+            <size key="customSize" width="220" height="209"/>
+            <connections>
+                <outlet property="imageView" destination="VtK-Ql-POP" id="btk-Rc-aYC"/>
+                <outlet property="selectIconView" destination="7M8-er-1lo" id="g3W-fX-SRF"/>
+                <outlet property="titleLabel" destination="aqy-8S-77g" id="3q4-nD-UBj"/>
+            </connections>
+            <point key="canvasLocation" x="247.32824427480915" y="75.704225352112687"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon_select_app_icon" width="20" height="20"/>
+    </resources>
+</document>

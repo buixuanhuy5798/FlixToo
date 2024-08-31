@@ -30,6 +30,9 @@
 		05544AE92C7B63DC0083B591 /* MovieDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05544ADF2C7B63DC0083B591 /* MovieDetail.storyboard */; };
 		05544AEA2C7B63DC0083B591 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05544AE02C7B63DC0083B591 /* MovieDetailViewController.swift */; };
 		05544AEB2C7B63DC0083B591 /* MovieDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05544AE22C7B63DC0083B591 /* MovieDetailRouter.swift */; };
+		0556786A2C8340B600D4FEFB /* AppIconController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055678692C8340B600D4FEFB /* AppIconController.swift */; };
+		0556786D2C83441B00D4FEFB /* AppIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556786C2C83441B00D4FEFB /* AppIconCell.xib */; };
+		0556786E2C83441B00D4FEFB /* AppIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556786B2C83441B00D4FEFB /* AppIconCell.swift */; };
 		056BC8D32C7CD4290096A2FC /* PeopleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BC8D22C7CD4280096A2FC /* PeopleRepository.swift */; };
 		056BC8D72C7CDC850096A2FC /* ActorCommonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BC8D52C7CDC850096A2FC /* ActorCommonInfoCell.swift */; };
 		056BC8D82C7CDC850096A2FC /* ActorCommonInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056BC8D62C7CDC850096A2FC /* ActorCommonInfoCell.xib */; };
@@ -47,6 +50,18 @@
 		056BF30B2C80D3F400926933 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056BF30A2C80D3F400926933 /* CommentCell.xib */; };
 		056BF30C2C80D3F400926933 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BF3092C80D3F400926933 /* CommentCell.swift */; };
 		056DA9B72C7E07BB00420344 /* ActorInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056DA9B62C7E07BB00420344 /* ActorInfoView.xib */; };
+		05BE30C72C835F6800DB9E5B /* app_icon_yellowish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30C52C835F6800DB9E5B /* app_icon_yellowish@2x.png */; };
+		05BE30C82C835F6800DB9E5B /* app_icon_yellowish@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30C62C835F6800DB9E5B /* app_icon_yellowish@3x.png */; };
+		05BE30CB2C835F7200DB9E5B /* app_icon_purple_theme@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30C92C835F7100DB9E5B /* app_icon_purple_theme@2x.png */; };
+		05BE30CC2C835F7200DB9E5B /* app_icon_purple_theme@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30CA2C835F7200DB9E5B /* app_icon_purple_theme@3x.png */; };
+		05BE30CF2C835F7A00DB9E5B /* app_icon_white_beans@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30CD2C835F7900DB9E5B /* app_icon_white_beans@3x.png */; };
+		05BE30D02C835F7A00DB9E5B /* app_icon_white_beans@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30CE2C835F7A00DB9E5B /* app_icon_white_beans@2x.png */; };
+		05BE30D32C835F8300DB9E5B /* app_icon_black_shade@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30D12C835F8300DB9E5B /* app_icon_black_shade@2x.png */; };
+		05BE30D42C835F8300DB9E5B /* app_icon_black_shade@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30D22C835F8300DB9E5B /* app_icon_black_shade@3x.png */; };
+		05BE30D72C835F8B00DB9E5B /* app_icon_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30D52C835F8A00DB9E5B /* app_icon_orange@2x.png */; };
+		05BE30D82C835F8B00DB9E5B /* app_icon_orange@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30D62C835F8B00DB9E5B /* app_icon_orange@3x.png */; };
+		05BE30DB2C835F9600DB9E5B /* app_icon_original@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30D92C835F9500DB9E5B /* app_icon_original@2x.png */; };
+		05BE30DC2C835F9600DB9E5B /* app_icon_original@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30DA2C835F9600DB9E5B /* app_icon_original@3x.png */; };
 		05F685E42C7A072900EC6DF3 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05F685E32C7A072900EC6DF3 /* CategoryCell.xib */; };
 		05F685E52C7A072900EC6DF3 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F685E22C7A072900EC6DF3 /* CategoryCell.swift */; };
 		05FB82392C7ADF9D004FA411 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FB82382C7ADF9D004FA411 /* APIError.swift */; };
@@ -181,6 +196,9 @@
 		05544ADF2C7B63DC0083B591 /* MovieDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieDetail.storyboard; sourceTree = "<group>"; };
 		05544AE02C7B63DC0083B591 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		05544AE22C7B63DC0083B591 /* MovieDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailRouter.swift; sourceTree = "<group>"; };
+		055678692C8340B600D4FEFB /* AppIconController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconController.swift; sourceTree = "<group>"; };
+		0556786B2C83441B00D4FEFB /* AppIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconCell.swift; sourceTree = "<group>"; };
+		0556786C2C83441B00D4FEFB /* AppIconCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppIconCell.xib; sourceTree = "<group>"; };
 		056BC8D22C7CD4280096A2FC /* PeopleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleRepository.swift; sourceTree = "<group>"; };
 		056BC8D52C7CDC850096A2FC /* ActorCommonInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorCommonInfoCell.swift; sourceTree = "<group>"; };
 		056BC8D62C7CDC850096A2FC /* ActorCommonInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActorCommonInfoCell.xib; sourceTree = "<group>"; };
@@ -198,6 +216,18 @@
 		056BF3092C80D3F400926933 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		056BF30A2C80D3F400926933 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		056DA9B62C7E07BB00420344 /* ActorInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActorInfoView.xib; sourceTree = "<group>"; };
+		05BE30C52C835F6800DB9E5B /* app_icon_yellowish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_yellowish@2x.png"; sourceTree = "<group>"; };
+		05BE30C62C835F6800DB9E5B /* app_icon_yellowish@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_yellowish@3x.png"; sourceTree = "<group>"; };
+		05BE30C92C835F7100DB9E5B /* app_icon_purple_theme@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_purple_theme@2x.png"; sourceTree = "<group>"; };
+		05BE30CA2C835F7200DB9E5B /* app_icon_purple_theme@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_purple_theme@3x.png"; sourceTree = "<group>"; };
+		05BE30CD2C835F7900DB9E5B /* app_icon_white_beans@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_white_beans@3x.png"; sourceTree = "<group>"; };
+		05BE30CE2C835F7A00DB9E5B /* app_icon_white_beans@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_white_beans@2x.png"; sourceTree = "<group>"; };
+		05BE30D12C835F8300DB9E5B /* app_icon_black_shade@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_black_shade@2x.png"; sourceTree = "<group>"; };
+		05BE30D22C835F8300DB9E5B /* app_icon_black_shade@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_black_shade@3x.png"; sourceTree = "<group>"; };
+		05BE30D52C835F8A00DB9E5B /* app_icon_orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_orange@2x.png"; sourceTree = "<group>"; };
+		05BE30D62C835F8B00DB9E5B /* app_icon_orange@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_orange@3x.png"; sourceTree = "<group>"; };
+		05BE30D92C835F9500DB9E5B /* app_icon_original@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_original@2x.png"; sourceTree = "<group>"; };
+		05BE30DA2C835F9600DB9E5B /* app_icon_original@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_original@3x.png"; sourceTree = "<group>"; };
 		05F685E22C7A072900EC6DF3 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		05F685E32C7A072900EC6DF3 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		05FB82382C7ADF9D004FA411 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -359,10 +389,13 @@
 		0537EDD02C7A3636004F06A9 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				05BE30C42C835F5700DB9E5B /* AppIcon */,
 				0537EDD12C7A3653004F06A9 /* SettingOptionCell.swift */,
 				0537EDD22C7A3653004F06A9 /* SettingOptionCell.xib */,
 				F0FB04E32C81CD0E00510275 /* SettingInfomationCellTableViewCell.swift */,
 				F0FB04E42C81CD0E00510275 /* SettingInfomationCellTableViewCell.xib */,
+				0556786B2C83441B00D4FEFB /* AppIconCell.swift */,
+				0556786C2C83441B00D4FEFB /* AppIconCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -596,6 +629,25 @@
 				056BF3062C80CFC700926933 /* ListCommentViewController.swift */,
 			);
 			path = ListComment;
+			sourceTree = "<group>";
+		};
+		05BE30C42C835F5700DB9E5B /* AppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				05BE30D92C835F9500DB9E5B /* app_icon_original@2x.png */,
+				05BE30DA2C835F9600DB9E5B /* app_icon_original@3x.png */,
+				05BE30D52C835F8A00DB9E5B /* app_icon_orange@2x.png */,
+				05BE30D62C835F8B00DB9E5B /* app_icon_orange@3x.png */,
+				05BE30D12C835F8300DB9E5B /* app_icon_black_shade@2x.png */,
+				05BE30D22C835F8300DB9E5B /* app_icon_black_shade@3x.png */,
+				05BE30CE2C835F7A00DB9E5B /* app_icon_white_beans@2x.png */,
+				05BE30CD2C835F7900DB9E5B /* app_icon_white_beans@3x.png */,
+				05BE30C92C835F7100DB9E5B /* app_icon_purple_theme@2x.png */,
+				05BE30CA2C835F7200DB9E5B /* app_icon_purple_theme@3x.png */,
+				05BE30C52C835F6800DB9E5B /* app_icon_yellowish@2x.png */,
+				05BE30C62C835F6800DB9E5B /* app_icon_yellowish@3x.png */,
+			);
+			path = AppIcon;
 			sourceTree = "<group>";
 		};
 		05F685E12C7A066800EC6DF3 /* Cell */ = {
@@ -1047,6 +1099,7 @@
 				0537EDD02C7A3636004F06A9 /* Cell */,
 				F0770B6C2C78463A007F522F /* Setting.storyboard */,
 				F0770B6D2C78463A007F522F /* SettingViewController.swift */,
+				055678692C8340B600D4FEFB /* AppIconController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1368,37 +1421,50 @@
 			buildActionMask = 2147483647;
 			files = (
 				F052A8D32C7729C200814CCB /* Introduce.storyboard in Resources */,
+				05BE30D72C835F8B00DB9E5B /* app_icon_orange@2x.png in Resources */,
+				05BE30D32C835F8300DB9E5B /* app_icon_black_shade@2x.png in Resources */,
 				CEC696CD2C80A09C0090951B /* LibaryTagCollectionViewCell.xib in Resources */,
 				056DA9B72C7E07BB00420344 /* ActorInfoView.xib in Resources */,
 				056BF30B2C80D3F400926933 /* CommentCell.xib in Resources */,
+				05BE30C72C835F6800DB9E5B /* app_icon_yellowish@2x.png in Resources */,
 				F0770BBC2C784718007F522F /* Cinemas.storyboard in Resources */,
 				F052A8E92C78350C00814CCB /* Poppins-SemiBold.ttf in Resources */,
 				CE80B5562C81BCD100E024DB /* PopoverFilterViewController.xib in Resources */,
 				F0770C152C784F84007F522F /* Urbanist-Bold.ttf in Resources */,
 				F0E7E1F42C7EDFA5009ADE62 /* Urbanist-Medium.ttf in Resources */,
+				05BE30DC2C835F9600DB9E5B /* app_icon_original@3x.png in Resources */,
+				05BE30D42C835F8300DB9E5B /* app_icon_black_shade@3x.png in Resources */,
 				CEC696AF2C7D7BD20090951B /* PlaceTableViewCell.xib in Resources */,
 				0537EDCF2C7A2C3A004F06A9 /* MoviePosterCell.xib in Resources */,
 				0537EDD42C7A3653004F06A9 /* SettingOptionCell.xib in Resources */,
 				CEC696C32C80106F0090951B /* ListMovies.storyboard in Resources */,
 				F052A8C62C77273F00814CCB /* Assets.xcassets in Resources */,
+				0556786D2C83441B00D4FEFB /* AppIconCell.xib in Resources */,
 				05F685E42C7A072900EC6DF3 /* CategoryCell.xib in Resources */,
 				F0770BE22C784752007F522F /* Search.storyboard in Resources */,
 				F0770B462C7838C9007F522F /* IntroducePageView.xib in Resources */,
 				056BC8F82C7CE4580096A2FC /* ActorProfile.storyboard in Resources */,
 				F0770C092C784786007F522F /* Home.storyboard in Resources */,
 				F0FF96282C819B130064E535 /* MovieTrailerCell.xib in Resources */,
+				05BE30D02C835F7A00DB9E5B /* app_icon_white_beans@2x.png in Resources */,
 				05FB825D2C7B34C0004FA411 /* MovieProviderCell.xib in Resources */,
+				05BE30CB2C835F7200DB9E5B /* app_icon_purple_theme@2x.png in Resources */,
 				CEC696B82C7DC42F0090951B /* SearchNameTableViewCell.xib in Resources */,
 				F0770B442C7837F4007F522F /* Urbanist-SemiBold.ttf in Resources */,
+				05BE30DB2C835F9600DB9E5B /* app_icon_original@2x.png in Resources */,
 				F052A8C92C77273F00814CCB /* Base in Resources */,
 				056BF3012C80C10700926933 /* HomeHeaderTableView.xib in Resources */,
+				05BE30D82C835F8B00DB9E5B /* app_icon_orange@3x.png in Resources */,
+				05BE30CF2C835F7A00DB9E5B /* app_icon_white_beans@3x.png in Resources */,
 				F052A8DD2C78183600814CCB /* Poppins-Regular.ttf in Resources */,
+				05BE30CC2C835F7200DB9E5B /* app_icon_purple_theme@3x.png in Resources */,
 				F052A8DA2C7817CC00814CCB /* AbrilFatface-Regular.ttf in Resources */,
 				05FB82512C7B0DFB004FA411 /* BounderListMovieCell.xib in Resources */,
 				F052A8C42C77273D00814CCB /* Base in Resources */,
 				05544AE92C7B63DC0083B591 /* MovieDetail.storyboard in Resources */,
 				CEC696B32C7D81540090951B /* CenimaTableViewCell.xib in Resources */,
 				056BC8D82C7CDC850096A2FC /* ActorCommonInfoCell.xib in Resources */,
+				05BE30C82C835F6800DB9E5B /* app_icon_yellowish@3x.png in Resources */,
 				F0770B752C78463A007F522F /* Setting.storyboard in Resources */,
 				05544AC12C7B57D40083B591 /* Genres.storyboard in Resources */,
 				CEC696BD2C7F19850090951B /* GenreCollectionViewCell.xib in Resources */,
@@ -1479,6 +1545,7 @@
 				F0770B762C78463A007F522F /* SettingViewController.swift in Sources */,
 				F0FB04E22C81B9E300510275 /* UserInfomation.swift in Sources */,
 				056BC8FE2C7CE4580096A2FC /* ActorProfileProtocol.swift in Sources */,
+				0556786E2C83441B00D4FEFB /* AppIconCell.swift in Sources */,
 				F0770C0A2C784786007F522F /* HomeViewController.swift in Sources */,
 				056BC8FA2C7CE4580096A2FC /* ActorProfileEntity.swift in Sources */,
 				05544AC22C7B57D40083B591 /* GenresViewController.swift in Sources */,
@@ -1551,6 +1618,7 @@
 				F0FF96242C819A720064E535 /* MovieTrailerController.swift in Sources */,
 				F0770C082C784786007F522F /* HomePresenter.swift in Sources */,
 				F0E7E1EE2C7ECE6C009ADE62 /* UIViewController+Extension.swift in Sources */,
+				0556786A2C8340B600D4FEFB /* AppIconController.swift in Sources */,
 				F0770C112C7849FC007F522F /* Utils.swift in Sources */,
 				056BC8FB2C7CE4580096A2FC /* ActorProfilePresenter.swift in Sources */,
 				05FB824A2C7B0BB4004FA411 /* VerticalAlignedLabel.swift in Sources */,
@@ -1714,8 +1782,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A719AB4B277AB458B1EDAB7 /* Pods-FLixToo.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T6QW536M34;
@@ -1746,8 +1815,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3DEB40B140CDEA9C6441E4E6 /* Pods-FLixToo.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T6QW536M34;
