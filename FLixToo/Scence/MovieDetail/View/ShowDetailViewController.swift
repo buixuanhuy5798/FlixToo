@@ -11,6 +11,9 @@ import Reusable
 
 class ShowDetailViewController: UIViewController {
 
+    @IBOutlet weak var heightOfSimiliarCollectionView: NSLayoutConstraint!
+    @IBOutlet weak var similiarTitleLabel: UILabel!
+    @IBOutlet weak var similiarCollectionView: UICollectionView!
     @IBOutlet weak var heightOfActorCollectionView: NSLayoutConstraint!
     @IBOutlet weak var actorCollectionView: UICollectionView!
     @IBOutlet weak var actorTitleLabel: UILabel!
@@ -33,6 +36,7 @@ class ShowDetailViewController: UIViewController {
     var id: Int?
     var crew = [Cast]()
     var cast = [Cast]()
+    var similarShows = [TvShowCommonInfomation]()
     
     var detail: ShowDetail? {
         didSet {
@@ -83,6 +87,14 @@ class ShowDetailViewController: UIViewController {
             self?.crewCollectionView.reloadData()
         })
         .disposed(by: disposebag)
+        repository.getSimilarShow(id: id, page: 1, checking: .unchecked).subscribe(onSuccess: { [weak self] response in
+            guard let results = response.results else {
+                return
+            }
+            self?.similarShows = results
+            self?.similiarCollectionView.reloadData()
+        })
+        .disposed(by: disposebag)
     }
     
     private func setUpView() {
@@ -102,6 +114,9 @@ class ShowDetailViewController: UIViewController {
         actorTitleLabel.textColor = .white
         aboutMovieContentLabel.font = Typography.fontRegular14
         aboutMovieContentLabel.textColor = .white
+        similiarTitleLabel.text = "More Shows like this"
+        similiarTitleLabel.font = Typography.fontSemibold18
+        similiarTitleLabel.textColor = .white
         setUpCrewCollectionView()
         setUpActorsAndSimilarCollectionView()
     }
@@ -169,6 +184,7 @@ class ShowDetailViewController: UIViewController {
         let itemHeight = itemWitdh * 194/102 + 16
         heightOfSeasonCollectionView.constant = itemHeight + 8
         heightOfActorCollectionView.constant = itemHeight + 8
+        heightOfSimiliarCollectionView.constant = itemHeight + 8
         layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
         seasonCollectionView.collectionViewLayout = layout
         seasonCollectionView.dataSource = self
@@ -178,6 +194,10 @@ class ShowDetailViewController: UIViewController {
         actorCollectionView.dataSource = self
 //        actorCollectionView.delegate = self
         actorCollectionView.register(cellType: MoviePosterCell.self)
+        similiarCollectionView.collectionViewLayout = layout
+        similiarCollectionView.dataSource = self
+//        actorCollectionView.delegate = self
+        similiarCollectionView.register(cellType: MoviePosterCell.self)
     }
 }
 
@@ -194,12 +214,9 @@ extension ShowDetailViewController: UICollectionViewDataSource {
             return detail?.seasons?.count ?? 0
         } else if collectionView == actorCollectionView {
             return cast.count
+        } else if collectionView == similiarCollectionView {
+            return similarShows.count
         }
-//        else if collectionView == actorCollectionView {
-//            return cast.count
-//        } else if collectionView == similarCollectionView {
-//            return similarMovies.count
-//        }
         return 0
     }
     
@@ -218,12 +235,11 @@ extension ShowDetailViewController: UICollectionViewDataSource {
            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
            cell.setContentForCell(data: cast[indexPath.row])
            return cell
-       }
-//        else if collectionView == similarCollectionView {
-//            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
-//            cell.setContentForCell(data: similarMovies[indexPath.row])
-//            return cell
-//        }
+       } else if collectionView == similiarCollectionView {
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
+            cell.setContentForCell(data: similarShows[indexPath.row])
+            return cell
+        }
         return UICollectionViewCell()
     }
 }

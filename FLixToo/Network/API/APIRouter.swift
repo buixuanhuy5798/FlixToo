@@ -33,6 +33,7 @@ enum APIRouter {
     
     case getShowDetail(id: Int)
     case getShowCredit(id: Int)
+    case getSimilarShow(id: Int, page: Int)
     
     var method: HTTPMethod {
         switch self {
@@ -93,6 +94,8 @@ enum APIRouter {
             return "tv/\(id)"
         case .getShowCredit(let id):
             return "/tv/\(id)/credits"
+        case .getSimilarShow(let id, _):
+            return "/tv/\(id)/similar"
         }
     }
     

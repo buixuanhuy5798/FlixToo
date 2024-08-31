@@ -167,12 +167,6 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcr-TQ-FPQ">
-                                        <rect key="frame" x="16" y="728" width="361" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pda-6D-eJi">
                                         <rect key="frame" x="0.0" y="765" width="393" height="120"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -196,6 +190,41 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcr-TQ-FPQ">
+                                        <rect key="frame" x="16" y="728" width="361" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaF-uk-mpI">
+                                        <rect key="frame" x="16" y="901" width="361" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uRI-Be-wfo">
+                                        <rect key="frame" x="0.0" y="938" width="393" height="120"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="Iem-fB-xbo"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UiC-0T-dil">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="plP-Rk-CyR">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ran-Mq-S6F">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="fpS-Nl-kj5" secondAttribute="trailing" constant="16" id="24u-dZ-3n6"/>
@@ -206,6 +235,7 @@
                                     <constraint firstItem="Wcr-TQ-FPQ" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" constant="16" id="6Va-mn-ZVP"/>
                                     <constraint firstItem="01H-pM-WtB" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" constant="16" id="7OP-oe-XQs"/>
                                     <constraint firstItem="hCh-G4-4TJ" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" id="841-Lh-7yP"/>
+                                    <constraint firstAttribute="trailing" secondItem="eaF-uk-mpI" secondAttribute="trailing" constant="16" id="BSA-mT-B9U"/>
                                     <constraint firstItem="XsV-FM-XiU" firstAttribute="top" secondItem="Zb3-c8-65f" secondAttribute="bottom" constant="24" id="DCa-HI-tQE"/>
                                     <constraint firstItem="oyB-JM-yQy" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" constant="16" id="E3g-oH-i39"/>
                                     <constraint firstItem="pgQ-1T-mVB" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" id="Efv-fr-jq6"/>
@@ -214,17 +244,23 @@
                                     <constraint firstAttribute="trailing" secondItem="7nr-n7-LQx" secondAttribute="trailing" constant="16" id="KwR-gK-ZNv"/>
                                     <constraint firstItem="oyB-JM-yQy" firstAttribute="top" secondItem="XsV-FM-XiU" secondAttribute="bottom" constant="8" id="LpA-LU-Qoi"/>
                                     <constraint firstItem="01H-pM-WtB" firstAttribute="top" secondItem="oyB-JM-yQy" secondAttribute="bottom" constant="16" id="Mcz-gO-78S"/>
+                                    <constraint firstItem="eaF-uk-mpI" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" constant="16" id="ObV-x0-oWn"/>
+                                    <constraint firstAttribute="trailing" secondItem="uRI-Be-wfo" secondAttribute="trailing" id="OrC-Oe-Ygo"/>
                                     <constraint firstItem="7fZ-Wt-yye" firstAttribute="top" secondItem="fpS-Nl-kj5" secondAttribute="bottom" constant="16" id="OuY-a0-Qsw"/>
                                     <constraint firstAttribute="trailing" secondItem="01H-pM-WtB" secondAttribute="trailing" constant="16" id="RE9-u0-2Qw"/>
                                     <constraint firstItem="Pda-6D-eJi" firstAttribute="top" secondItem="Wcr-TQ-FPQ" secondAttribute="bottom" constant="16" id="SFH-2Q-qg1"/>
+                                    <constraint firstItem="uRI-Be-wfo" firstAttribute="top" secondItem="eaF-uk-mpI" secondAttribute="bottom" constant="16" id="Tu9-96-4ZW"/>
+                                    <constraint firstItem="eaF-uk-mpI" firstAttribute="top" secondItem="Pda-6D-eJi" secondAttribute="bottom" constant="16" id="U0h-Hz-miu"/>
                                     <constraint firstItem="9Vu-lB-UOl" firstAttribute="top" secondItem="PnI-k1-z2C" secondAttribute="top" id="VXP-oS-hqR"/>
                                     <constraint firstItem="Pda-6D-eJi" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" id="WtN-GM-yX0"/>
+                                    <constraint firstAttribute="bottom" secondItem="uRI-Be-wfo" secondAttribute="bottom" constant="100" id="X8I-bZ-vAr"/>
                                     <constraint firstItem="fpS-Nl-kj5" firstAttribute="top" secondItem="7nr-n7-LQx" secondAttribute="bottom" constant="16" id="Xtp-uT-NNg"/>
                                     <constraint firstAttribute="trailing" secondItem="9Vu-lB-UOl" secondAttribute="trailing" id="Yqj-0L-a93"/>
                                     <constraint firstAttribute="trailing" secondItem="Pda-6D-eJi" secondAttribute="trailing" id="aGy-Vf-462"/>
                                     <constraint firstItem="7nr-n7-LQx" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" constant="16" id="c4J-Xw-g6L"/>
                                     <constraint firstAttribute="trailing" secondItem="7fZ-Wt-yye" secondAttribute="trailing" constant="16" id="d6h-I4-o9Y"/>
                                     <constraint firstItem="9Vu-lB-UOl" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" id="ekv-wh-7PR"/>
+                                    <constraint firstItem="uRI-Be-wfo" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" id="fVE-9P-r6O"/>
                                     <constraint firstAttribute="trailing" secondItem="pgQ-1T-mVB" secondAttribute="trailing" id="gBa-TP-nmn"/>
                                     <constraint firstItem="fpS-Nl-kj5" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" constant="16" id="giX-df-dSu"/>
                                     <constraint firstItem="Zb3-c8-65f" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" constant="16" id="hFa-Ry-5zb"/>
@@ -236,7 +272,6 @@
                                     <constraint firstAttribute="trailing" secondItem="MMa-gd-lJ1" secondAttribute="trailing" constant="16" id="nWT-dZ-LSK"/>
                                     <constraint firstItem="XsV-FM-XiU" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" constant="16" id="oUg-7b-GJG"/>
                                     <constraint firstItem="MMa-gd-lJ1" firstAttribute="leading" secondItem="DFt-W8-s5j" secondAttribute="trailing" constant="4" id="pw3-KK-2oZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="9Vu-lB-UOl" secondAttribute="bottom" constant="1000" id="r2l-2X-FQY"/>
                                     <constraint firstAttribute="trailing" secondItem="Wcr-TQ-FPQ" secondAttribute="trailing" constant="16" id="uQH-Mw-Wa9"/>
                                     <constraint firstItem="DFt-W8-s5j" firstAttribute="width" secondItem="DFt-W8-s5j" secondAttribute="height" id="wFV-VO-9Hg"/>
                                     <constraint firstItem="moo-xr-EHa" firstAttribute="leading" secondItem="PnI-k1-z2C" secondAttribute="leading" constant="16" id="xqa-F0-qMl"/>
@@ -281,11 +316,14 @@
                         <outlet property="generLabel" destination="fpS-Nl-kj5" id="eSN-af-XOl"/>
                         <outlet property="heightOfActorCollectionView" destination="7np-N8-jKn" id="qaj-pz-MkG"/>
                         <outlet property="heightOfSeasonCollectionView" destination="ILF-qf-SKS" id="R1K-vY-L7r"/>
+                        <outlet property="heightOfSimiliarCollectionView" destination="Iem-fB-xbo" id="8ox-et-WfO"/>
                         <outlet property="imdbScoreLabel" destination="MMa-gd-lJ1" id="3KH-N1-Sgb"/>
                         <outlet property="languageLabel" destination="01H-pM-WtB" id="1wE-45-h5x"/>
                         <outlet property="movieNameLabel" destination="7nr-n7-LQx" id="ALF-JE-ZKS"/>
                         <outlet property="seasonCollectionView" destination="pgQ-1T-mVB" id="MUn-P1-p89"/>
                         <outlet property="seasonLabel" destination="moo-xr-EHa" id="eiy-TX-AWg"/>
+                        <outlet property="similiarCollectionView" destination="uRI-Be-wfo" id="5qF-pJ-scP"/>
+                        <outlet property="similiarTitleLabel" destination="eaF-uk-mpI" id="9d3-iC-dwa"/>
                         <outlet property="watchTrailerButton" destination="7fZ-Wt-yye" id="GI8-C5-tYj"/>
                     </connections>
                 </viewController>
