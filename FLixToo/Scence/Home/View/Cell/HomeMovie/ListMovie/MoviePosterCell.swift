@@ -11,17 +11,26 @@ import Kingfisher
 
 class MoviePosterCell: UICollectionViewCell, NibReusable {
 
+    @IBOutlet weak var deleteView: UIView!
     @IBOutlet weak var nameLabel: VerticalAlignedLabel!
     @IBOutlet weak var imageView: UIImageView!
+    
+    var onTapDelete: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         nameLabel.contentMode = .top
         nameLabel.font = Typography.fontMedium14
         nameLabel.textColor = .white
+        deleteView.isHidden = true
     }
     
-    func setContentForCell(data: SaveData) {
+    @IBAction func handleDeleteButton(_ sender: UIButton) {
+        onTapDelete?()
+    }
+    
+    func setContentForCell(data: SaveData, isShowDelete: Bool) {
+        deleteView.isHidden = !isShowDelete
         nameLabel.text = data.name
         imageView.kf.setImage(
             with: Utils.getUrlImage(path: data.imagePath ?? ""),

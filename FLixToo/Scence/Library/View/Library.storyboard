@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="124" width="393" height="694"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5BJ-jt-4a4">
-                                        <rect key="frame" x="16" y="12" width="361" height="30"/>
+                                        <rect key="frame" x="16" y="0.0" width="361" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="rV2-au-jV2"/>
@@ -101,7 +101,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w7d-aV-Vbn">
-                                        <rect key="frame" x="0.0" y="58" width="393" height="620"/>
+                                        <rect key="frame" x="0.0" y="70" width="393" height="608"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="14L-Yo-3By">
                                             <size key="itemSize" width="128" height="128"/>
@@ -111,19 +111,53 @@
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eh5-dB-IgQ">
+                                        <rect key="frame" x="0.0" y="30" width="393" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Library" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXg-g6-ZVR">
+                                                <rect key="frame" x="16" y="9.6666666666666572" width="59" height="21"/>
+                                                <fontDescription key="fontDescription" name="Urbanist-Bold" family="Urbanist" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAb-3J-fft">
+                                                <rect key="frame" x="357" y="10" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Qwf-Qx-B0U"/>
+                                                    <constraint firstAttribute="width" constant="20" id="w5K-Qz-naf"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="ic_edit"/>
+                                                <connections>
+                                                    <action selector="handleEditButton:" destination="X1G-87-qlq" eventType="touchUpInside" id="Urh-Jq-YoU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="fXg-g6-ZVR" firstAttribute="leading" secondItem="Eh5-dB-IgQ" secondAttribute="leading" constant="16" id="RXw-Cs-3Oe"/>
+                                            <constraint firstItem="kAb-3J-fft" firstAttribute="centerY" secondItem="Eh5-dB-IgQ" secondAttribute="centerY" id="RhJ-yP-gE3"/>
+                                            <constraint firstItem="fXg-g6-ZVR" firstAttribute="centerY" secondItem="Eh5-dB-IgQ" secondAttribute="centerY" id="jeG-KD-ydo"/>
+                                            <constraint firstAttribute="trailing" secondItem="kAb-3J-fft" secondAttribute="trailing" constant="16" id="kBY-pC-rWm"/>
+                                            <constraint firstAttribute="height" constant="40" id="rqZ-25-OzO"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="2cI-bL-BMd" firstAttribute="leading" secondItem="UYb-BI-bGc" secondAttribute="leading" constant="32" id="1Ls-LE-rZD"/>
                                     <constraint firstItem="5BJ-jt-4a4" firstAttribute="leading" secondItem="UYb-BI-bGc" secondAttribute="leading" constant="16" id="5do-7h-HPB"/>
-                                    <constraint firstItem="w7d-aV-Vbn" firstAttribute="top" secondItem="5BJ-jt-4a4" secondAttribute="bottom" constant="16" id="76e-fp-Cpp"/>
                                     <constraint firstAttribute="trailing" secondItem="5BJ-jt-4a4" secondAttribute="trailing" constant="16" id="8Mr-If-WO8"/>
+                                    <constraint firstItem="Eh5-dB-IgQ" firstAttribute="leading" secondItem="UYb-BI-bGc" secondAttribute="leading" id="8wH-QX-yVr"/>
+                                    <constraint firstItem="w7d-aV-Vbn" firstAttribute="top" secondItem="Eh5-dB-IgQ" secondAttribute="bottom" id="AcP-3D-I3h"/>
                                     <constraint firstAttribute="bottom" secondItem="w7d-aV-Vbn" secondAttribute="bottom" constant="16" id="HR1-aO-FWW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Eh5-dB-IgQ" secondAttribute="trailing" id="HYk-Nu-BUb"/>
                                     <constraint firstAttribute="trailing" secondItem="w7d-aV-Vbn" secondAttribute="trailing" id="NuU-7W-uZQ"/>
                                     <constraint firstItem="2cI-bL-BMd" firstAttribute="centerX" secondItem="UYb-BI-bGc" secondAttribute="centerX" id="OzZ-Of-sok"/>
-                                    <constraint firstItem="5BJ-jt-4a4" firstAttribute="top" secondItem="UYb-BI-bGc" secondAttribute="top" constant="12" id="nZF-LJ-0aP"/>
+                                    <constraint firstItem="Eh5-dB-IgQ" firstAttribute="top" secondItem="5BJ-jt-4a4" secondAttribute="bottom" id="Wx2-Q3-WDS"/>
                                     <constraint firstItem="w7d-aV-Vbn" firstAttribute="leading" secondItem="UYb-BI-bGc" secondAttribute="leading" id="rwc-ju-s3R"/>
                                     <constraint firstItem="2cI-bL-BMd" firstAttribute="centerY" secondItem="UYb-BI-bGc" secondAttribute="centerY" id="v2H-47-jO7"/>
+                                    <constraint firstItem="5BJ-jt-4a4" firstAttribute="top" secondItem="UYb-BI-bGc" secondAttribute="top" id="xAw-1Q-RCe"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tru-6q-kaf">
@@ -185,6 +219,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="contentLabel" destination="fXg-g6-ZVR" id="nVg-mH-cKZ"/>
                         <outlet property="emptyView" destination="2cI-bL-BMd" id="R4u-1p-Ihk"/>
                         <outlet property="moviesCollectionView" destination="w7d-aV-Vbn" id="wGq-7h-obV"/>
                         <outlet property="tagsCollectionView" destination="5BJ-jt-4a4" id="Lhi-2p-Bh3"/>
@@ -197,6 +232,7 @@
     </scenes>
     <resources>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
+        <image name="ic_edit" width="16" height="16"/>
         <image name="ic_empty_box" width="96" height="96"/>
         <image name="ic_filtter" width="30" height="30"/>
         <namedColor>

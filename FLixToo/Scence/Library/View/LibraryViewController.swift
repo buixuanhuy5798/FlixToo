@@ -16,6 +16,7 @@ enum FilterLibraryType {
 
 final class LibraryViewController: UIViewController {
 
+    @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     @IBOutlet weak var tagsCollectionView: UICollectionView!
@@ -23,6 +24,8 @@ final class LibraryViewController: UIViewController {
     var presenter: LibraryPresenterProtocol!
     
     var filterType: FilterLibraryType = .all
+    
+    var isShowDelete = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,8 @@ final class LibraryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter.update()
+        moviesCollectionView.reloadData()
         if presenter.favList.isEmpty,
             presenter.dislikedList.isEmpty,
            presenter.watchLaterList.isEmpty,
@@ -44,6 +49,11 @@ final class LibraryViewController: UIViewController {
             moviesCollectionView.isHidden = false
             tagsCollectionView.isHidden = false
         }
+    }
+    
+    @IBAction func handleEditButton(_ sender: Any) {
+        isShowDelete.toggle()
+        moviesCollectionView.reloadData()
     }
     
     @IBAction func handleFilterButton(_ sender: UIButton) {
@@ -108,6 +118,33 @@ final class LibraryViewController: UIViewController {
             return data
         }
     }
+    
+    private func delete(id: Int) {
+        presenter.favList = UserInfomation.favList
+        presenter.watchLaterList = UserInfomation.watchLaterList
+        presenter.watchedList = UserInfomation.watchedList
+        presenter.dislikedList = UserInfomation.dislikeList
+        switch presenter.tagSelected {
+        case .favorite:
+            if let index = UserInfomation.favList.firstIndex(where:  { $0.id == id }) {
+                UserInfomation.favList.remove(at: index)
+            }
+        case .watchLater:
+            if let index = UserInfomation.watchLaterList.firstIndex(where:  { $0.id == id }) {
+                UserInfomation.favList.remove(at: index)
+            }
+        case .watched:
+            if let index = UserInfomation.watchedList.firstIndex(where:  { $0.id == id }) {
+                UserInfomation.favList.remove(at: index)
+            }
+        case .disliked:
+            if let index = UserInfomation.dislikeList.firstIndex(where:  { $0.id == id }) {
+                UserInfomation.favList.remove(at: index)
+            }
+        }
+        presenter.update()
+        moviesCollectionView.reloadData()
+    }
 }
 
 extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -127,7 +164,10 @@ extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDataS
        
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
         let item = getMovies()[indexPath.row]
-        cell.setContentForCell(data: item)
+        cell.setContentForCell(data: item, isShowDelete: isShowDelete)
+        cell.onTapDelete = { [weak self] in
+            self?.delete(id: item.id ?? 0)
+        }
         return cell
     }
     

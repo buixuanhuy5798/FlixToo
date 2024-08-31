@@ -76,6 +76,11 @@ class MovieDetailViewController: UIViewController {
         setUpTableView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     @objc private func handleTapAllBackdrop() {
         let vc = MovieBackdropImageShowControllerViewController.instantiate()
         vc.backdrop = backdrop

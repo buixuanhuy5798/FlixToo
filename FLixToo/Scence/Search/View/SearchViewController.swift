@@ -179,6 +179,12 @@ class SearchViewController: BaseViewController {
             self?.showsCollectionView.reloadData()
         }
     }
+    
+    func openMovieDetail(id: Int) {
+        let vc = MovieDetailViewController.instantiate()
+        vc.presenter.id = id
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -195,6 +201,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = self.results[indexPath.row]
+        openMovieDetail(id: movie.id)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -229,16 +240,11 @@ extension SearchViewController: UICollectionViewDataSource {
 
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        switch presenter.data[collectionView.tag] {
-//        case .categories(let data):
-//            switch data[indexPath.row] {
-//            case .movie:
-//                print("Explore Movie")
-//            case .show:
-//                print("Explore Show")
-//            }
-//
-//        }
+        if collectionView == moviesCollectionView {
+            openMovieDetail(id: movies[indexPath.row].id ?? 0)
+        } else {
+            openMovieDetail(id: shows[indexPath.row].id ?? 0)
+        }
     }
 }
 

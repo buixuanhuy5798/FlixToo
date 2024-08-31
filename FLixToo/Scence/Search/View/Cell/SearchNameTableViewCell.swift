@@ -14,6 +14,7 @@ final class SearchNameTableViewCell: UITableViewCell, NibReusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
 
     func configCell(title: String) {
