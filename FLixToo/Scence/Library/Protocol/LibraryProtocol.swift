@@ -21,6 +21,7 @@ protocol LibraryPresenterProtocol: AnyObject {
     var watchedList: [SaveData] { get set }
     var dislikedList: [SaveData] { get set }
     func onViewDidLoad()
+    func update()
 }
 
 protocol LibraryInteractorInputProtocol: AnyObject {

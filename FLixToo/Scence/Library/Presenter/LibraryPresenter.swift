@@ -22,6 +22,13 @@ final class LibraryPresenter: LibraryPresenterProtocol {
     
     func onViewDidLoad() {
     }
+    
+    func update() {
+        favList = UserInfomation.favList
+        watchLaterList = UserInfomation.watchLaterList
+        watchedList = UserInfomation.watchedList
+        dislikedList = UserInfomation.dislikeList
+    }
 }
 
 extension LibraryPresenter:LibraryInteractorOutputProtocol {

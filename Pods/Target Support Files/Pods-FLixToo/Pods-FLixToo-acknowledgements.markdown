@@ -48,6 +48,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
+## Google-Mobile-Ads-SDK
+
+Copyright 2024 Google LLC
+
+## GoogleUserMessagingPlatform
+
+Copyright 2024 Google LLC
+
 ## ImageSlideshow
 
 Copyright (c) 2015 Petr Zvoníček <zvonicek@gmail.com>
