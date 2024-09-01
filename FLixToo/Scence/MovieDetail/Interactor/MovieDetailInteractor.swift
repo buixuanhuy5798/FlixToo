@@ -58,7 +58,7 @@ final class MovieDetailInteractor: MovieDetailInteractorInputProtocol {
     }
     
     func getAllBackdrops(id: Int) {
-        repository.getBackdropImages(id: id).subscribe(onSuccess: { [weak self] response in
+        repository.getBackdropImages(id: id, type: .movie).subscribe(onSuccess: { [weak self] response in
             self?.output?.getAllBackdropSuccess(backdrop: response)
         }, onFailure: { [weak self] error in
             if let error = error as? APIErrorResponse {
@@ -71,7 +71,7 @@ final class MovieDetailInteractor: MovieDetailInteractorInputProtocol {
     }
     
     func getComment(id: Int, page: Int, checking: CheckingType) {
-        repository.getReview(id: id, page: page, checking: checking).subscribe(onSuccess: { [weak self] response in
+        repository.getReview(id: id, page: page, checking: checking, type: .movie).subscribe(onSuccess: { [weak self] response in
             guard let results = response.results else {
                 return
             }

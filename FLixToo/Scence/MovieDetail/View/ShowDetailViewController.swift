@@ -8,9 +8,14 @@
 import UIKit
 import RxSwift
 import Reusable
+import Kingfisher
 
 class ShowDetailViewController: UIViewController {
 
+    @IBOutlet weak var commentTableView: UITableView!
+    @IBOutlet weak var mediaTitleLabel: UILabel!
+    @IBOutlet weak var backdropLabel: UILabel!
+    @IBOutlet weak var allBackdropImageView: UIImageView!
     @IBOutlet weak var heightOfSimiliarCollectionView: NSLayoutConstraint!
     @IBOutlet weak var similiarTitleLabel: UILabel!
     @IBOutlet weak var similiarCollectionView: UICollectionView!
@@ -37,6 +42,8 @@ class ShowDetailViewController: UIViewController {
     var crew = [Cast]()
     var cast = [Cast]()
     var similarShows = [TvShowCommonInfomation]()
+    var backdrop: BackdropsMovie?
+    var comment = [Comment]()
     
     var detail: ShowDetail? {
         didSet {
@@ -95,6 +102,34 @@ class ShowDetailViewController: UIViewController {
             self?.similiarCollectionView.reloadData()
         })
         .disposed(by: disposebag)
+        repository.getBackdropImages(id: id, type: .show).subscribe(onSuccess: { [weak self] response in
+            self?.backdrop = response
+            let path = self?.backdrop?.backdrops?.randomElement()?.filePath ?? ""
+            self?.allBackdropImageView.kf.setImage(
+                    with: Utils.getUrlImage(path: path),
+                    options: [
+                        .loadDiskFileSynchronously,
+                        .cacheOriginalImage,
+                        .transition(.fade(0.1)),
+                    ])
+            self?.allBackdropImageView.blurBottom()
+            self?.backdropLabel.text = "\(self?.backdrop?.backdrops?.count ?? 0) backdrops"
+        }, onFailure: { [weak self] error in
+            if let error = error as? APIErrorResponse {
+                self?.showCommonError(message: error.message ?? "")
+            } else {
+                self?.showCommonError(message: error.localizedDescription)
+            }
+        })
+        .disposed(by: disposebag)
+        repository.getReview(id: id, page: 1, checking: .unchecked, type: .show).subscribe(onSuccess: { [weak self] response in
+            guard let results = response.results else {
+                return
+            }
+            self?.comment = results
+            self?.commentTableView.reloadData()
+        })
+        .disposed(by: disposebag)
     }
     
     private func setUpView() {
@@ -117,14 +152,38 @@ class ShowDetailViewController: UIViewController {
         similiarTitleLabel.text = "More Shows like this"
         similiarTitleLabel.font = Typography.fontSemibold18
         similiarTitleLabel.textColor = .white
+        mediaTitleLabel.font = Typography.fontSemibold18
+        mediaTitleLabel.textColor = .white
+        backdropLabel.font = Typography.fontSemibold18
+        backdropLabel.textColor = .white
+        mediaTitleLabel.text = "Media"
+        allBackdropImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapAllBackdrop)))
+        allBackdropImageView.isUserInteractionEnabled = true
         setUpCrewCollectionView()
         setUpActorsAndSimilarCollectionView()
+        commentTableView.register(cellType: CommentCell.self)
+        commentTableView.dataSource = self
+        commentTableView.rowHeight = UITableView.automaticDimension
     }
     
-
+    @objc private func handleTapAllBackdrop() {
+        let vc = MovieBackdropImageShowControllerViewController.instantiate()
+        vc.backdrop = backdrop
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
+    }
+    
+    @IBAction func handleTapSeeAllButton(_ sender: Any) {
+        let vc = CommentViewController.instantiate()
+        vc.id = self.detail?.id
+        vc.type = .show
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func handleTapWatchTrailerButton(_ sender: Any) {
         let vc = MovieTrailerController.instantiate()
         vc.id = id
+        vc.type = .show
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -241,5 +300,17 @@ extension ShowDetailViewController: UICollectionViewDataSource {
             return cell
         }
         return UICollectionViewCell()
+    }
+}
+
+extension ShowDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comment.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
+        cell.setContentForCell(comment: comment[indexPath.row], showSeparaterView: indexPath.row + 1 != comment.count)
+        return cell
     }
 }

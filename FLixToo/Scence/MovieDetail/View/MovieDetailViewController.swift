@@ -79,11 +79,15 @@ class MovieDetailViewController: UIViewController {
     @objc private func handleTapAllBackdrop() {
         let vc = MovieBackdropImageShowControllerViewController.instantiate()
         vc.backdrop = backdrop
+        vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
     }
     
     @IBAction func handleTapSeeAll(_ sender: Any) {
-        
+        let vc = CommentViewController.instantiate()
+        vc.id = self.detail?.id
+        vc.type = .movie
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func handleTapAddToLibraryButton(_ sender: Any) {
@@ -253,7 +257,7 @@ extension MovieDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
-        cell.setContentForCell(comment: comment[indexPath.row])
+        cell.setContentForCell(comment: comment[indexPath.row], showSeparaterView: indexPath.row + 1 != comment.count)
         
         return cell
     }

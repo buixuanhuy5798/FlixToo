@@ -60,7 +60,18 @@ extension APIService {
         
         switch response.result {
         case let .success(result):
-            singleEvent(.success(result))
+
+            let httpCode = HttpStatusCode(rawValue: code ?? -1) ?? .unknown
+            if let code = code {
+                switch code {
+                case HttpStatusCode.ok.rawValue:
+                    singleEvent(.success(result))
+                default:
+                    singleEvent(.failure(APIErrorResponse(code: code, message: message, success: success, httpCode: httpCode)))
+                }
+            } else {
+                singleEvent(.success(result))
+            }
         case let .failure(errorResponse):
             switch errorResponse {
             case .responseSerializationFailed:

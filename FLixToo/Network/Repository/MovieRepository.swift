@@ -42,9 +42,9 @@ protocol MovieRepositoryType {
     
     func getSimilarMove(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>>
     func getMovieCredit(id: Int) -> Single<MovieCredit>
-    func getBackdropImages(id: Int) -> Single<BackdropsMovie>
-    func getReview(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[Comment]>>
-    func getVideo(id: Int) -> Single<BaseResponse<[MovieVideo]>>
+    func getBackdropImages(id: Int, type: HomeCategoryOption) -> Single<BackdropsMovie>
+    func getReview(id: Int, page: Int, checking: CheckingType, type: HomeCategoryOption) -> Single<BasePageResponse<[Comment]>> 
+    func getVideo(id: Int, type: HomeCategoryOption) -> Single<BaseResponse<[MovieVideo]>>
     func getShowDetail(id: Int) -> Single<ShowDetail>
     func getShowCredit(id: Int) -> Single<MovieCredit>
     func getSimilarShow(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
@@ -97,8 +97,13 @@ struct MovieRepository: MovieRepositoryType {
         return api.request(router: .getSimilarMovie(id: id, page: page), checking: checking)
     }
     
-    func getBackdropImages(id: Int) -> Single<BackdropsMovie> {
-        return api.request(router: .getAllBackdrops(id: id), checking: .unchecked)
+    func getBackdropImages(id: Int, type: HomeCategoryOption) -> Single<BackdropsMovie> {
+        switch type {
+        case .movie:
+            return api.request(router: .getAllBackdropsMovie(id: id), checking: .unchecked)
+        case .show:
+            return api.request(router: .getAllBackdropsShow(id: id), checking: .unchecked)
+        }
     }
     
     func getMoviesByGenre(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>> {
@@ -109,12 +114,23 @@ struct MovieRepository: MovieRepositoryType {
         return api.request(router: .getMoviesByGenre(id: id, page: page), checking: checking)
     }
     
-    func getReview(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[Comment]>> {
-        return api.request(router: .getReview(id: id, page: page), checking: checking)
+    func getReview(id: Int, page: Int, checking: CheckingType, type: HomeCategoryOption) -> Single<BasePageResponse<[Comment]>> {
+        switch type {
+        case .movie:
+            return api.request(router: .getMovieReview(id: id, page: page), checking: checking)
+        case .show:
+            return api.request(router: .getShowReview(id: id, page: page), checking: checking)
+        }
     }
     
-    func getVideo(id: Int) -> Single<BaseResponse<[MovieVideo]>> {
-        return api.request(router: .getMovieVideo(id: id), checking: .checked)
+    func getVideo(id: Int, type: HomeCategoryOption) -> Single<BaseResponse<[MovieVideo]>> {
+        switch type {
+        case .movie:
+            return api.request(router: .getMovieVideo(id: id), checking: .checked)
+        case .show:
+            return api.request(router: .getShowVideo(id: id), checking: .checked)
+        }
+       
     }
     
     func getShowDetail(id: Int) -> Single<ShowDetail> {

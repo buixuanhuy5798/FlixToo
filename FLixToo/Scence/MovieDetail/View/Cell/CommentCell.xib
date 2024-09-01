@@ -43,7 +43,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWK-Jg-h52">
-                        <rect key="frame" x="16" y="74" width="396" height="74"/>
+                        <rect key="frame" x="16" y="74" width="396" height="66"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                     <constraint firstItem="9Gg-eg-T8v" firstAttribute="leading" secondItem="lct-R5-q31" secondAttribute="trailing" constant="8" id="pGe-Kj-8tx"/>
                     <constraint firstItem="lct-R5-q31" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="s4K-OB-2PS"/>
                     <constraint firstItem="tWK-Jg-h52" firstAttribute="top" secondItem="lct-R5-q31" secondAttribute="bottom" constant="8" id="tnu-lr-Oij"/>
-                    <constraint firstAttribute="bottom" secondItem="tWK-Jg-h52" secondAttribute="bottom" constant="16" id="zUb-83-wlr"/>
+                    <constraint firstAttribute="bottom" secondItem="tWK-Jg-h52" secondAttribute="bottom" constant="24" id="zUb-83-wlr"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -109,13 +109,19 @@
                 <outlet property="dateLabel" destination="Dyj-C0-Qji" id="Hrp-ka-gFZ"/>
                 <outlet property="nameLabel" destination="9Gg-eg-T8v" id="32I-eg-tbj"/>
                 <outlet property="ratingView" destination="91O-2f-XsD" id="GWg-4s-Peu"/>
+                <outlet property="separateView" destination="MsG-Az-duf" id="wAm-DG-mCz"/>
             </connections>
             <point key="canvasLocation" x="73.282442748091597" y="61.971830985915496"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="91O-2f-XsD">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -63,6 +63,8 @@
 		05BE30DB2C835F9600DB9E5B /* app_icon_original@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30D92C835F9500DB9E5B /* app_icon_original@2x.png */; };
 		05BE30DC2C835F9600DB9E5B /* app_icon_original@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BE30DA2C835F9600DB9E5B /* app_icon_original@3x.png */; };
 		05BE30DE2C83687500DB9E5B /* ShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BE30DD2C83687500DB9E5B /* ShowDetailViewController.swift */; };
+		05E6FF302C849BF700A780F1 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6FF2F2C849BF700A780F1 /* CommentViewController.swift */; };
+		05E6FF322C849CEF00A780F1 /* LoadMoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6FF312C849CEF00A780F1 /* LoadMoreTableView.swift */; };
 		05F685E42C7A072900EC6DF3 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05F685E32C7A072900EC6DF3 /* CategoryCell.xib */; };
 		05F685E52C7A072900EC6DF3 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F685E22C7A072900EC6DF3 /* CategoryCell.swift */; };
 		05FB82392C7ADF9D004FA411 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FB82382C7ADF9D004FA411 /* APIError.swift */; };
@@ -230,6 +232,8 @@
 		05BE30D92C835F9500DB9E5B /* app_icon_original@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_original@2x.png"; sourceTree = "<group>"; };
 		05BE30DA2C835F9600DB9E5B /* app_icon_original@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon_original@3x.png"; sourceTree = "<group>"; };
 		05BE30DD2C83687500DB9E5B /* ShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewController.swift; sourceTree = "<group>"; };
+		05E6FF2F2C849BF700A780F1 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		05E6FF312C849CEF00A780F1 /* LoadMoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreTableView.swift; sourceTree = "<group>"; };
 		05F685E22C7A072900EC6DF3 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		05F685E32C7A072900EC6DF3 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		05FB82382C7ADF9D004FA411 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -524,6 +528,8 @@
 				F0FF96292C81B1DD0064E535 /* AddToLibraryControllerViewController.swift */,
 				F0FB04E72C82A60D00510275 /* MovieBackdropImageShowControllerViewController.swift */,
 				05BE30DD2C83687500DB9E5B /* ShowDetailViewController.swift */,
+				05E6FF2F2C849BF700A780F1 /* CommentViewController.swift */,
+				05E6FF312C849CEF00A780F1 /* LoadMoreTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1569,6 +1575,7 @@
 				05FB82482C7B0B00004FA411 /* UIView+Extension.swift in Sources */,
 				F052A8D52C7729D400814CCB /* IntroduceViewController.swift in Sources */,
 				F0770B722C78463A007F522F /* SettingProtocol.swift in Sources */,
+				05E6FF302C849BF700A780F1 /* CommentViewController.swift in Sources */,
 				F0770BE32C784752007F522F /* SearchViewController.swift in Sources */,
 				053642672C7E2F8F000A346A /* ActorInfoView.swift in Sources */,
 				05544ABD2C7B57D40083B591 /* GenresRouter.swift in Sources */,
@@ -1583,6 +1590,7 @@
 				F0770B9A2C7846C3007F522F /* LibraryViewController.swift in Sources */,
 				05544AC42C7B57D40083B591 /* GenresProtocol.swift in Sources */,
 				F0E7E1F02C7ED504009ADE62 /* Date+Extension.swift in Sources */,
+				05E6FF322C849CEF00A780F1 /* LoadMoreTableView.swift in Sources */,
 				F0770B6F2C78463A007F522F /* SettingPresenter.swift in Sources */,
 				05FB82502C7B0DFB004FA411 /* BounderListMovieCell.swift in Sources */,
 				F052A8C12C77273D00814CCB /* ViewController.swift in Sources */,

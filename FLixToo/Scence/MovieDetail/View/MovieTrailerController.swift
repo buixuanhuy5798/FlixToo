@@ -16,6 +16,7 @@ class MovieTrailerController: BaseViewController {
     var repository = MovieRepository(APIService())
     var id: Int?
     var video = [MovieVideo]()
+    var type = HomeCategoryOption.movie
     
     private let disposebag = DisposeBag()
     
@@ -23,11 +24,17 @@ class MovieTrailerController: BaseViewController {
         super.viewDidLoad()
         title = "Videos"
         guard let id = id else { return }
-        repository.getVideo(id: id).subscribe(onSuccess: { [weak self] response in
+        repository.getVideo(id: id, type: self.type).subscribe(onSuccess: { [weak self] response in
             guard let results = response.results else {
                 return
             }
-            self?.video = results.filter { $0.typeVid == .trailer }
+            switch self?.type {
+            case .movie:
+                self?.video = results.filter { $0.typeVid == .trailer }
+            default:
+                self?.video = results
+            }
+            
             self?.tableView.reloadData()
             print("RESULT VID: \(self?.video.count)")
         }, onFailure: { [weak self] error in

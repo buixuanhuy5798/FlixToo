@@ -24,9 +24,10 @@ enum APIRouter {
     
     case getMovieCredit(id: Int)
     case getSimilarMovie(id: Int, page: Int)
-    case getAllBackdrops(id: Int)
-    case getReview(id: Int, page: Int)
-    
+    case getAllBackdropsMovie(id: Int)
+    case getAllBackdropsShow(id: Int)
+    case getMovieReview(id: Int, page: Int)
+    case getShowReview(id: Int, page: Int)
     case getMoviesByGenre(id: Int, page: Int)
     case getShowsByGenre(id: Int, page: Int)
     case getMovieVideo(id: Int)
@@ -34,6 +35,7 @@ enum APIRouter {
     case getShowDetail(id: Int)
     case getShowCredit(id: Int)
     case getSimilarShow(id: Int, page: Int)
+    case getShowVideo(id: Int)
     
     var method: HTTPMethod {
         switch self {
@@ -80,14 +82,18 @@ enum APIRouter {
             return "/movie/\(id)/credits"
         case .getSimilarMovie(let id, _):
             return "/movie/\(id)/similar"
-        case .getAllBackdrops(let id):
+        case .getAllBackdropsMovie(let id):
             return "/movie/\(id)/images"
+        case .getAllBackdropsShow(let id):
+            return "/tv/\(id)/images"
         case .getMoviesByGenre:
             return "/discover/movie"
         case .getShowsByGenre:
             return "/discover/tv"
-        case .getReview(let id, _):
+        case .getMovieReview(let id, _):
             return "/movie/\(id)/reviews"
+        case .getShowReview(let id, _):
+            return "/tv/\(id)/reviews"
         case .getMovieVideo(let id):
             return "/movie/\(id)/videos"
         case .getShowDetail(let id):
@@ -96,6 +102,8 @@ enum APIRouter {
             return "/tv/\(id)/credits"
         case .getSimilarShow(let id, _):
             return "/tv/\(id)/similar"
+        case .getShowVideo(let id):
+            return "/tv/\(id)/videos"
         }
     }
     
@@ -137,7 +145,9 @@ enum APIRouter {
                 "language": "en-US",
                 "sort_by": "popularity.desc"
             ]
-        case .getReview(_, let page):
+        case .getMovieReview(_, let page):
+            return ["page": page]
+        case .getShowReview(_, let page):
             return ["page": page]
         default:
             return nil

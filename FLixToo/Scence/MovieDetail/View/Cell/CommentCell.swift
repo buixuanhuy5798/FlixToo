@@ -11,6 +11,7 @@ import Reusable
 
 class CommentCell: UITableViewCell, NibReusable {
 
+    @IBOutlet weak var separateView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var ratingView: CosmosView!
@@ -28,7 +29,7 @@ class CommentCell: UITableViewCell, NibReusable {
         selectionStyle = .none
     }
 
-    func setContentForCell(comment: Comment) {
+    func setContentForCell(comment: Comment, showSeparaterView: Bool) {
         avatarImageView.kf.setImage(
             with: Utils.getUrlImage(path: comment.authorDetails?.avatarPath ?? ""),
                 options: [
@@ -37,10 +38,27 @@ class CommentCell: UITableViewCell, NibReusable {
                     .transition(.fade(0.1)),
                 ])
         nameLabel.text = comment.author
-        dateLabel.text = comment.createdAt
+        dateLabel.text = convertDate(isoDate: comment.createdAt ?? "")
         contentLabel.text = comment.content
-        print("RATING: \((Double((comment.authorDetails?.rating ?? 0)) / Double(10)) * 5)")
         ratingView.rating = (Double((comment.authorDetails?.rating ?? 0)) / Double(10)) * 5
+        separateView.isHidden = !showSeparaterView
     }
     
+    func convertDate(isoDate: String) -> String {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+
+        // Chuyển đổi chuỗi ngày tháng thành đối tượng Date
+        if let date = isoFormatter.date(from: isoDate) {
+            // Tạo một DateFormatter khác để định dạng đối tượng Date thành chuỗi với định dạng "MMMM d, yyyy"
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = "MMMM d, yyyy"
+            
+            // Định dạng lại đối tượng Date thành chuỗi ngày tháng cần thiết
+            let formattedDate = outputFormatter.string(from: date)
+            return formattedDate
+        } else {
+            return ""
+        }
+    }
 }
