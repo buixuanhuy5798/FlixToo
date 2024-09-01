@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (5.9.1)
   - Cosmos (25.0.1)
+  - Google-Mobile-Ads-SDK (11.8.0):
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleUserMessagingPlatform (2.5.0)
   - ImageSlideshow/Core (1.9.2)
   - ImageSlideshow/Kingfisher (1.9.2):
     - ImageSlideshow/Core
@@ -32,6 +35,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Cosmos
+  - Google-Mobile-Ads-SDK
   - ImageSlideshow/Kingfisher
   - Kingfisher (~> 7.0)
   - MASegmentedControl
@@ -50,6 +54,8 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Cosmos
+    - Google-Mobile-Ads-SDK
+    - GoogleUserMessagingPlatform
     - ImageSlideshow
     - Kingfisher
     - MASegmentedControl
@@ -68,6 +74,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   Cosmos: 02db0a1c953107049bfd2d7af19ceef55ecb7e98
+  Google-Mobile-Ads-SDK: c1c53687b572122c5b0bdaf354335bbf40fd81ef
+  GoogleUserMessagingPlatform: 6b4f48a370e77ce121d034c908cc6ee4fdafaf13
   ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   MASegmentedControl: 9b58f9ba3a562a739b63b29e4ca2b9dc4d9c62cb
@@ -83,6 +91,6 @@ SPEC CHECKSUMS:
   SwinjectStoryboard: fe54ea9494a75348b1f3126e5e278e674f5684ad
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 5bf57b9d5c8262e925ac307711ea679482b50e3a
+PODFILE CHECKSUM: 2aec03c1dc5ede509f7f596e684be695524b58b3
 
 COCOAPODS: 1.15.2

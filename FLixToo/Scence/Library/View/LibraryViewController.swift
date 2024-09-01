@@ -18,6 +18,7 @@ final class LibraryViewController: UIViewController {
 
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var editView: UIView!
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     @IBOutlet weak var tagsCollectionView: UICollectionView!
     
@@ -44,16 +45,25 @@ final class LibraryViewController: UIViewController {
             emptyView.isHidden = false
             moviesCollectionView.isHidden = true
             tagsCollectionView.isHidden = true
+            editView.isHidden = true
         } else {
             emptyView.isHidden = true
             moviesCollectionView.isHidden = false
             tagsCollectionView.isHidden = false
+            editView.isHidden = false
+        }
+    }
+    
+    @IBAction func handleBrowseMoreButton(_ sender: Any) {
+        if let tabBarController = self.tabBarController  {
+            tabBarController.selectedIndex = 0
         }
     }
     
     @IBAction func handleEditButton(_ sender: Any) {
         isShowDelete.toggle()
         moviesCollectionView.reloadData()
+   
     }
     
     @IBAction func handleFilterButton(_ sender: UIButton) {
@@ -174,6 +184,7 @@ extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tagsCollectionView {
             presenter.tagSelected = presenter.tags[indexPath.row]
+            contentLabel.text =  presenter.tagSelected.title
             tagsCollectionView.reloadData()
             moviesCollectionView.reloadData()
         }

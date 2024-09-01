@@ -84,6 +84,9 @@
                                                         <real key="value" value="24"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="handleBrowseMoreButton:" destination="X1G-87-qlq" eventType="touchUpInside" id="oct-La-owy"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -220,6 +223,7 @@
                     </view>
                     <connections>
                         <outlet property="contentLabel" destination="fXg-g6-ZVR" id="nVg-mH-cKZ"/>
+                        <outlet property="editView" destination="Eh5-dB-IgQ" id="tDm-nE-8co"/>
                         <outlet property="emptyView" destination="2cI-bL-BMd" id="R4u-1p-Ihk"/>
                         <outlet property="moviesCollectionView" destination="w7d-aV-Vbn" id="wGq-7h-obV"/>
                         <outlet property="tagsCollectionView" destination="5BJ-jt-4a4" id="Lhi-2p-Bh3"/>

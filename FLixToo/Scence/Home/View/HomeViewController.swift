@@ -7,12 +7,19 @@
 
 import UIKit
 import Reusable
+import GoogleMobileAds
 
 class HomeViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var presenter: HomePresenterProtocol!
     var storedOffsets = [Int: CGFloat]()
+    
+    var bannerView: GADBannerView = {
+        let adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width)
+        var view = GADBannerView(adSize: adaptiveSize)
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +33,41 @@ class HomeViewController: BaseViewController {
     }
     
     private func setUpView() {
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2435281174"
+        bannerView.rootViewController = self
+        
+        bannerView.load(GADRequest())
+        
         showHeaderView = false
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(cellType: BounderCategoryCell.self)
         tableView.register(cellType: BounderListMovieCell.self)
     }
+    
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+      bannerView.translatesAutoresizingMaskIntoConstraints = false
+      view.addSubview(bannerView)
+      view.addConstraints(
+        [NSLayoutConstraint(item: bannerView,
+                            attribute: .bottom,
+                            relatedBy: .equal,
+                            toItem: view.safeAreaLayoutGuide,
+                            attribute: .bottom,
+                            multiplier: 1,
+                            constant: 0),
+         NSLayoutConstraint(item: bannerView,
+                            attribute: .centerX,
+                            relatedBy: .equal,
+                            toItem: view,
+                            attribute: .centerX,
+                            multiplier: 1,
+                            constant: 0)
+        ])
+     }
+     
 }
 
 extension HomeViewController:HomeViewProtocol {
