@@ -277,12 +277,24 @@ extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        openMovieDetail(movie: movies[indexPath.row])
+        switch screenType {
+        case .tv, .trendingShows, .upcommingShows, .topRatedShows:
+            openShowDetail(show: shows[indexPath.row])
+        default:
+            openMovieDetail(movie: movies[indexPath.row])
+        }
+        
     }
     
     func openMovieDetail(movie: MovieCommonInfomation) {
         let vc = MovieDetailViewController.instantiate()
         vc.presenter.id = movie.id
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func openShowDetail(show: TvShowCommonInfomation) {
+        let vc = ShowDetailViewController.instantiate()
+        vc.id = show.id
         navigationController?.pushViewController(vc, animated: true)
     }
 }

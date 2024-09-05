@@ -8,6 +8,7 @@
 import UIKit
 import Reusable
 import GoogleMobileAds
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(false, forKey: "hasRequestedReviewKey")
         
         KeychainStorage.shared.apiKey = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZDQxZWYzMmE0MGQxNWJlMTAyYzYyMzcyMGNjMjg4NiIsIm5iZiI6MTcyNDU2NjQxMy4wMjE0NzYsInN1YiI6IjVkYWZhMTI1ZGMxY2I0MDAxNTI3YjE5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cbbx3ypZYoqcXi5e9fTyeU9pXVw28TBEDd_G2fCjUgQ"
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.resignOnTouchOutside = true
+        
         return true
     }
 
