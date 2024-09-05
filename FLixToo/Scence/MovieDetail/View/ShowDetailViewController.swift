@@ -160,7 +160,9 @@ class ShowDetailViewController: UIViewController {
         allBackdropImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapAllBackdrop)))
         allBackdropImageView.isUserInteractionEnabled = true
         setUpCrewCollectionView()
-        setUpActorsAndSimilarCollectionView()
+        setUpSeasonCollectionView()
+        setUpSimiliarCollectionView()
+        setUpActorCollectionView()
         commentTableView.register(cellType: CommentCell.self)
         commentTableView.dataSource = self
         commentTableView.rowHeight = UITableView.automaticDimension
@@ -232,7 +234,22 @@ class ShowDetailViewController: UIViewController {
         languageLabel.attributedText = attributedString
     }
     
-    private func setUpActorsAndSimilarCollectionView() {
+    private func setUpActorCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 16
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.minimumInteritemSpacing = 16
+        layout.scrollDirection = .horizontal
+        let itemWitdh = (Screen.width - 48) / 3.2
+        let itemHeight = itemWitdh * 194/102 + 16
+        heightOfActorCollectionView.constant = itemHeight + 8
+        layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
+        actorCollectionView.collectionViewLayout = layout
+        actorCollectionView.dataSource = self
+        actorCollectionView.register(cellType: MoviePosterCell.self)
+    }
+    
+    private func setUpSeasonCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 16
         layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
@@ -241,23 +258,30 @@ class ShowDetailViewController: UIViewController {
         seasonCollectionView.showsHorizontalScrollIndicator = false
         let itemWitdh = (Screen.width - 48) / 3.2
         let itemHeight = itemWitdh * 194/102 + 16
-        heightOfSeasonCollectionView.constant = itemHeight + 8
-        heightOfActorCollectionView.constant = itemHeight + 8
-        heightOfSimiliarCollectionView.constant = itemHeight + 8
         layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
+        heightOfSeasonCollectionView.constant = itemHeight + 8
         seasonCollectionView.collectionViewLayout = layout
         seasonCollectionView.dataSource = self
-//        seasonCollectionView.delegate = self
         seasonCollectionView.register(cellType: MoviePosterCell.self)
-        actorCollectionView.collectionViewLayout = layout
-        actorCollectionView.dataSource = self
-//        actorCollectionView.delegate = self
-        actorCollectionView.register(cellType: MoviePosterCell.self)
+        
+    }
+    
+    
+    private func setUpSimiliarCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 16
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.minimumInteritemSpacing = 16
+        layout.scrollDirection = .horizontal
+        let itemWitdh = (Screen.width - 48) / 3.2
+        let itemHeight = itemWitdh * 194/102 + 16
+        layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
         similiarCollectionView.collectionViewLayout = layout
         similiarCollectionView.dataSource = self
-//        actorCollectionView.delegate = self
         similiarCollectionView.register(cellType: MoviePosterCell.self)
+        heightOfSimiliarCollectionView.constant = itemHeight + 8
     }
+    
 }
 
 extension ShowDetailViewController: StoryboardSceneBased {

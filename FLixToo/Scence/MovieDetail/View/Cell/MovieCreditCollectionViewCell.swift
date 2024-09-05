@@ -24,6 +24,6 @@ class MovieCreditCollectionViewCell: UICollectionViewCell, NibReusable {
     
     func setContentForCell(crew: Cast) {
         nameLabel.text = crew.name
-        titleLabel.text = crew.knownForDepartment?.rawValue
+        titleLabel.text = crew.knownForDepartment
     }
 }

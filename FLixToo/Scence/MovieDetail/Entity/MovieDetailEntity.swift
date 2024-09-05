@@ -118,14 +118,14 @@ struct MovieCredit: Codable {
 struct Cast: Codable {
     let adult: Bool?
     let gender, id: Int?
-    let knownForDepartment: Department?
+    let knownForDepartment: String?
     let name, originalName: String?
     let popularity: Double?
     let profilePath: String?
     let castID: Int?
     let character, creditID: String?
     let order: Int?
-    let department: Department?
+    let department: String?
     let job: String?
 
     enum CodingKeys: String, CodingKey {
