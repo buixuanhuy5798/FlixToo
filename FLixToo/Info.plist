@@ -285,5 +285,11 @@
 		<string>Poppins-Regular.ttf</string>
 		<string>Poppins-SemiBold.ttf</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allow us to share your current location with a fleet manager.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow us to share your current location with a fleet manager.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow us to share your current location with a fleet manager.</string>
 </dict>
 </plist>

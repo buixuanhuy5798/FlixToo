@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MapViewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MapViewViewController" customModule="FLixToo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLx-Js-cic">
+                                <rect key="frame" x="0.0" y="111" width="393" height="707"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdl-BS-uhd">
+                                <rect key="frame" x="0.0" y="59" width="393" height="52"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmA-hh-OOy">
+                                        <rect key="frame" x="15.999999999999998" y="15" width="22.333333333333321" height="22"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleCancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MWz-wg-FBd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B97-Bj-TCE">
+                                        <rect key="frame" x="351.66666666666669" y="13.666666666666671" width="25.333333333333314" height="25"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="location.fill" catalog="system" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleNavigateButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wWs-Hm-I4Y"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="B97-Bj-TCE" secondAttribute="trailing" constant="16" id="CyG-8H-mvx"/>
+                                    <constraint firstItem="B97-Bj-TCE" firstAttribute="centerY" secondItem="xdl-BS-uhd" secondAttribute="centerY" id="IPv-De-VUl"/>
+                                    <constraint firstItem="qmA-hh-OOy" firstAttribute="leading" secondItem="xdl-BS-uhd" secondAttribute="leading" constant="16" id="Rye-D3-5L1"/>
+                                    <constraint firstAttribute="height" constant="52" id="bfM-sg-DIW"/>
+                                    <constraint firstItem="qmA-hh-OOy" firstAttribute="centerY" secondItem="xdl-BS-uhd" secondAttribute="centerY" id="gzq-Lw-MLC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vLx-Js-cic" secondAttribute="bottom" id="Cc7-kc-1bI"/>
+                            <constraint firstItem="vLx-Js-cic" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Inz-x3-SWT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vLx-Js-cic" secondAttribute="trailing" id="J9z-is-cde"/>
+                            <constraint firstItem="xdl-BS-uhd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="bUN-uv-bE9"/>
+                            <constraint firstItem="vLx-Js-cic" firstAttribute="top" secondItem="xdl-BS-uhd" secondAttribute="bottom" id="htg-x9-8Kz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xdl-BS-uhd" secondAttribute="trailing" id="o43-w7-j2W"/>
+                            <constraint firstItem="xdl-BS-uhd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="pN0-m6-eIj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="vLx-Js-cic" id="id7-B2-4fF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72.51908396946564" y="24.647887323943664"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="location.fill" catalog="system" width="128" height="119"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

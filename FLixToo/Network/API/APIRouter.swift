@@ -37,6 +37,8 @@ enum APIRouter {
     case getSimilarShow(id: Int, page: Int)
     case getShowVideo(id: Int)
     
+    case getMoviesByProvider(id: Int, sortBy: String, page: Int)
+    
     var method: HTTPMethod {
         switch self {
         default:
@@ -104,6 +106,8 @@ enum APIRouter {
             return "/tv/\(id)/similar"
         case .getShowVideo(let id):
             return "/tv/\(id)/videos"
+        case .getMoviesByProvider:
+            return "/discover/movie"
         }
     }
     
@@ -149,6 +153,16 @@ enum APIRouter {
             return ["page": page]
         case .getShowReview(_, let page):
             return ["page": page]
+        case .getMoviesByProvider(let id, let sortBy, let page):
+            return [
+                "with_watch_providers": id,
+                "watch_region": "GB",
+                "page": page,
+                "include_adult": false,
+                "include_video": false,
+                "language": "en-US",
+                "sort_by": sortBy
+            ]
         default:
             return nil
         }

@@ -239,7 +239,9 @@ extension HomeViewController: UICollectionViewDelegate {
         case .nowPlaying(let movies):
             openMovieDetail(movie: movies[indexPath.row])
         case .movieProviders(let providers):
-            print("SELECT PROVIDER: \(providers[indexPath.row].providerName)")
+            let vc = ListMoviesViewController.instantiate()
+            vc.screenType = .moviesProvider(provider: providers[indexPath.row])
+            self.navigationController?.pushViewController(vc, animated: true)
         case .popularPeople(let actor):
             presenter.openActorDetail(info: actor[indexPath.row])
         case .trendingShow(let shows):

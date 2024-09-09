@@ -82,6 +82,8 @@
 		05FB825C2C7B34C0004FA411 /* MovieProviderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FB825A2C7B34C0004FA411 /* MovieProviderCell.swift */; };
 		05FB825D2C7B34C0004FA411 /* MovieProviderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05FB825B2C7B34C0004FA411 /* MovieProviderCell.xib */; };
 		92805A6365E23FBFE1CF2C0E /* Pods_FLixToo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5886DFD0C20F1D36B1D05A /* Pods_FLixToo.framework */; };
+		CE2A99A02C8EE3C90024C557 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A999F2C8EE3C90024C557 /* MapViewViewController.swift */; };
+		CE2A99A22C8EE3D40024C557 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2A99A12C8EE3D40024C557 /* MapView.storyboard */; };
 		CE80B5552C81BCD100E024DB /* PopoverFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80B5532C81BCD100E024DB /* PopoverFilterViewController.swift */; };
 		CE80B5562C81BCD100E024DB /* PopoverFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE80B5542C81BCD100E024DB /* PopoverFilterViewController.xib */; };
 		CEC696AE2C7D7BD20090951B /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696AC2C7D7BD20090951B /* PlaceTableViewCell.swift */; };
@@ -253,6 +255,8 @@
 		3A719AB4B277AB458B1EDAB7 /* Pods-FLixToo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLixToo.debug.xcconfig"; path = "Target Support Files/Pods-FLixToo/Pods-FLixToo.debug.xcconfig"; sourceTree = "<group>"; };
 		3DEB40B140CDEA9C6441E4E6 /* Pods-FLixToo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLixToo.release.xcconfig"; path = "Target Support Files/Pods-FLixToo/Pods-FLixToo.release.xcconfig"; sourceTree = "<group>"; };
 		9F5886DFD0C20F1D36B1D05A /* Pods_FLixToo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FLixToo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2A999F2C8EE3C90024C557 /* MapViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
+		CE2A99A12C8EE3D40024C557 /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
 		CE80B5532C81BCD100E024DB /* PopoverFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverFilterViewController.swift; sourceTree = "<group>"; };
 		CE80B5542C81BCD100E024DB /* PopoverFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverFilterViewController.xib; sourceTree = "<group>"; };
 		CEC696AC2C7D7BD20090951B /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
@@ -761,6 +765,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE2A999E2C8EE3B00024C557 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				CE2A999F2C8EE3C90024C557 /* MapViewViewController.swift */,
+				CE2A99A12C8EE3D40024C557 /* MapView.storyboard */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
 		CE80B54E2C81BC2800E024DB /* Popover */ = {
 			isa = PBXGroup;
 			children = (
@@ -864,6 +877,7 @@
 		F052A8D02C77297A00814CCB /* Scence */ = {
 			isa = PBXGroup;
 			children = (
+				CE2A999E2C8EE3B00024C557 /* MapView */,
 				056BF3082C80CFDB00926933 /* ListComment */,
 				CEC696BF2C80102B0090951B /* ListMovies */,
 				056BC8D92C7CE4340096A2FC /* ActorProfile */,
@@ -1480,6 +1494,7 @@
 				CEC696BD2C7F19850090951B /* GenreCollectionViewCell.xib in Resources */,
 				F0E7E1F82C801389009ADE62 /* MovieCreditCollectionViewCell.xib in Resources */,
 				F0FB04E62C81CD0E00510275 /* SettingInfomationCellTableViewCell.xib in Resources */,
+				CE2A99A22C8EE3D40024C557 /* MapView.storyboard in Resources */,
 				0537EDC92C7A1BFE004F06A9 /* BounderCategoryCell.xib in Resources */,
 				F0770B992C7846C3007F522F /* Library.storyboard in Resources */,
 				F0770B412C7837E5007F522F /* Urbanist-Regular.ttf in Resources */,
@@ -1613,6 +1628,7 @@
 				05FB82502C7B0DFB004FA411 /* BounderListMovieCell.swift in Sources */,
 				F052A8C12C77273D00814CCB /* ViewController.swift in Sources */,
 				F052A8BD2C77273D00814CCB /* AppDelegate.swift in Sources */,
+				CE2A99A02C8EE3C90024C557 /* MapViewViewController.swift in Sources */,
 				F0770C032C784786007F522F /* HomeRouter.swift in Sources */,
 				056BF30C2C80D3F400926933 /* CommentCell.swift in Sources */,
 				F0770C062C784786007F522F /* HomeInteractor.swift in Sources */,

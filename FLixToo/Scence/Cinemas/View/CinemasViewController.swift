@@ -11,6 +11,7 @@ import MapKit
 import RxSwift
 import RxCocoa
 import SVProgressHUD
+import CoreLocation
 
 class CinemasViewController: BaseViewController {
 
@@ -23,9 +24,10 @@ class CinemasViewController: BaseViewController {
     
     var matchingItems: [MKMapItem] = []
     var cenimas: [MKMapItem] = []
-    var center = CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194)
-    
+  
     var isShowCenimas = false
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,19 +49,28 @@ class CinemasViewController: BaseViewController {
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 if self.locationTextField.text?.isEmpty ?? true {
-                    self.isShowCenimas = true
                     SVProgressHUD.dismiss()
                     self.placesTableView.reloadData()
                 } else {
-                    self.isShowCenimas = false
+
                     self.searchForPlaces(text: self.locationTextField?.text ?? "")
                 }
             }).disposed(by: disposeBag)
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == .authorizedAlways {
+            locationManager.startUpdatingLocation()
+        }
     }
     
     
-    private func searchCenimas() {
+    private func searchCenimas(location: CLLocation) {
         SVProgressHUD.show()
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = "cinema" // Or "movie theater"
         request.region = MKCoordinateRegion(center: center, latitudinalMeters: 10000, longitudinalMeters: 10000)
@@ -72,55 +83,69 @@ class CinemasViewController: BaseViewController {
             guard let response = response else { return }
             SVProgressHUD.dismiss()
             self?.isShowCenimas = true
+            self?.matchingItems = response.mapItems
             self?.cenimas = response.mapItems
             self?.placesTableView.reloadData()
         }
     }
     
     func searchForPlaces(text: String) {
-        SVProgressHUD.show()
-        let request = MKLocalSearch.Request()
-        request.pointOfInterestFilter = .includingAll
-        request.resultTypes = [.address, .pointOfInterest]
-        request.naturalLanguageQuery = text
-        let search = MKLocalSearch(request: request)
-        
-        search.start { [weak self] response, _ in
-            guard let response = response else {
-                return
+        if text.isEmpty {
+            matchingItems = cenimas
+        } else {
+            matchingItems = cenimas.filter { item in
+                item.name?.lowercased().contains(text.lowercased()) ?? false
             }
-            SVProgressHUD.dismiss()
-            self?.matchingItems = response.mapItems
         }
         placesTableView.reloadData()
     }
 }
 
+extension CinemasViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .denied, .restricted:
+            print("Location access denied")
+        default:
+            break
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        print("Latitude: \(latitude), Longitude: \(longitude)")
+        searchCenimas(location: location)
+        locationManager.stopUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to get user location: \(error.localizedDescription)")
+    }
+}
+
 extension CinemasViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isShowCenimas {
-            return cenimas.count
-        }
         return matchingItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if isShowCenimas {
-            let cell: CenimaTableViewCell = tableView.dequeueReusableCell(for: indexPath, cellType: CenimaTableViewCell.self)
-            let item = cenimas[indexPath.row]
-            cell.configCell(title: item.name ?? "", address: item.placemark.title ?? "", indexPath: indexPath)
-            return cell
-        }
-        let cell: PlaceTableViewCell = tableView.dequeueReusableCell(for: indexPath, cellType: PlaceTableViewCell.self)
-        cell.configCell(title: matchingItems[indexPath.row].name ?? "")
+        let cell: CenimaTableViewCell = tableView.dequeueReusableCell(for: indexPath, cellType: CenimaTableViewCell.self)
+        let item = matchingItems[indexPath.row]
+        cell.configCell(title: item.name ?? "", address: item.placemark.title ?? "", indexPath: indexPath)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if !isShowCenimas {
-            center = matchingItems[indexPath.row].placemark.coordinate
-            self.searchCenimas()
-        }
+        let vc = MapViewViewController.instantiate()
+        let item = matchingItems[indexPath.row]
+        vc.location = item.placemark.location
+        vc.locationTitle = item.placemark.name
+        self.present(vc, animated: true)
     }
 }
 

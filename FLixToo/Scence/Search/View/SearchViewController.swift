@@ -185,6 +185,12 @@ class SearchViewController: BaseViewController {
         vc.presenter.id = id
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func openShowDetail(show: TvShowCommonInfomation) {
+        let vc = ShowDetailViewController.instantiate()
+        vc.id = show.id
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -243,7 +249,7 @@ extension SearchViewController: UICollectionViewDelegate {
         if collectionView == moviesCollectionView {
             openMovieDetail(id: movies[indexPath.row].id ?? 0)
         } else {
-            openMovieDetail(id: shows[indexPath.row].id ?? 0)
+            openShowDetail(show: shows[indexPath.row])
         }
     }
 }

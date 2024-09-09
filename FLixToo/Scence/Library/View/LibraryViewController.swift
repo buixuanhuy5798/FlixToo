@@ -36,6 +36,7 @@ final class LibraryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
         presenter.update()
         moviesCollectionView.reloadData()
         if presenter.favList.isEmpty,
@@ -155,6 +156,19 @@ final class LibraryViewController: UIViewController {
         presenter.update()
         moviesCollectionView.reloadData()
     }
+    
+    
+    func openMovieDetail(id: Int) {
+        let vc = MovieDetailViewController.instantiate()
+        vc.presenter.id = id
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func openShowDetail(id: Int) {
+        let vc = ShowDetailViewController.instantiate()
+        vc.id = id
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -187,6 +201,16 @@ extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDataS
             contentLabel.text =  presenter.tagSelected.title
             tagsCollectionView.reloadData()
             moviesCollectionView.reloadData()
+        } else {
+            let item = getMovies()[indexPath.row]
+            switch item.type {
+            case .movie:
+                openMovieDetail(id: item.id ?? 0)
+            case .show:
+                openShowDetail(id: item.id ?? 0)
+            case nil:
+                break
+            }
         }
        
     }

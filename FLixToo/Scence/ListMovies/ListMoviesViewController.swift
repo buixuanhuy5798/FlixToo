@@ -18,9 +18,28 @@ enum ListMoviesType {
     case trendingShows
     case movie(model: GenreModel)
     case tv(model: GenreModel)
+    case moviesProvider(provider: MovieProvider)
+}
+
+enum SortType: String, CaseIterable {
+    case trending = "Trending"
+    case popular = "Popular"
+    case new = "New Released"
+    
+    var code: String {
+        switch self {
+        case .trending:
+            return "vote_average.asc"
+        case .popular:
+            return "popularity.desc"
+        case .new:
+            return "primary_release_date.desc"
+        }
+    }
 }
 
 final class ListMoviesViewController: BaseViewController {
+    @IBOutlet weak var sortCollectionView: UICollectionView!
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     
     private let movieRepository = MovieRepository(APIService())
@@ -34,6 +53,8 @@ final class ListMoviesViewController: BaseViewController {
     private var page: Int = 1
     private var hasLoadMore: Bool = true
     private var isLoading: Bool = false
+    var sortBySelected: SortType = .trending
+    let sortBys: [SortType] = SortType.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +83,7 @@ final class ListMoviesViewController: BaseViewController {
     
     private func setupView() {
         showBackButton = true
+        sortCollectionView.isHidden = true
         
         switch screenType {
         case .popular:
@@ -80,6 +102,9 @@ final class ListMoviesViewController: BaseViewController {
             title = model.name
         case .tv(let model):
             title = model.name
+        case .moviesProvider(let provider):
+            title = provider.providerName
+            sortCollectionView.isHidden = false
         }
         
         moviesCollectionView.register(cellType: MoviePosterCell.self)
@@ -95,6 +120,19 @@ final class ListMoviesViewController: BaseViewController {
         moviesCollectionView.showsHorizontalScrollIndicator = false
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = self
+        
+        sortCollectionView.register(cellType: LibaryTagCollectionViewCell.self)
+        let layout2 = UICollectionViewFlowLayout()
+        layout2.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout2.minimumLineSpacing = 16
+        layout2.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout2.minimumInteritemSpacing = 10
+        layout2.scrollDirection = .horizontal
+        sortCollectionView.collectionViewLayout = layout2
+        sortCollectionView.showsHorizontalScrollIndicator = false
+        sortCollectionView.delegate = self
+        sortCollectionView.dataSource = self
+        sortCollectionView.reloadData()
     }
 }
 
@@ -109,6 +147,8 @@ extension ListMoviesViewController {
             return movieRepository.getListNowPlayingMovies(page: page, checking: type)
         case .movie(let model):
             return movieRepository.getMoviesByGenre(id: model.id, page: page, checking: type)
+        case .moviesProvider(let provider):
+            return movieRepository.getMoviesByProvider(id: provider.providerID ?? 0, sortBy: sortBySelected.code, page: page, checking: type)
         default:
             return movieRepository.getListNowPlayingMovies(page: page, checking: type)
         }
@@ -165,6 +205,7 @@ extension ListMoviesViewController {
     }
     
     private func fetchPopularMovies() {
+        page = 1
         isLoading = true
         fetchMovies(type: .checked)
             .subscribe(onSuccess: { [weak self] response in
@@ -241,6 +282,9 @@ extension ListMoviesViewController {
 
 extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == sortCollectionView {
+            return sortBys.count
+        }
         switch screenType {
         case .tv, .trendingShows, .upcommingShows, .topRatedShows:
             return shows.count
@@ -250,6 +294,11 @@ extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == sortCollectionView {
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: LibaryTagCollectionViewCell.self)
+            cell.configCell(title: sortBys[indexPath.row].rawValue, isSelected: sortBys[indexPath.row] == sortBySelected)
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
         
         switch screenType {
@@ -277,13 +326,18 @@ extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch screenType {
-        case .tv, .trendingShows, .upcommingShows, .topRatedShows:
-            openShowDetail(show: shows[indexPath.row])
-        default:
-            openMovieDetail(movie: movies[indexPath.row])
+        if collectionView == sortCollectionView{
+            sortBySelected = sortBys[indexPath.row]
+            fetchPopularMovies()
+            sortCollectionView.reloadData()
+        } else {
+            switch screenType {
+            case .tv, .trendingShows, .upcommingShows, .topRatedShows:
+                openShowDetail(show: shows[indexPath.row])
+            default:
+                openMovieDetail(movie: movies[indexPath.row])
+            }
         }
-        
     }
     
     func openMovieDetail(movie: MovieCommonInfomation) {
