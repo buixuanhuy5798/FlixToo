@@ -76,6 +76,18 @@ class MoviePosterCell: UICollectionViewCell, NibReusable {
             ])
     }
     
+    func setContentForCell(data: MovieCast) {
+        nameLabel.numberOfLines = 2
+        nameLabel.text = data.originalTitle
+        imageView.kf.setImage(
+            with: Utils.getUrlImage(path: data.posterPath ?? ""),
+            options: [
+                .loadDiskFileSynchronously,
+                .cacheOriginalImage,
+                .transition(.fade(0.1)),
+            ])
+    }
+    
     func setContentForCell(data: Cast) {
         nameLabel.textAlignment = .left
         var castString = ""

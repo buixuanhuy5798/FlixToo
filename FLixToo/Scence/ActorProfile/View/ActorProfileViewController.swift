@@ -103,24 +103,27 @@ class ActorProfileViewController: BaseViewController {
 
 extension ActorProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.commonInfo?.knownFor?.count ?? 0
+        return presenter.listMovie.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let knowFor = presenter.commonInfo?.knownFor?[indexPath.row] else {
-            return UICollectionViewCell()
-        }
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
-        cell.setContentForCell(data: knowFor)
+        cell.setContentForCell(data: presenter.listMovie[indexPath.row])
         return cell
     }
 }
 
 extension ActorProfileViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = MovieDetailViewController.instantiate()
-        vc.presenter.id = presenter.commonInfo?.knownFor?[indexPath.row].id
-        navigationController?.pushViewController(vc, animated: true)
+        if presenter.listMovie[indexPath.row].mediaType == "movie" {
+            let vc = MovieDetailViewController.instantiate()
+            vc.presenter.id = presenter.listMovie[indexPath.row].id
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = ShowDetailViewController.instantiate()
+            vc.id = presenter.listMovie[indexPath.row].id
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -133,6 +136,10 @@ extension ActorProfileViewController:ActorProfileViewProtocol {
         }
         bornInfoView.setContentView(title: "Born", content: born)
         bioLabel.text = data.biography
+    }
+    
+    func updateKnowfor() {
+        collectionView.reloadData()
     }
     
     func showError(message: String) {

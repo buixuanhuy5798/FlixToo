@@ -26,4 +26,17 @@ final class ActorProfileInteractor: ActorProfileInteractorInputProtocol {
         })
         .disposed(by: disposebag)
     }
+    
+    func getAllMovie(id: Int) {
+        repository.getAllMovieByActor(id: id).subscribe(onSuccess: { [weak self] response in
+            self?.output?.getAllMovieSuccess(moveid: response.cast ?? [])
+        }, onFailure: { [weak self] error in
+            if let error = error as? APIErrorResponse {
+                self?.output?.getAllMovieFail(message: error.message ?? "")
+            } else {
+                self?.output?.getAllMovieFail(message: error.localizedDescription)
+            }
+        })
+        .disposed(by: disposebag)
+    }
 }

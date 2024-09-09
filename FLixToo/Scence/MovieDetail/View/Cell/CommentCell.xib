@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -42,7 +41,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWK-Jg-h52">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWK-Jg-h52" customClass="ExpandableLabel" customModule="ExpandableLabel">
                         <rect key="frame" x="16" y="74" width="396" height="66"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -50,7 +49,7 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MsG-Az-duf">
                         <rect key="frame" x="0.0" y="163" width="420" height="1"/>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="0.54172822082934735" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="sXX-UB-UKO"/>
                         </constraints>
@@ -80,6 +79,12 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGn-4X-6wh">
+                        <rect key="frame" x="206" y="40" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
@@ -90,10 +95,12 @@
                     <constraint firstItem="9Gg-eg-T8v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="5Wh-mD-xeF"/>
                     <constraint firstAttribute="trailing" secondItem="Dyj-C0-Qji" secondAttribute="trailing" constant="16" id="9a7-2z-Sr3"/>
                     <constraint firstAttribute="bottom" secondItem="MsG-Az-duf" secondAttribute="bottom" id="FAO-C3-l49"/>
+                    <constraint firstItem="sGn-4X-6wh" firstAttribute="leading" secondItem="91O-2f-XsD" secondAttribute="trailing" constant="12" id="H6V-lc-mu8"/>
                     <constraint firstAttribute="trailing" secondItem="tWK-Jg-h52" secondAttribute="trailing" constant="8" id="KT5-iv-lHd"/>
                     <constraint firstItem="91O-2f-XsD" firstAttribute="leading" secondItem="lct-R5-q31" secondAttribute="trailing" constant="8" id="REf-QA-c7G"/>
                     <constraint firstItem="MsG-Az-duf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dlA-W4-ksW"/>
                     <constraint firstItem="Dyj-C0-Qji" firstAttribute="leading" secondItem="9Gg-eg-T8v" secondAttribute="trailing" constant="4" id="jBm-hj-udT"/>
+                    <constraint firstItem="sGn-4X-6wh" firstAttribute="centerY" secondItem="91O-2f-XsD" secondAttribute="centerY" id="ojP-CA-JaC"/>
                     <constraint firstItem="tWK-Jg-h52" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ovV-mL-aF7"/>
                     <constraint firstItem="9Gg-eg-T8v" firstAttribute="leading" secondItem="lct-R5-q31" secondAttribute="trailing" constant="8" id="pGe-Kj-8tx"/>
                     <constraint firstItem="lct-R5-q31" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="s4K-OB-2PS"/>
@@ -105,9 +112,10 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="avatarImageView" destination="lct-R5-q31" id="yFs-mx-TdN"/>
-                <outlet property="contentLabel" destination="tWK-Jg-h52" id="e4R-dj-kkM"/>
+                <outlet property="contentLabel" destination="tWK-Jg-h52" id="ipg-U2-Gzl"/>
                 <outlet property="dateLabel" destination="Dyj-C0-Qji" id="Hrp-ka-gFZ"/>
                 <outlet property="nameLabel" destination="9Gg-eg-T8v" id="32I-eg-tbj"/>
+                <outlet property="ratingLabel" destination="sGn-4X-6wh" id="A3P-ke-NY8"/>
                 <outlet property="ratingView" destination="91O-2f-XsD" id="GWg-4s-Peu"/>
                 <outlet property="separateView" destination="MsG-Az-duf" id="wAm-DG-mCz"/>
             </connections>
@@ -119,9 +127,4 @@
             <size key="intrinsicContentSize" width="120" height="20"/>
         </designable>
     </designables>
-    <resources>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

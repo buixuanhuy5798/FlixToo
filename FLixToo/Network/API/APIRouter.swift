@@ -38,6 +38,7 @@ enum APIRouter {
     case getShowVideo(id: Int)
     
     case getMoviesByProvider(id: Int, sortBy: String, page: Int)
+    case getAllMovieOfActor(id: Int)
     
     var method: HTTPMethod {
         switch self {
@@ -108,6 +109,8 @@ enum APIRouter {
             return "/tv/\(id)/videos"
         case .getMoviesByProvider:
             return "/discover/movie"
+        case .getAllMovieOfActor(let id):
+            return "/person/\(id)/combined_credits"
         }
     }
     
@@ -163,6 +166,8 @@ enum APIRouter {
                 "language": "en-US",
                 "sort_by": sortBy
             ]
+        case .getShowDetail:
+            return ["value": 8]
         default:
             return nil
         }

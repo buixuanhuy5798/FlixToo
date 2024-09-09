@@ -9,9 +9,13 @@ import UIKit
 import RxSwift
 import Reusable
 import Kingfisher
+import ExpandableLabel
 
 class ShowDetailViewController: UIViewController {
 
+    @IBOutlet weak var reviewTitleLabel: UILabel!
+    @IBOutlet weak var seeAllButton: UIButton!
+    @IBOutlet weak var heightOfCommentTableView: NSLayoutConstraint!
     @IBOutlet weak var commentTableView: UITableView!
     @IBOutlet weak var mediaTitleLabel: UILabel!
     @IBOutlet weak var backdropLabel: UILabel!
@@ -44,6 +48,7 @@ class ShowDetailViewController: UIViewController {
     var similarShows = [TvShowCommonInfomation]()
     var backdrop: BackdropsMovie?
     var comment = [Comment]()
+    var states = [Bool]()
     
     var detail: ShowDetail? {
         didSet {
@@ -79,6 +84,10 @@ class ShowDetailViewController: UIViewController {
         guard let id = id else { return }
         repository.getShowDetail(id: id).subscribe(onSuccess: { [weak self] response in
             self?.detail = response
+            if self?.detail?.seasons?.isEmpty == true {
+                self?.heightOfSeasonCollectionView.constant = 0
+                self?.seasonLabel.isHidden = true
+            }
         }, onFailure: { [weak self] error in
             if let error = error as? APIErrorResponse {
                 self?.showCommonError(message: error.message ?? "")
@@ -92,6 +101,10 @@ class ShowDetailViewController: UIViewController {
             self?.crew = response.crew ?? []
             self?.actorCollectionView.reloadData()
             self?.crewCollectionView.reloadData()
+            if self?.cast.isEmpty == true {
+                self?.heightOfActorCollectionView.constant = 0
+                self?.actorTitleLabel.isHidden = true
+            }
         })
         .disposed(by: disposebag)
         repository.getSimilarShow(id: id, page: 1, checking: .unchecked).subscribe(onSuccess: { [weak self] response in
@@ -100,6 +113,10 @@ class ShowDetailViewController: UIViewController {
             }
             self?.similarShows = results
             self?.similiarCollectionView.reloadData()
+            if results.isEmpty == true {
+                self?.heightOfSimiliarCollectionView.constant = 0
+                self?.similiarTitleLabel.isHidden = true
+            }
         })
         .disposed(by: disposebag)
         repository.getBackdropImages(id: id, type: .show).subscribe(onSuccess: { [weak self] response in
@@ -114,6 +131,11 @@ class ShowDetailViewController: UIViewController {
                     ])
             self?.allBackdropImageView.blurBottom()
             self?.backdropLabel.text = "\(self?.backdrop?.backdrops?.count ?? 0) backdrops"
+            if self?.backdrop?.backdrops?.isEmpty == true {
+                self?.allBackdropImageView.isHidden = true
+                self?.mediaTitleLabel.isHidden = true
+                self?.backdropLabel.isHidden = true
+            }
         }, onFailure: { [weak self] error in
             if let error = error as? APIErrorResponse {
                 self?.showCommonError(message: error.message ?? "")
@@ -126,8 +148,15 @@ class ShowDetailViewController: UIViewController {
             guard let results = response.results else {
                 return
             }
+            
             self?.comment = results
+            self?.states = [Bool](repeating: true, count: results.count)
             self?.commentTableView.reloadData()
+            if results.isEmpty {
+                self?.heightOfCommentTableView.constant = 0
+                self?.seeAllButton.isHidden = true
+                self?.reviewTitleLabel.isHidden = true
+            }
         })
         .disposed(by: disposebag)
     }
@@ -166,6 +195,7 @@ class ShowDetailViewController: UIViewController {
         commentTableView.register(cellType: CommentCell.self)
         commentTableView.dataSource = self
         commentTableView.rowHeight = UITableView.automaticDimension
+        heightOfCommentTableView.constant = Screen.height * 1/3
     }
     
     @objc private func handleTapAllBackdrop() {
@@ -219,6 +249,8 @@ class ShowDetailViewController: UIViewController {
         var langString = ""
         if let spokenLanguages = data.spokenLanguages, !spokenLanguages.isEmpty {
             langString = spokenLanguages.map { $0.englishName ?? "" }.joined(separator: ", ")
+        } else {
+            languageLabel.isHidden = true
         }
         let fullText = "Language: \(langString)"
         
@@ -246,6 +278,7 @@ class ShowDetailViewController: UIViewController {
         layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
         actorCollectionView.collectionViewLayout = layout
         actorCollectionView.dataSource = self
+        actorCollectionView.delegate = self
         actorCollectionView.register(cellType: MoviePosterCell.self)
     }
     
@@ -263,7 +296,7 @@ class ShowDetailViewController: UIViewController {
         seasonCollectionView.collectionViewLayout = layout
         seasonCollectionView.dataSource = self
         seasonCollectionView.register(cellType: MoviePosterCell.self)
-        
+        seasonCollectionView.delegate = self
     }
     
     
@@ -278,10 +311,43 @@ class ShowDetailViewController: UIViewController {
         layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
         similiarCollectionView.collectionViewLayout = layout
         similiarCollectionView.dataSource = self
+        similiarCollectionView.delegate = self
         similiarCollectionView.register(cellType: MoviePosterCell.self)
         heightOfSimiliarCollectionView.constant = itemHeight + 8
     }
     
+}
+
+extension ShowDetailViewController: ExpandableLabelDelegate {
+    func willExpandLabel(_ label: ExpandableLabel) {
+        commentTableView.beginUpdates()
+    }
+    
+    func didExpandLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: commentTableView)
+        if let indexPath = commentTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = false
+            DispatchQueue.main.async { [weak self] in
+                self?.commentTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        commentTableView.endUpdates()
+    }
+    
+    func willCollapseLabel(_ label: ExpandableLabel) {
+        commentTableView.beginUpdates()
+    }
+    
+    func didCollapseLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: commentTableView)
+        if let indexPath = commentTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = true
+            DispatchQueue.main.async { [weak self] in
+                self?.commentTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        commentTableView.endUpdates()
+    }
 }
 
 extension ShowDetailViewController: StoryboardSceneBased {
@@ -327,6 +393,35 @@ extension ShowDetailViewController: UICollectionViewDataSource {
     }
 }
 
+extension ShowDetailViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == similiarCollectionView {
+            openShowDetail(id: similarShows[indexPath.row].id)
+        } else if collectionView == seasonCollectionView {
+            openShowDetail(id: detail?.seasons?[indexPath.row].id)
+        } else if collectionView == actorCollectionView {
+            let vc = ActorProfileViewController.instantiate()
+            vc.presenter.commonInfo = ActorCommonInfo(id: cast[indexPath.row].id,
+                                                      name: cast[indexPath.row].name,
+                                                      originalName: cast[indexPath.row].originalName,
+                                                      mediaType: nil,
+                                                      adult: cast[indexPath.row].adult,
+                                                      popularity: cast[indexPath.row].popularity,
+                                                      gender: cast[indexPath.row].gender,
+                                                      knownForDepartment: nil,
+                                                      profilePath: cast[indexPath.row].profilePath,
+                                                      knownFor: nil)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func openShowDetail(id: Int?) {
+        let vc = ShowDetailViewController.instantiate()
+        vc.id = id
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
 extension ShowDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comment.count
@@ -335,6 +430,8 @@ extension ShowDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
         cell.setContentForCell(comment: comment[indexPath.row], showSeparaterView: indexPath.row + 1 != comment.count)
+        cell.contentLabel.delegate = self
+        cell.contentLabel.collapsed = states[indexPath.row]
         return cell
     }
 }

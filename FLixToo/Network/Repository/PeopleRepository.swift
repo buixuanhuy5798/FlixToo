@@ -11,6 +11,7 @@ import RxSwift
 protocol PeopleRepositoryType {
     func getListPopularPeople(checking: CheckingType) -> Single<BaseResponse<[ActorCommonInfo]>>
     func getDetailActorInfo(id: Int) -> Single<ActorDetailInfo>
+    func getAllMovieByActor(id: Int) -> Single<MobieByActor>
 }
 
 struct PeopleRepository: PeopleRepositoryType {
@@ -26,5 +27,9 @@ struct PeopleRepository: PeopleRepositoryType {
     
     func getDetailActorInfo(id: Int) -> Single<ActorDetailInfo> {
         return api.request(router: .getDetailPeople(id: id), checking: .checked)
+    }
+    
+    func getAllMovieByActor(id: Int) -> Single<MobieByActor> {
+        return api.request(router: .getAllMovieOfActor(id: id), checking: .checked)
     }
 }

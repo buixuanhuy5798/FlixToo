@@ -8,18 +8,22 @@
 import UIKit
 import Cosmos
 import Reusable
+import ExpandableLabel
 
 class CommentCell: UITableViewCell, NibReusable {
 
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var separateView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var contentLabel: ExpandableLabel!
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        ratingLabel.textColor = .white
+        ratingLabel.font = Typography.fontMedium12
         nameLabel.textColor = .white
         nameLabel.font = Typography.fontMedium14
         dateLabel.textColor = UIColor(hex: "AAAAAA")
@@ -27,6 +31,16 @@ class CommentCell: UITableViewCell, NibReusable {
         contentLabel.textColor = UIColor(hex: "C6C6C6")
         contentLabel.font = Typography.fontMedium12
         selectionStyle = .none
+        contentLabel.collapsed = true
+        contentLabel.numberOfLines = 2
+        contentLabel.collapsedAttributedLink = NSAttributedString(string: "See more", attributes: [NSAttributedString.Key.font: Typography.fontSemibold12 ?? UIFont.systemFont(ofSize: 12),
+                                                                                                    NSAttributedString.Key.foregroundColor: UIColor(hex: "1A8BFB")])
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        contentLabel.collapsed = true
+        contentLabel.text = nil
     }
 
     func setContentForCell(comment: Comment, showSeparaterView: Bool) {
@@ -42,6 +56,7 @@ class CommentCell: UITableViewCell, NibReusable {
         contentLabel.text = comment.content
         ratingView.rating = (Double((comment.authorDetails?.rating ?? 0)) / Double(10)) * 5
         separateView.isHidden = !showSeparaterView
+        ratingLabel.text = "\(comment.authorDetails?.rating ?? 0)"
     }
     
     func convertDate(isoDate: String) -> String {

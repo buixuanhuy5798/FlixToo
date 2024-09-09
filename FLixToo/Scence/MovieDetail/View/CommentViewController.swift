@@ -8,6 +8,7 @@
 import UIKit
 import Reusable
 import RxSwift
+import ExpandableLabel
 
 class CommentViewController: BaseViewController {
 
@@ -19,6 +20,7 @@ class CommentViewController: BaseViewController {
     var currentPage = 1
     var type = HomeCategoryOption.movie
     var lastPage = false
+    var states = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class CommentViewController: BaseViewController {
         tableView.loadMoreTrigger = { [weak self] in
             self?.loadComment()
         }
+        tabBarController?.tabBar.isHidden = true
         loadComment()
     }
     
@@ -48,6 +51,7 @@ class CommentViewController: BaseViewController {
             }
             self?.currentPage += 1
             self?.comment.append(contentsOf: results)
+            self?.states.append(contentsOf: [Bool](repeating: true, count: results.count))
             self?.tableView.reloadData()
         }, onFailure: { [weak self] error in
             if let error = error as? APIErrorResponse {
@@ -60,6 +64,38 @@ class CommentViewController: BaseViewController {
     }
 }
 
+extension CommentViewController: ExpandableLabelDelegate {
+    func willExpandLabel(_ label: ExpandableLabel) {
+        tableView.beginUpdates()
+    }
+    
+    func didExpandLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = false
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        tableView.endUpdates()
+    }
+    
+    func willCollapseLabel(_ label: ExpandableLabel) {
+        tableView.beginUpdates()
+    }
+    
+    func didCollapseLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = true
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        tableView.endUpdates()
+    }
+}
+
 extension CommentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comment.count
@@ -68,6 +104,8 @@ extension CommentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
         cell.setContentForCell(comment: comment[indexPath.row], showSeparaterView: indexPath.row + 1 != comment.count)
+        cell.contentLabel.delegate = self
+        cell.contentLabel.collapsed = states[indexPath.row]
         return cell
     }
 }

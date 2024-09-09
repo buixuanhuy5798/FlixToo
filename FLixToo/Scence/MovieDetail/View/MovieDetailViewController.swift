@@ -9,9 +9,13 @@ import UIKit
 import Kingfisher
 import Reusable
 import PanModal
+import ExpandableLabel
 
 class MovieDetailViewController: UIViewController {
 
+    @IBOutlet weak var heightOfCommentTableView: NSLayoutConstraint!
+    @IBOutlet weak var reviewTitleLabel: UILabel!
+    @IBOutlet weak var seeAllButton: UIButton!
     @IBOutlet weak var commentTableView: UITableView!
     @IBOutlet weak var allBackdropImageView: UIImageView!
     @IBOutlet weak var backdropLabel: UILabel!
@@ -40,6 +44,7 @@ class MovieDetailViewController: UIViewController {
     var similarMovies = [MovieCommonInfomation]()
     var comment = [Comment]()
     var backdrop: BackdropsMovie?
+    var states = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,12 +79,13 @@ class MovieDetailViewController: UIViewController {
         allBackdropImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapAllBackdrop)))
         allBackdropImageView.isUserInteractionEnabled = true
         setUpTableView()
+        heightOfCommentTableView.constant = Screen.height * 1/3
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        tabBarController?.tabBar.isHidden = false
+//    }
     
     @objc private func handleTapAllBackdrop() {
         let vc = MovieBackdropImageShowControllerViewController.instantiate()
@@ -116,7 +122,13 @@ class MovieDetailViewController: UIViewController {
 extension MovieDetailViewController:MovieDetailViewProtocol {
     func updateComment(comment: [Comment]) {
         self.comment = comment
+        self.states = [Bool](repeating: true, count: comment.count)
         commentTableView.reloadData()
+        if comment.isEmpty {
+            heightOfCommentTableView.constant = 0
+            seeAllButton.isHidden = true
+            reviewTitleLabel.isHidden = true
+        }
     }
     
     func updateBackdrops(backdrop: BackdropsMovie) {
@@ -131,6 +143,10 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
                 ])
         allBackdropImageView.blurBottom()
         backdropLabel.text = "\(backdrop.backdrops?.count ?? 0) backdrops"
+        if backdrop.backdrops?.isEmpty == true {
+            backdropLabel.isHidden = true
+            allBackdropImageView.isHidden = true
+        }
     }
     
     func updateListCredit(credit: MovieCredit) {
@@ -138,6 +154,10 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
         self.crew = credit.crew ?? []
         actorCollectionView.reloadData()
         crewCollectionView.reloadData()
+        if self.cast.isEmpty == true {
+            self.heightOfActorCollectionView.constant = 0
+            self.actorTitleLabel.isHidden = true
+        }
     }
     
     func updateMovieDetail(data: MovieDetail) {
@@ -148,6 +168,10 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
     func updateSimilarMovies(movies: [MovieCommonInfomation]) {
         self.similarMovies = movies
         similarCollectionView.reloadData()
+        if similarMovies.isEmpty == true {
+            self.heightOfSimilarCollectionView.constant = 0
+            self.similarMovieTitleLabel.isHidden = true
+        }
     }
     
     private func bindingData() {
@@ -180,6 +204,8 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
         var langString = ""
         if let spokenLanguages = data.spokenLanguages, !spokenLanguages.isEmpty {
             langString = spokenLanguages.map { $0.englishName ?? "" }.joined(separator: ", ")
+        } else {
+            languageLabel.isHidden = true
         }
         let fullText = "Language: \(langString)"
         
@@ -255,6 +281,38 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
     }
 }
 
+extension MovieDetailViewController: ExpandableLabelDelegate {
+    func willExpandLabel(_ label: ExpandableLabel) {
+        commentTableView.beginUpdates()
+    }
+    
+    func didExpandLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: commentTableView)
+        if let indexPath = commentTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = false
+            DispatchQueue.main.async { [weak self] in
+                self?.commentTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        commentTableView.endUpdates()
+    }
+    
+    func willCollapseLabel(_ label: ExpandableLabel) {
+        commentTableView.beginUpdates()
+    }
+    
+    func didCollapseLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: commentTableView)
+        if let indexPath = commentTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = true
+            DispatchQueue.main.async { [weak self] in
+                self?.commentTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        commentTableView.endUpdates()
+    }
+}
+
 extension MovieDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comment.count
@@ -263,7 +321,8 @@ extension MovieDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
         cell.setContentForCell(comment: comment[indexPath.row], showSeparaterView: indexPath.row + 1 != comment.count)
-        
+        cell.contentLabel.delegate = self
+        cell.contentLabel.collapsed = states[indexPath.row]
         return cell
     }
 }

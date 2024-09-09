@@ -29,7 +29,7 @@ struct Comment: Codable {
 struct AuthorDetails: Codable {
     let name, username: String?
     let avatarPath: String?
-    let rating: Int?
+    let rating: Double?
 
     enum CodingKeys: String, CodingKey {
         case name, username

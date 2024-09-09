@@ -25,6 +25,7 @@ enum Typography {
     static let fontMedium12 = UIFont(name: "Urbanist-Medium", size: 12)
     
     // Font Semibold
+    static let fontSemibold12 = UIFont(name: "Urbanist-SemiBold", size: 12)
     static let fontSemibold14 = UIFont(name: "Urbanist-SemiBold", size: 14)
     static let fontSemibold16 = UIFont(name: "Urbanist-SemiBold", size: 16)
     static let fontSemibold18 = UIFont(name: "Urbanist-SemiBold", size: 18)
