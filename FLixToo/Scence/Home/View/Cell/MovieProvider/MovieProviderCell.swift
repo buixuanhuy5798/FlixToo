@@ -26,4 +26,14 @@ class MovieProviderCell: UICollectionViewCell, NibReusable {
                 .transition(.fade(0.1)),
             ])
     }
+    
+    func setContentForCell(data: Flatrate) {
+        imageView.kf.setImage(
+            with: Utils.getUrlImage(path: data.logoPath ?? ""),
+            options: [
+                .loadDiskFileSynchronously,
+                .cacheOriginalImage,
+                .transition(.fade(0.1)),
+            ])
+    }
 }

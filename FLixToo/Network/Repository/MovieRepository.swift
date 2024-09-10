@@ -49,6 +49,8 @@ protocol MovieRepositoryType {
     func getShowCredit(id: Int) -> Single<MovieCredit>
     func getSimilarShow(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
     func getMoviesByProvider(id: Int, sortBy: String, page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>>
+    func getTvShowStreamOn(id: Int) -> Single<MovieStreamOn>
+    func getMovieStreamOn(id: Int) -> Single<MovieStreamOn>
 }
 
 struct MovieRepository: MovieRepositoryType {
@@ -148,6 +150,14 @@ struct MovieRepository: MovieRepositoryType {
     
     func getSimilarShow(id: Int, page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>> {
         return api.request(router: .getSimilarShow(id: id, page: page), checking: checking)
+    }
+    
+    func getTvShowStreamOn(id: Int) -> Single<MovieStreamOn> {
+        return api.request(router: .getTvShowStreamOn(id: id), checking: .unchecked)
+    }
+    
+    func getMovieStreamOn(id: Int) -> Single<MovieStreamOn> {
+        return api.request(router: .getMovieStreamOn(id: id), checking: .unchecked)
     }
 }
 

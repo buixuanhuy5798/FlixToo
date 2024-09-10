@@ -86,4 +86,16 @@ final class MovieDetailInteractor: MovieDetailInteractorInputProtocol {
         .disposed(by: disposebag)
     }
     
+    func getMovieStreamOn(id: Int) {
+        repository.getMovieStreamOn(id: id).subscribe(onSuccess: { [weak self] response in
+            self?.output?.getTvShowStreamOnSuccess(data: response)
+        }, onFailure: { [weak self] error in
+            if let error = error as? APIErrorResponse {
+                self?.output?.getTvShowStreamOnFail(message: error.message ?? "")
+            } else {
+                self?.output?.getTvShowStreamOnFail(message: error.localizedDescription)
+            }
+        })
+        .disposed(by: disposebag)
+    }
 }

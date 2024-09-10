@@ -314,3 +314,41 @@ struct Season: Codable {
         case voteAverage = "vote_average"
     }
 }
+
+
+
+// MARK: - Welcome
+struct MovieStreamOn: Codable {
+    let id: Int?
+    let results: MovieStreamOnResults?
+}
+
+// MARK: - Results
+struct MovieStreamOnResults: Codable {
+    let gb: At?
+    
+    enum CodingKeys: String, CodingKey {
+        case gb = "GB"
+    }
+}
+
+// MARK: - Ad
+struct At: Codable {
+    let link: String?
+    let buy, flatrate, rent: [Flatrate]?
+}
+
+// MARK: - Flatrate
+struct Flatrate: Codable {
+    let logoPath: String?
+    let providerID: Int?
+    let providerName: String?
+    let displayPriority: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case logoPath = "logo_path"
+        case providerID = "provider_id"
+        case providerName = "provider_name"
+        case displayPriority = "display_priority"
+    }
+}

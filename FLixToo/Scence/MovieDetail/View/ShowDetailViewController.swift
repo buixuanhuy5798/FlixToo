@@ -13,6 +13,8 @@ import ExpandableLabel
 
 class ShowDetailViewController: UIViewController {
 
+    @IBOutlet weak var streamOnLabel: UILabel!
+    @IBOutlet weak var streamOnCollectionView: UICollectionView!
     @IBOutlet weak var reviewTitleLabel: UILabel!
     @IBOutlet weak var seeAllButton: UIButton!
     @IBOutlet weak var heightOfCommentTableView: NSLayoutConstraint!
@@ -49,6 +51,7 @@ class ShowDetailViewController: UIViewController {
     var backdrop: BackdropsMovie?
     var comment = [Comment]()
     var states = [Bool]()
+    var streamOn = [Flatrate]()
     
     var detail: ShowDetail? {
         didSet {
@@ -159,6 +162,17 @@ class ShowDetailViewController: UIViewController {
             }
         })
         .disposed(by: disposebag)
+        repository.getTvShowStreamOn(id: id).subscribe(onSuccess: { [weak self] response in
+            guard let results = response.results else {
+                return
+            }
+            self?.streamOn = results.gb?.buy ?? []
+            self?.streamOnCollectionView.reloadData()
+            if self?.streamOn.isEmpty == true {
+                self?.streamOnCollectionView.isHidden = true
+                self?.streamOnLabel.isHidden = true
+            }
+        }).disposed(by: disposebag)
     }
     
     private func setUpView() {
@@ -196,6 +210,10 @@ class ShowDetailViewController: UIViewController {
         commentTableView.dataSource = self
         commentTableView.rowHeight = UITableView.automaticDimension
         heightOfCommentTableView.constant = Screen.height * 1/3
+        setUpStreamOnCollectionView()
+        streamOnLabel.text = "Stream on"
+        streamOnLabel.textColor = UIColor(hex: "1A8BFB")
+        streamOnLabel.font = Typography.fontRegular14
     }
     
     @objc private func handleTapAllBackdrop() {
@@ -316,6 +334,20 @@ class ShowDetailViewController: UIViewController {
         heightOfSimiliarCollectionView.constant = itemHeight + 8
     }
     
+    private func setUpStreamOnCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 16
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumInteritemSpacing = 16
+        layout.scrollDirection = .horizontal
+        streamOnCollectionView.showsHorizontalScrollIndicator = false
+        layout.itemSize = CGSize(width: 40, height: 40)
+        streamOnCollectionView.collectionViewLayout = layout
+        streamOnCollectionView.dataSource = self
+        streamOnCollectionView.delegate = self
+        streamOnCollectionView.register(cellType: MovieProviderCell.self)
+    }
+    
 }
 
 extension ShowDetailViewController: ExpandableLabelDelegate {
@@ -365,6 +397,8 @@ extension ShowDetailViewController: UICollectionViewDataSource {
             return cast.count
         } else if collectionView == similiarCollectionView {
             return similarShows.count
+        } else if collectionView == streamOnCollectionView {
+            return streamOn.count
         }
         return 0
     }
@@ -388,7 +422,11 @@ extension ShowDetailViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
             cell.setContentForCell(data: similarShows[indexPath.row])
             return cell
-        }
+       } else if collectionView == streamOnCollectionView {
+           let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MovieProviderCell.self)
+           cell.setContentForCell(data: streamOn[indexPath.row])
+           return cell
+       }
         return UICollectionViewCell()
     }
 }

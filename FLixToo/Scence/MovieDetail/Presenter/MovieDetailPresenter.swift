@@ -21,10 +21,19 @@ final class MovieDetailPresenter: MovieDetailPresenterProtocol {
         interactor.getSimilarMovie(id: id, page: 1, checking: .unchecked)
         interactor.getAllBackdrops(id: id)
         interactor.getComment(id: id, page: 1, checking: .unchecked)
+        interactor.getMovieStreamOn(id: id)
     }
 }
 
 extension MovieDetailPresenter:MovieDetailInteractorOutputProtocol {
+    func getTvShowStreamOnSuccess(data: MovieStreamOn) {
+        view?.updateStreamOn(data: data)
+    }
+    
+    func getTvShowStreamOnFail(message: String) {
+        view?.showError(message: message)
+    }
+    
     func getMovieDetailSuccess(detail: MovieDetail) {
         view?.updateMovieDetail(data: detail)
     }

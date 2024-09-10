@@ -13,6 +13,8 @@ import ExpandableLabel
 
 class MovieDetailViewController: UIViewController {
 
+    @IBOutlet weak var streamOnCollectionView: UICollectionView!
+    @IBOutlet weak var streamOnLabel: UILabel!
     @IBOutlet weak var heightOfCommentTableView: NSLayoutConstraint!
     @IBOutlet weak var reviewTitleLabel: UILabel!
     @IBOutlet weak var seeAllButton: UIButton!
@@ -45,6 +47,7 @@ class MovieDetailViewController: UIViewController {
     var comment = [Comment]()
     var backdrop: BackdropsMovie?
     var states = [Bool]()
+    var streamOn = [Flatrate]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +83,10 @@ class MovieDetailViewController: UIViewController {
         allBackdropImageView.isUserInteractionEnabled = true
         setUpTableView()
         heightOfCommentTableView.constant = Screen.height * 1/3
+        setUpStreamOnCollectionView()
+        streamOnLabel.text = "Stream on"
+        streamOnLabel.textColor = UIColor(hex: "1A8BFB")
+        streamOnLabel.font = Typography.fontRegular14
     }
     
 //    override func viewWillDisappear(_ animated: Bool) {
@@ -144,6 +151,7 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
         allBackdropImageView.blurBottom()
         backdropLabel.text = "\(backdrop.backdrops?.count ?? 0) backdrops"
         if backdrop.backdrops?.isEmpty == true {
+            mediaTitleLabel.isHidden = true
             backdropLabel.isHidden = true
             allBackdropImageView.isHidden = true
         }
@@ -171,6 +179,15 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
         if similarMovies.isEmpty == true {
             self.heightOfSimilarCollectionView.constant = 0
             self.similarMovieTitleLabel.isHidden = true
+        }
+    }
+    
+    func updateStreamOn(data: MovieStreamOn) {
+        streamOn = data.results?.gb?.buy ?? []
+        streamOnCollectionView.reloadData()
+        if streamOn.isEmpty == true {
+            streamOnCollectionView.isHidden = true
+            streamOnLabel.isHidden = true
         }
     }
     
@@ -251,6 +268,20 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
         actorCollectionView.dataSource = self
         actorCollectionView.delegate = self
         actorCollectionView.register(cellType: MoviePosterCell.self)
+    }
+    
+    private func setUpStreamOnCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 16
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumInteritemSpacing = 16
+        layout.scrollDirection = .horizontal
+        streamOnCollectionView.showsHorizontalScrollIndicator = false
+        layout.itemSize = CGSize(width: 40, height: 40)
+        streamOnCollectionView.collectionViewLayout = layout
+        streamOnCollectionView.dataSource = self
+        streamOnCollectionView.delegate = self
+        streamOnCollectionView.register(cellType: MovieProviderCell.self)
     }
     
     private func setUpSimilarCollectionView() {
@@ -335,6 +366,8 @@ extension MovieDetailViewController: UICollectionViewDataSource {
             return cast.count
         } else if collectionView == similarCollectionView {
             return similarMovies.count
+        }  else if collectionView == streamOnCollectionView {
+            return streamOn.count
         }
         return 0
     }
@@ -351,6 +384,10 @@ extension MovieDetailViewController: UICollectionViewDataSource {
         } else if collectionView == similarCollectionView {
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
             cell.setContentForCell(data: similarMovies[indexPath.row])
+            return cell
+        } else if collectionView == streamOnCollectionView {
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MovieProviderCell.self)
+            cell.setContentForCell(data: streamOn[indexPath.row])
             return cell
         }
         return UICollectionViewCell()
