@@ -171,6 +171,8 @@ class ShowDetailViewController: UIViewController {
             if self?.streamOn.isEmpty == true {
                 self?.streamOnCollectionView.isHidden = true
                 self?.streamOnLabel.isHidden = true
+            } else {
+                self?.streamOnLabel.isHidden = false
             }
         }).disposed(by: disposebag)
     }
@@ -214,6 +216,7 @@ class ShowDetailViewController: UIViewController {
         streamOnLabel.text = "Stream on"
         streamOnLabel.textColor = UIColor(hex: "1A8BFB")
         streamOnLabel.font = Typography.fontRegular14
+        setUpAddToLibraryButton()
     }
     
     @objc private func handleTapAllBackdrop() {
@@ -241,11 +244,37 @@ class ShowDetailViewController: UIViewController {
         let vc = AddToLibraryControllerViewController.instantiate()
         vc.item = SaveData(id: self.detail?.id, name: self.detail?.originalName, imagePath: self.detail?.posterPath, type: .show)
         vc.modalTransitionStyle = .coverVertical
+        vc.willDismiss = { [weak self] in
+            self?.setUpAddToLibraryButton()
+        }
         navigationController?.presentPanModal(vc)
     }
     
     @IBAction func handleTapClose(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func setUpAddToLibraryButton() {
+        let spacing: CGFloat = 8; // the amount of spacing to appear between image and title
+        addToLibraryButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: spacing);
+        addToLibraryButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: 0);
+        
+        if UserInfomation.favList.contains(where: { $0.id == id }) {
+            addToLibraryButton.setImage(UIImage(named: "icon_fav"), for: .normal)
+            addToLibraryButton.setTitle("Favourites", for: .normal)
+        } else if UserInfomation.watchLaterList.contains(where: { $0.id == id }) {
+            addToLibraryButton.setImage(UIImage(named: "ic_watch_later"), for: .normal)
+            addToLibraryButton.setTitle("Watch-later", for: .normal)
+        } else if UserInfomation.watchedList.contains(where: { $0.id == id }) {
+            addToLibraryButton.setImage(UIImage(named: "ic_watched"), for: .normal)
+            addToLibraryButton.setTitle("Watched", for: .normal)
+        } else if UserInfomation.dislikeList.contains(where: { $0.id == id }) {
+            addToLibraryButton.setImage(UIImage(named: "ic_disliked"), for: .normal)
+            addToLibraryButton.setTitle("Disliked", for: .normal)
+        } else {
+            addToLibraryButton.setImage(nil, for: .normal)
+            addToLibraryButton.setTitle("+ Add To Library", for: .normal)
+        }
     }
     
     private func setUpCrewCollectionView() {
@@ -435,9 +464,11 @@ extension ShowDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == similiarCollectionView {
             openShowDetail(id: similarShows[indexPath.row].id)
-        } else if collectionView == seasonCollectionView {
-            openShowDetail(id: detail?.seasons?[indexPath.row].id)
-        } else if collectionView == actorCollectionView {
+        }
+//        else if collectionView == seasonCollectionView {
+//            openShowDetail(id: detail?.seasons?[indexPath.row].id)
+//        } 
+        else if collectionView == actorCollectionView {
             let vc = ActorProfileViewController.instantiate()
             vc.presenter.commonInfo = ActorCommonInfo(id: cast[indexPath.row].id,
                                                       name: cast[indexPath.row].name,

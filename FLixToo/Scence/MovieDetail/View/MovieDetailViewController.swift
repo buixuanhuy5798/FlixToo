@@ -87,6 +87,7 @@ class MovieDetailViewController: UIViewController {
         streamOnLabel.text = "Stream on"
         streamOnLabel.textColor = UIColor(hex: "1A8BFB")
         streamOnLabel.font = Typography.fontRegular14
+        setUpAddToLibraryButton()
     }
     
 //    override func viewWillDisappear(_ animated: Bool) {
@@ -112,6 +113,9 @@ class MovieDetailViewController: UIViewController {
         let vc = AddToLibraryControllerViewController.instantiate()
         vc.item = SaveData(id: self.detail?.id, name: self.detail?.originalTitle, imagePath: self.detail?.posterPath, type: .movie)
         vc.modalTransitionStyle = .coverVertical
+        vc.willDismiss = { [weak self] in
+            self?.setUpAddToLibraryButton()
+        }
         navigationController?.presentPanModal(vc)
     }
     
@@ -188,6 +192,8 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
         if streamOn.isEmpty == true {
             streamOnCollectionView.isHidden = true
             streamOnLabel.isHidden = true
+        } else {
+            streamOnLabel.isHidden = false
         }
     }
     
@@ -309,6 +315,29 @@ extension MovieDetailViewController:MovieDetailViewProtocol {
     
     func showError(message: String) {
         showCommonError(message: message)
+    }
+    
+    func setUpAddToLibraryButton() {
+        let spacing: CGFloat = 8; // the amount of spacing to appear between image and title
+        addToLibraryButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: spacing);
+        addToLibraryButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: 0);
+        
+        if UserInfomation.favList.contains(where: { $0.id == presenter.id }) {
+            addToLibraryButton.setImage(UIImage(named: "icon_fav"), for: .normal)
+            addToLibraryButton.setTitle("Favourites", for: .normal)
+        } else if UserInfomation.watchLaterList.contains(where: { $0.id == presenter.id }) {
+            addToLibraryButton.setImage(UIImage(named: "ic_watch_later"), for: .normal)
+            addToLibraryButton.setTitle("Watch-later", for: .normal)
+        } else if UserInfomation.watchedList.contains(where: { $0.id == presenter.id }) {
+            addToLibraryButton.setImage(UIImage(named: "ic_watched"), for: .normal)
+            addToLibraryButton.setTitle("Watched", for: .normal)
+        } else if UserInfomation.dislikeList.contains(where: { $0.id == presenter.id }) {
+            addToLibraryButton.setImage(UIImage(named: "ic_disliked"), for: .normal)
+            addToLibraryButton.setTitle("Disliked", for: .normal)
+        } else {
+            addToLibraryButton.setImage(nil, for: .normal)
+            addToLibraryButton.setTitle("+ Add To Library", for: .normal)
+        }
     }
 }
 
