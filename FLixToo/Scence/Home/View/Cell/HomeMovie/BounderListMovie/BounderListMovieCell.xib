@@ -3,22 +3,25 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BounderListMovieCell" customModule="FLixToo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="141" id="KGk-i7-Jjw" customClass="BounderListMovieCell" customModule="FLixToo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="351" height="141"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="351" height="141"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="free_to_watch_background" translatesAutoresizingMaskIntoConstraints="NO" id="OWO-xV-Ylp">
+                        <rect key="frame" x="0.0" y="0.0" width="351" height="141"/>
+                    </imageView>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ovb-pg-sep">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="53" width="351" height="88"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uxz-Lj-4ZX">
                             <size key="itemSize" width="128" height="128"/>
@@ -27,21 +30,52 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYy-Oz-AUC">
+                        <rect key="frame" x="16" y="16" width="319" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_next" translatesAutoresizingMaskIntoConstraints="NO" id="PGK-AF-fV3">
+                        <rect key="frame" x="327" y="19.666666666666668" width="8" height="14.000000000000004"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="SOh-f8-N8j"/>
+                            <constraint firstAttribute="width" constant="8" id="oQh-e3-J2t"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="Ovb-pg-sep" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Suf-lg-0BV"/>
+                    <constraint firstItem="Ovb-pg-sep" firstAttribute="top" secondItem="LYy-Oz-AUC" secondAttribute="bottom" constant="16" id="3pH-Cf-NW6"/>
+                    <constraint firstAttribute="trailing" secondItem="LYy-Oz-AUC" secondAttribute="trailing" constant="16" id="7J0-hE-rma"/>
+                    <constraint firstItem="LYy-Oz-AUC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7aq-4z-fbz"/>
+                    <constraint firstAttribute="bottom" secondItem="OWO-xV-Ylp" secondAttribute="bottom" id="NzK-dS-tbF"/>
+                    <constraint firstItem="OWO-xV-Ylp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="PO3-Cy-G2U"/>
+                    <constraint firstItem="LYy-Oz-AUC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="b5S-7A-N69"/>
                     <constraint firstItem="Ovb-pg-sep" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dq9-bF-Ube"/>
                     <constraint firstAttribute="trailing" secondItem="Ovb-pg-sep" secondAttribute="trailing" id="eCS-jb-TgD"/>
+                    <constraint firstAttribute="trailing" secondItem="PGK-AF-fV3" secondAttribute="trailing" constant="16" id="et2-g2-6zk"/>
+                    <constraint firstItem="OWO-xV-Ylp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nrY-Rj-yBp"/>
+                    <constraint firstItem="PGK-AF-fV3" firstAttribute="centerY" secondItem="LYy-Oz-AUC" secondAttribute="centerY" id="orc-Pp-wtn"/>
                     <constraint firstAttribute="bottom" secondItem="Ovb-pg-sep" secondAttribute="bottom" id="qKN-aE-cIk"/>
+                    <constraint firstAttribute="trailing" secondItem="OWO-xV-Ylp" secondAttribute="trailing" id="uvw-zM-vHC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="backgroundImageView" destination="OWO-xV-Ylp" id="IyI-t8-h8S"/>
+                <outlet property="bottomConstraintLabel" destination="3pH-Cf-NW6" id="bxc-l7-bdS"/>
                 <outlet property="collectionView" destination="Ovb-pg-sep" id="oaS-vH-tf1"/>
+                <outlet property="iconNext" destination="PGK-AF-fV3" id="uWv-E2-NV5"/>
+                <outlet property="titleLabel" destination="LYy-Oz-AUC" id="LMP-Ol-7IE"/>
+                <outlet property="topConstraintLabel" destination="b5S-7A-N69" id="nfs-KS-Hti"/>
             </connections>
-            <point key="canvasLocation" x="-3" y="-1"/>
+            <point key="canvasLocation" x="20.610687022900763" y="32.74647887323944"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="free_to_watch_background" width="375" height="250"/>
+        <image name="icon_next" width="7.6666665077209473" height="13.666666984558105"/>
+    </resources>
 </document>

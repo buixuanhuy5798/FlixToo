@@ -10,8 +10,13 @@ import Reusable
 
 class BounderListMovieCell: UITableViewCell, BaseCollectionViewInTableViewCell, NibReusable {
 
+    @IBOutlet weak var iconNext: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var bottomConstraintLabel: NSLayoutConstraint!
+    @IBOutlet weak var topConstraintLabel: NSLayoutConstraint!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+        
     var collectionViewOffset: CGFloat {
         get {
             return collectionView.contentOffset.x
@@ -22,6 +27,8 @@ class BounderListMovieCell: UITableViewCell, BaseCollectionViewInTableViewCell, 
         }
     }
     
+    var tapHeader: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.register(cellType: MovieProviderCell.self)
@@ -29,6 +36,14 @@ class BounderListMovieCell: UITableViewCell, BaseCollectionViewInTableViewCell, 
         collectionView.register(cellType: MoviePosterCell.self)
         collectionView.register(cellType: ActorCommonInfoCell.self)
         selectionStyle = .none
+        titleLabel.textColor = .white
+        titleLabel.font = Typography.fontSemibold18
+        titleLabel.isUserInteractionEnabled = true
+        titleLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapLabel)))
+    }
+    
+    @objc private func handleTapLabel() {
+        tapHeader?()
     }
     
     private func setContentForCell(type: HomeCollectionSectionData) {
@@ -55,6 +70,22 @@ class BounderListMovieCell: UITableViewCell, BaseCollectionViewInTableViewCell, 
             layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
         }
         collectionView.collectionViewLayout = layout
+        switch type {
+        case .freeMovieToWatch:
+            titleLabel.isHidden = false
+            titleLabel.text = "Free to watch"
+            topConstraintLabel.constant = 16
+            bottomConstraintLabel.constant = 16
+            backgroundImageView.isHidden = false
+            iconNext.isHidden = false
+        default:
+            titleLabel.text = ""
+            titleLabel.isHidden = true
+            topConstraintLabel.constant = 0
+            bottomConstraintLabel.constant = 0
+            backgroundImageView.isHidden = true
+            iconNext.isHidden = true
+        }
     }
     
     func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, fowRow row: Int, type: HomeCollectionSectionData) {
