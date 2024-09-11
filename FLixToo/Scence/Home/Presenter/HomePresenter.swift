@@ -20,6 +20,7 @@ final class HomePresenter: HomePresenterProtocol {
                 .movieProviders([]),
                 .upcomingShow([]),
                 .nowPlaying([]),
+                .freeMovieToWatch([]),
                 .topRatedShow([]),
                 .popularPeople([]),
                 .upcoming([]),
@@ -33,6 +34,7 @@ final class HomePresenter: HomePresenterProtocol {
         interactor.getListUpcomingTvShow(page: 1, checkingType: .unchecked)
         interactor.getListTopRatedTVShow(page: 1, checkingType: .unchecked)
         interactor.getListPopularPeople(checkingType: .unchecked)
+        interactor.getListFreeMovieToWatch(page: 1, checkingType: .unchecked)
     }
     
     func openActorDetail(info: ActorCommonInfo) {
@@ -41,8 +43,13 @@ final class HomePresenter: HomePresenterProtocol {
 }
 
 extension HomePresenter:HomeInteractorOutputProtocol {
+    func getListFreeMovieToWatchSuccess(data: [MovieCommonInfomation]) {
+        self.data[5] = .freeMovieToWatch(data)
+        view?.reloadContent()
+    }
+    
     func getListPopularTVShowSuccess(data: [TvShowCommonInfomation]) {
-        self.data[8] = .trendingShow(data)
+        self.data[9] = .trendingShow(data)
         view?.reloadContent()
     }
     
@@ -52,7 +59,7 @@ extension HomePresenter:HomeInteractorOutputProtocol {
     }
     
     func getListUpcomingMoviesSuccess(data: [MovieCommonInfomation]) {
-        self.data[7] = .upcoming(data)
+        self.data[8] = .upcoming(data)
         view?.reloadContent()
     }
     
@@ -67,7 +74,7 @@ extension HomePresenter:HomeInteractorOutputProtocol {
     }
     
     func getListPopularPeople(data: [ActorCommonInfo]) {
-        self.data[6] = .popularPeople(data)
+        self.data[7] = .popularPeople(data)
         view?.reloadContent()
     }
     
@@ -77,7 +84,7 @@ extension HomePresenter:HomeInteractorOutputProtocol {
     }
     
     func getListTopRatedTVShowSuccess(data: [TvShowCommonInfomation]) {
-        self.data[5] = .topRatedShow(data)
+        self.data[6] = .topRatedShow(data)
         view?.reloadContent()
     }
 }

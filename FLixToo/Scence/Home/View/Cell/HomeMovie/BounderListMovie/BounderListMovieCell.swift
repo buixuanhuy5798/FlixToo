@@ -43,7 +43,7 @@ class BounderListMovieCell: UITableViewCell, BaseCollectionViewInTableViewCell, 
             let itemWitdh = (Screen.width - 48) / 2
             let itemHeight = itemWitdh * 96/158 
             layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
-        case .tredingMovies, .nowPlaying, .upcoming, .trendingShow, .upcomingShow, .topRatedShow:
+        case .tredingMovies, .nowPlaying, .upcoming, .trendingShow, .upcomingShow, .topRatedShow, .freeMovieToWatch:
             let itemWitdh = (Screen.width - 48) / 3.2
             let itemHeight = itemWitdh * 194/102 + 16
             layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)

@@ -21,7 +21,7 @@ enum APIRouter {
     case getListPopularTVShow(page: Int)
     case getListUpcomingTVShow(page: Int)
     case getListTopRatedTVShow(page: Int)
-    
+    case getListFreeMovieToWatch(page: Int)
     case getMovieCredit(id: Int)
     case getSimilarMovie(id: Int, page: Int)
     case getAllBackdropsMovie(id: Int)
@@ -117,6 +117,8 @@ enum APIRouter {
             return "/tv/\(id)/watch/providers"
         case .getMovieStreamOn(let id):
             return "/movie/\(id)/watch/providers"
+        case .getListFreeMovieToWatch:
+            return "discover/movie"
         }
     }
     
@@ -174,6 +176,9 @@ enum APIRouter {
             ]
         case .getShowDetail:
             return ["value": 8]
+        case .getListFreeMovieToWatch(let page):
+            return ["page": page,
+                    "with_watch_monetization_types": "free"]
         default:
             return nil
         }

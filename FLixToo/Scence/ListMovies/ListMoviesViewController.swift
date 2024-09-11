@@ -19,6 +19,7 @@ enum ListMoviesType {
     case movie(model: GenreModel)
     case tv(model: GenreModel)
     case moviesProvider(provider: MovieProvider)
+    case freeToWatch
 }
 
 enum SortType: String, CaseIterable {
@@ -98,6 +99,8 @@ final class ListMoviesViewController: BaseViewController {
             title = "Upcomming Shows"
         case .topRatedShows:
             title = "Top Rated Shows"
+        case .freeToWatch:
+            title = "Free Movies to Watch"
         case .movie(let model):
             title = model.name
         case .tv(let model):
@@ -145,6 +148,8 @@ extension ListMoviesViewController {
             return movieRepository.getListUpcomingMovies(page: page, checking: type)
         case .nowPlaying:
             return movieRepository.getListNowPlayingMovies(page: page, checking: type)
+        case .freeToWatch:
+            return movieRepository.getListFreeMovieToWatch(page: page, checking: type)
         case .movie(let model):
             return movieRepository.getMoviesByGenre(id: model.id, page: page, checking: type)
         case .moviesProvider(let provider):
