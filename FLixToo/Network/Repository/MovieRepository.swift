@@ -35,7 +35,8 @@ protocol MovieRepositoryType {
     func getListNowPlayingMovies(page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>>
     func getListMovieProviders(checking: CheckingType) -> Single<BaseResponse<[MovieProvider]>>
     func getMovieDetail(id: String) -> Single<MovieDetail>
-    
+    func getListFreeMovieToWatch(page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>>
+
     func getListPopularTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
     func getListUpcomingTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
     func getListTopRatedTVShow(page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
@@ -163,6 +164,10 @@ struct MovieRepository: MovieRepositoryType {
     
     func getMovieStreamOn(id: Int) -> Single<MovieStreamOn> {
         return api.request(router: .getMovieStreamOn(id: id), checking: .unchecked)
+    }
+    
+    func getListFreeMovieToWatch(page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>> {
+        return api.request(router: .getListFreeMovieToWatch(page: page), checking: checking)
     }
 }
 

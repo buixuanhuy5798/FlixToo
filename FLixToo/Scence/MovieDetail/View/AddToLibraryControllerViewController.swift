@@ -85,6 +85,11 @@ class AddToLibraryControllerViewController: UIViewController {
     }
     
     @IBAction func handleTapRemoveButton(_ sender: Any) {
+        removeFromAllList()
+        bindView()
+    }
+    
+    private func removeFromAllList() {
         guard let item = item else {
             return
         }
@@ -108,7 +113,6 @@ class AddToLibraryControllerViewController: UIViewController {
             disliked.remove(at: index)
         }
         UserInfomation.dislikeList = disliked
-        bindView()
     }
     
     @IBAction func handleTapDislike(_ sender: Any) {
@@ -119,6 +123,7 @@ class AddToLibraryControllerViewController: UIViewController {
         if let index = fav.firstIndex(where: { $0.id == item.id }) {
             fav.remove(at: index)
         } else {
+            removeFromAllList()
             fav.append(item)
         }
         UserInfomation.dislikeList = fav
@@ -133,6 +138,7 @@ class AddToLibraryControllerViewController: UIViewController {
         if let index = fav.firstIndex(where: { $0.id == item.id }) {
             fav.remove(at: index)
         } else {
+            removeFromAllList()
             fav.append(item)
         }
         UserInfomation.watchedList = fav
@@ -147,6 +153,7 @@ class AddToLibraryControllerViewController: UIViewController {
         if let index = fav.firstIndex(where: { $0.id == item.id }) {
             fav.remove(at: index)
         } else {
+            removeFromAllList()
             fav.append(item)
         }
         UserInfomation.watchLaterList = fav
@@ -161,6 +168,7 @@ class AddToLibraryControllerViewController: UIViewController {
         if let index = fav.firstIndex(where: { $0.id == item.id }) {
             fav.remove(at: index)
         } else {
+            removeFromAllList()
             fav.append(item)
         }
         UserInfomation.favList = fav

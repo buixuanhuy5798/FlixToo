@@ -32,6 +32,7 @@ protocol HomeInteractorInputProtocol: AnyObject {
     func getListPopularTVShow(page: Int, checkingType: CheckingType)
     func getListUpcomingTvShow(page: Int, checkingType: CheckingType)
     func getListTopRatedTVShow(page: Int, checkingType: CheckingType)
+    func getListFreeMovieToWatch(page: Int, checkingType: CheckingType)
 }
 
 protocol HomeInteractorOutputProtocol: AnyObject {
@@ -43,6 +44,7 @@ protocol HomeInteractorOutputProtocol: AnyObject {
     func getListPopularTVShowSuccess(data: [TvShowCommonInfomation])
     func getListUpcomingTVShowSuccess(data: [TvShowCommonInfomation])
     func getListTopRatedTVShowSuccess(data: [TvShowCommonInfomation])
+    func getListFreeMovieToWatchSuccess(data: [MovieCommonInfomation])
 }
 
 protocol HomeRouterProtocol: AnyObject {

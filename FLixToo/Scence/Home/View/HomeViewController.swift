@@ -144,7 +144,7 @@ extension HomeViewController: UITableViewDelegate {
             let itemWitdh = (Screen.width - 48) / 2
             let itemHeight = itemWitdh * 96/158
             return itemHeight
-        case .tredingMovies, .upcoming, .nowPlaying, .trendingShow, .upcomingShow, .topRatedShow:
+        case .tredingMovies, .upcoming, .nowPlaying, .trendingShow, .upcomingShow, .topRatedShow, .freeMovieToWatch:
             let itemWitdh = (Screen.width - 48) / 3.2
             let itemHeight = itemWitdh * 194/102 + 18
             return itemHeight
@@ -183,6 +183,10 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.setContentForCell(data: data[indexPath.row])
             return cell
         case .tredingMovies(let movies):
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
+            cell.setContentForCell(data: movies[indexPath.row])
+            return cell
+        case .freeMovieToWatch(let movies):
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
             cell.setContentForCell(data: movies[indexPath.row])
             return cell
@@ -234,6 +238,8 @@ extension HomeViewController: UICollectionViewDelegate {
             }
         case .tredingMovies(let movies):
             openMovieDetail(movie: movies[indexPath.row])
+        case .freeMovieToWatch(let movies):
+            openMovieDetail(movie: movies[indexPath.row])
         case .upcoming(let movies):
             openMovieDetail(movie: movies[indexPath.row])
         case .nowPlaying(let movies):
@@ -271,6 +277,10 @@ extension HomeViewController {
         switch type {
         case .categories, .popularPeople, .movieProviders:
             return
+        case .freeMovieToWatch:
+            let vc = ListMoviesViewController.instantiate()
+            vc.screenType = .freeToWatch
+            self.navigationController?.pushViewController(vc, animated: true)
         case .tredingMovies:
             let vc = ListMoviesViewController.instantiate()
             vc.screenType = .popular

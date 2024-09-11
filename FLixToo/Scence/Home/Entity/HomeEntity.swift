@@ -35,6 +35,7 @@ enum HomeCollectionSectionData {
     case tredingMovies([MovieCommonInfomation])
     case nowPlaying([MovieCommonInfomation])
     case upcoming([MovieCommonInfomation])
+    case freeMovieToWatch([MovieCommonInfomation])
     case movieProviders([MovieProvider])
     case popularPeople([ActorCommonInfo])
     case trendingShow([TvShowCommonInfomation])
@@ -59,6 +60,8 @@ enum HomeCollectionSectionData {
             return "Upcoming Shows"
         case .topRatedShow:
             return "Top Rated Shows"
+        case .freeMovieToWatch:
+            return "Free Movies to watch"
         default:
             return ""
         }
@@ -71,6 +74,8 @@ enum HomeCollectionSectionData {
         case .tredingMovies(let data):
             return data.count
         case .nowPlaying(let data):
+            return data.count
+        case .freeMovieToWatch(let data):
             return data.count
         case .upcoming(let data):
             return data.count

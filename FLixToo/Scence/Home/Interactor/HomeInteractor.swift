@@ -95,4 +95,14 @@ final class HomeInteractor: HomeInteractorInputProtocol {
         })
         .disposed(by: disposebag)
     }
+    
+    func getListFreeMovieToWatch(page: Int, checkingType: CheckingType) {
+        repository.getListFreeMovieToWatch(page: page, checking: checkingType).subscribe(onSuccess: { [weak self] response in
+            guard let results = response.results else {
+                return
+            }
+            self?.output?.getListFreeMovieToWatchSuccess(data: results)
+        })
+        .disposed(by: disposebag)
+    }
 }

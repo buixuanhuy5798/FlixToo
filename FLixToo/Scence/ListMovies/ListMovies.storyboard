@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5Qb-GJ-bVi">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                                        <rect key="frame" x="0.0" y="16" width="393" height="743"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wQX-c7-wno">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
@@ -47,7 +47,7 @@
                                                 </cells>
                                             </collectionView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KT9-og-mn5">
-                                                <rect key="frame" x="0.0" y="52" width="393" height="707"/>
+                                                <rect key="frame" x="0.0" y="52" width="393" height="691"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QcA-Xq-QNK">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -67,7 +67,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="5Qb-GJ-bVi" firstAttribute="top" secondItem="kx0-LI-0Qc" secondAttribute="top" id="HDB-km-NYX"/>
+                                    <constraint firstItem="5Qb-GJ-bVi" firstAttribute="top" secondItem="kx0-LI-0Qc" secondAttribute="top" constant="16" id="HDB-km-NYX"/>
                                     <constraint firstAttribute="bottom" secondItem="5Qb-GJ-bVi" secondAttribute="bottom" id="TbB-hp-BuA"/>
                                     <constraint firstAttribute="trailing" secondItem="5Qb-GJ-bVi" secondAttribute="trailing" id="YBB-Nk-qrK"/>
                                     <constraint firstItem="5Qb-GJ-bVi" firstAttribute="leading" secondItem="kx0-LI-0Qc" secondAttribute="leading" id="kIQ-cY-nHN"/>
