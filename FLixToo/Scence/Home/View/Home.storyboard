@@ -26,15 +26,15 @@
                                             <constraint firstAttribute="height" constant="24" id="RcC-X2-Z7v"/>
                                         </constraints>
                                     </imageView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aWj-8c-03c">
-                                        <rect key="frame" x="0.0" y="56" width="393" height="671"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aWj-8c-03c">
+                                        <rect key="frame" x="0.0" y="56" width="393" height="703"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="C83-ft-xN8" secondAttribute="trailing" constant="16" id="GvJ-8I-ZTx"/>
-                                    <constraint firstAttribute="bottom" secondItem="aWj-8c-03c" secondAttribute="bottom" constant="32" id="McT-sT-AgO"/>
+                                    <constraint firstAttribute="bottom" secondItem="aWj-8c-03c" secondAttribute="bottom" id="McT-sT-AgO"/>
                                     <constraint firstItem="C83-ft-xN8" firstAttribute="top" secondItem="vC6-ju-CHM" secondAttribute="top" constant="16" id="N8W-df-XM0"/>
                                     <constraint firstItem="C83-ft-xN8" firstAttribute="leading" secondItem="vC6-ju-CHM" secondAttribute="leading" constant="16" id="aQi-wj-neB"/>
                                     <constraint firstAttribute="trailing" secondItem="aWj-8c-03c" secondAttribute="trailing" id="jK2-7F-aIz"/>

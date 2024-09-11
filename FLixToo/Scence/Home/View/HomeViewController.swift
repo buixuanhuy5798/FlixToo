@@ -91,6 +91,10 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: BounderListMovieCell.self)
+        let type = presenter.data[indexPath.section]
+        cell.tapHeader = { [weak self] in
+            self?.handleTapHeader(type: type)
+        }
         return cell
     }
 }
@@ -122,6 +126,8 @@ extension HomeViewController: UITableViewDelegate {
         switch presenter.data[section] {
         case .movieProviders:
             return 12
+        case .freeMovieToWatch:
+            return 0
         default:
             return UITableView.automaticDimension
         }
@@ -144,10 +150,14 @@ extension HomeViewController: UITableViewDelegate {
             let itemWitdh = (Screen.width - 48) / 2
             let itemHeight = itemWitdh * 96/158
             return itemHeight
-        case .tredingMovies, .upcoming, .nowPlaying, .trendingShow, .upcomingShow, .topRatedShow, .freeMovieToWatch:
+        case .tredingMovies, .upcoming, .nowPlaying, .trendingShow, .upcomingShow, .topRatedShow:
             let itemWitdh = (Screen.width - 48) / 3.2
             let itemHeight = itemWitdh * 194/102 + 18
             return itemHeight
+        case .freeMovieToWatch:
+            let itemWitdh = (Screen.width - 48) / 3.2
+            let itemHeight = itemWitdh * 194/102 + 18
+            return itemHeight + 52
         case .popularPeople:
             let itemWitdh = (Screen.width - 48) / 3.2
             let itemHeight = itemWitdh * 122/102
