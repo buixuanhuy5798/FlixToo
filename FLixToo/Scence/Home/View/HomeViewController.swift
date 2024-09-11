@@ -34,7 +34,7 @@ class HomeViewController: BaseViewController {
     
     private func setUpView() {
         addBannerViewToView(bannerView)
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2435281174"
+        bannerView.adUnitID = AppConstant.googleAdUnitID
         bannerView.rootViewController = self
         
         bannerView.load(GADRequest())

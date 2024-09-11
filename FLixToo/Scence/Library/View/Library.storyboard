@@ -104,7 +104,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w7d-aV-Vbn">
-                                        <rect key="frame" x="0.0" y="70" width="393" height="608"/>
+                                        <rect key="frame" x="0.0" y="70" width="393" height="584"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="14L-Yo-3By">
                                             <size key="itemSize" width="128" height="128"/>
@@ -153,7 +153,7 @@
                                     <constraint firstAttribute="trailing" secondItem="5BJ-jt-4a4" secondAttribute="trailing" constant="16" id="8Mr-If-WO8"/>
                                     <constraint firstItem="Eh5-dB-IgQ" firstAttribute="leading" secondItem="UYb-BI-bGc" secondAttribute="leading" id="8wH-QX-yVr"/>
                                     <constraint firstItem="w7d-aV-Vbn" firstAttribute="top" secondItem="Eh5-dB-IgQ" secondAttribute="bottom" id="AcP-3D-I3h"/>
-                                    <constraint firstAttribute="bottom" secondItem="w7d-aV-Vbn" secondAttribute="bottom" constant="16" id="HR1-aO-FWW"/>
+                                    <constraint firstAttribute="bottom" secondItem="w7d-aV-Vbn" secondAttribute="bottom" constant="40" id="HR1-aO-FWW"/>
                                     <constraint firstAttribute="trailing" secondItem="Eh5-dB-IgQ" secondAttribute="trailing" id="HYk-Nu-BUb"/>
                                     <constraint firstAttribute="trailing" secondItem="w7d-aV-Vbn" secondAttribute="trailing" id="NuU-7W-uZQ"/>
                                     <constraint firstItem="2cI-bL-BMd" firstAttribute="centerX" secondItem="UYb-BI-bGc" secondAttribute="centerX" id="OzZ-Of-sok"/>

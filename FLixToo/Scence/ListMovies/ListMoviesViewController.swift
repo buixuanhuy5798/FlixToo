@@ -8,6 +8,7 @@
 import UIKit
 import Reusable
 import RxSwift
+import GoogleMobileAds
 
 enum ListMoviesType {
     case popular
@@ -42,6 +43,12 @@ enum SortType: String, CaseIterable {
 final class ListMoviesViewController: BaseViewController {
     @IBOutlet weak var sortCollectionView: UICollectionView!
     @IBOutlet weak var moviesCollectionView: UICollectionView!
+    
+    var bannerView: GADBannerView = {
+        let adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width)
+        var view = GADBannerView(adSize: adaptiveSize)
+        return view
+    }()
     
     private let movieRepository = MovieRepository(APIService())
     private let disposeBag = DisposeBag()
@@ -83,6 +90,12 @@ final class ListMoviesViewController: BaseViewController {
     }
     
     private func setupView() {
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = AppConstant.googleAdUnitID
+        bannerView.rootViewController = self
+        
+        bannerView.load(GADRequest())
+        
         showBackButton = true
         sortCollectionView.isHidden = true
         
@@ -137,6 +150,27 @@ final class ListMoviesViewController: BaseViewController {
         sortCollectionView.dataSource = self
         sortCollectionView.reloadData()
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+      bannerView.translatesAutoresizingMaskIntoConstraints = false
+      view.addSubview(bannerView)
+      view.addConstraints(
+        [NSLayoutConstraint(item: bannerView,
+                            attribute: .bottom,
+                            relatedBy: .equal,
+                            toItem: view.safeAreaLayoutGuide,
+                            attribute: .bottom,
+                            multiplier: 1,
+                            constant: 0),
+         NSLayoutConstraint(item: bannerView,
+                            attribute: .centerX,
+                            relatedBy: .equal,
+                            toItem: view,
+                            attribute: .centerX,
+                            multiplier: 1,
+                            constant: 0)
+        ])
+     }
 }
 
 extension ListMoviesViewController {

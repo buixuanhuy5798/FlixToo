@@ -10,8 +10,10 @@ import Kingfisher
 import Reusable
 import PanModal
 import ExpandableLabel
+import GoogleMobileAds
+import Google_Mobile_Ads_SDK
 
-class MovieDetailViewController: UIViewController {
+class MovieDetailViewController: UIViewController, GADFullScreenContentDelegate {
 
     @IBOutlet weak var streamOnCollectionView: UICollectionView!
     @IBOutlet weak var streamOnLabel: UILabel!
@@ -38,6 +40,8 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var similarMovieTitleLabel: UILabel!
     @IBOutlet weak var mediaTitleLabel: UILabel!
+    
+    private var interstitial: GADInterstitialAd?
     
     var presenter: MovieDetailPresenterProtocol!
     var detail: MovieDetail?
@@ -88,6 +92,12 @@ class MovieDetailViewController: UIViewController {
         streamOnLabel.textColor = UIColor(hex: "1A8BFB")
         streamOnLabel.font = Typography.fontRegular14
         setUpAddToLibraryButton()
+        
+        UserInfomation.numberTouch += 1
+        if UserInfomation.numberTouch == 2 {
+            UserInfomation.numberTouch = 0
+            Interstitial.shared.showInterstitialAds()
+        }
     }
     
 //    override func viewWillDisappear(_ animated: Bool) {

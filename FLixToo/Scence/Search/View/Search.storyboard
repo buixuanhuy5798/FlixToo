@@ -81,10 +81,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="asL-Wn-YdK">
-                                        <rect key="frame" x="0.0" y="82" width="393" height="661"/>
+                                        <rect key="frame" x="0.0" y="82" width="393" height="637"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fY-uo-D1K">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="115"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="91"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgW-Pr-pGJ">
                                                         <rect key="frame" x="15.999999999999993" y="0.0" width="116.33333333333331" height="21.666666666666668"/>
@@ -93,7 +93,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OyY-qh-9hl">
-                                                        <rect key="frame" x="0.0" y="37.66666666666665" width="393" height="77.333333333333314"/>
+                                                        <rect key="frame" x="0.0" y="37.666666666666657" width="393" height="53.333333333333343"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="USn-hD-CWM">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -124,7 +124,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUl-QO-xW0">
-                                                <rect key="frame" x="0.0" y="123" width="393" height="252"/>
+                                                <rect key="frame" x="0.0" y="99" width="393" height="252"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKt-lT-VUO">
                                                         <rect key="frame" x="16" y="12" width="183" height="22"/>
@@ -161,7 +161,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzs-HP-n4l">
-                                                <rect key="frame" x="0.0" y="383" width="393" height="278"/>
+                                                <rect key="frame" x="0.0" y="359" width="393" height="278"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1J-uB-sFE">
                                                         <rect key="frame" x="16" y="12" width="179.66666666666666" height="24"/>
@@ -213,11 +213,11 @@
                                 <constraints>
                                     <constraint firstItem="asL-Wn-YdK" firstAttribute="leading" secondItem="W70-T4-cZc" secondAttribute="leading" id="4Cg-hb-y8X"/>
                                     <constraint firstItem="Jug-DV-lZs" firstAttribute="leading" secondItem="W70-T4-cZc" secondAttribute="leading" constant="16" id="5Rs-eb-IJe"/>
-                                    <constraint firstAttribute="bottom" secondItem="asL-Wn-YdK" secondAttribute="bottom" priority="999" constant="16" id="Rdf-dg-oUn"/>
+                                    <constraint firstAttribute="bottom" secondItem="asL-Wn-YdK" secondAttribute="bottom" priority="999" constant="40" id="Rdf-dg-oUn"/>
                                     <constraint firstAttribute="trailing" secondItem="Jug-DV-lZs" secondAttribute="trailing" constant="16" id="Rqu-DT-5Zw"/>
                                     <constraint firstItem="Jug-DV-lZs" firstAttribute="top" secondItem="W70-T4-cZc" secondAttribute="top" constant="16" id="YXL-xP-2KF"/>
                                     <constraint firstAttribute="trailing" secondItem="asL-Wn-YdK" secondAttribute="trailing" id="fyu-fo-ahv"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="asL-Wn-YdK" secondAttribute="bottom" constant="16" id="j3x-Om-fdL"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="asL-Wn-YdK" secondAttribute="bottom" constant="40" id="j3x-Om-fdL"/>
                                     <constraint firstItem="asL-Wn-YdK" firstAttribute="top" secondItem="Jug-DV-lZs" secondAttribute="bottom" constant="16" id="qUs-lC-0IJ"/>
                                 </constraints>
                             </view>

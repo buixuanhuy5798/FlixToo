@@ -99,7 +99,7 @@
 		CEC696CC2C80A09C0090951B /* LibaryTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC696CA2C80A09C0090951B /* LibaryTagCollectionViewCell.swift */; };
 		CEC696CD2C80A09C0090951B /* LibaryTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC696CB2C80A09C0090951B /* LibaryTagCollectionViewCell.xib */; };
 		F052A8BD2C77273D00814CCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052A8BC2C77273D00814CCB /* AppDelegate.swift */; };
-		F052A8C12C77273D00814CCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052A8C02C77273D00814CCB /* ViewController.swift */; };
+		F052A8C12C77273D00814CCB /* GoogleAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052A8C02C77273D00814CCB /* GoogleAds.swift */; };
 		F052A8C42C77273D00814CCB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F052A8C32C77273D00814CCB /* Base */; };
 		F052A8C62C77273F00814CCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F052A8C52C77273F00814CCB /* Assets.xcassets */; };
 		F052A8C92C77273F00814CCB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F052A8C82C77273F00814CCB /* Base */; };
@@ -273,7 +273,7 @@
 		CEC696CB2C80A09C0090951B /* LibaryTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibaryTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		F052A8B92C77273D00814CCB /* FLixToo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLixToo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F052A8BC2C77273D00814CCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F052A8C02C77273D00814CCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F052A8C02C77273D00814CCB /* GoogleAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAds.swift; sourceTree = "<group>"; };
 		F052A8C32C77273D00814CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F052A8C52C77273F00814CCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F052A8C82C77273F00814CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -865,7 +865,7 @@
 				F052A8D62C7816DA00814CCB /* Common */,
 				F052A8D02C77297A00814CCB /* Scence */,
 				F052A8BC2C77273D00814CCB /* AppDelegate.swift */,
-				F052A8C02C77273D00814CCB /* ViewController.swift */,
+				F052A8C02C77273D00814CCB /* GoogleAds.swift */,
 				F052A8C22C77273D00814CCB /* Main.storyboard */,
 				F052A8C52C77273F00814CCB /* Assets.xcassets */,
 				F052A8C72C77273F00814CCB /* LaunchScreen.storyboard */,
@@ -1626,7 +1626,7 @@
 				05E6FF322C849CEF00A780F1 /* LoadMoreTableView.swift in Sources */,
 				F0770B6F2C78463A007F522F /* SettingPresenter.swift in Sources */,
 				05FB82502C7B0DFB004FA411 /* BounderListMovieCell.swift in Sources */,
-				F052A8C12C77273D00814CCB /* ViewController.swift in Sources */,
+				F052A8C12C77273D00814CCB /* GoogleAds.swift in Sources */,
 				F052A8BD2C77273D00814CCB /* AppDelegate.swift in Sources */,
 				CE2A99A02C8EE3C90024C557 /* MapViewViewController.swift in Sources */,
 				F0770C032C784786007F522F /* HomeRouter.swift in Sources */,

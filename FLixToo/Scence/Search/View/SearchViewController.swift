@@ -9,6 +9,7 @@ import UIKit
 import Reusable
 import RxSwift
 import RxCocoa
+import GoogleMobileAds
 
 class SearchViewController: BaseViewController {
     @IBOutlet weak var searchTextfield: UITextField!
@@ -22,6 +23,13 @@ class SearchViewController: BaseViewController {
     @IBOutlet weak var showsCollectionView: UICollectionView!
     
     var presenter: SearchPresenterProtocol!
+    
+    var bannerView: GADBannerView = {
+        let adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width)
+        var view = GADBannerView(adSize: adaptiveSize)
+        return view
+    }()
+    
     
     private let api = APIService()
     private let disposeBag = DisposeBag()
@@ -42,6 +50,11 @@ class SearchViewController: BaseViewController {
     }
     
     private func setupView() {
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = AppConstant.googleAdUnitID
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
         title = "Search"
         showBackButton = false
         deleteButton.isHidden = true
@@ -81,6 +94,27 @@ class SearchViewController: BaseViewController {
         
         setupCollectionView()
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+      bannerView.translatesAutoresizingMaskIntoConstraints = false
+      view.addSubview(bannerView)
+      view.addConstraints(
+        [NSLayoutConstraint(item: bannerView,
+                            attribute: .bottom,
+                            relatedBy: .equal,
+                            toItem: view.safeAreaLayoutGuide,
+                            attribute: .bottom,
+                            multiplier: 1,
+                            constant: 0),
+         NSLayoutConstraint(item: bannerView,
+                            attribute: .centerX,
+                            relatedBy: .equal,
+                            toItem: view,
+                            attribute: .centerX,
+                            multiplier: 1,
+                            constant: 0)
+        ])
+     }
     
     private func setupCollectionView() {
         moviesCollectionView.register(cellType: MoviePosterCell.self)

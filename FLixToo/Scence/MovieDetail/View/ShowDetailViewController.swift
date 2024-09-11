@@ -217,6 +217,12 @@ class ShowDetailViewController: UIViewController {
         streamOnLabel.textColor = UIColor(hex: "1A8BFB")
         streamOnLabel.font = Typography.fontRegular14
         setUpAddToLibraryButton()
+        
+        UserInfomation.numberTouch += 1
+        if UserInfomation.numberTouch == 2 {
+            UserInfomation.numberTouch = 0
+            Interstitial.shared.showInterstitialAds()
+        }
     }
     
     @objc private func handleTapAllBackdrop() {

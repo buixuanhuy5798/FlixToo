@@ -69,7 +69,7 @@ extension HomePresenter:HomeInteractorOutputProtocol {
     }
     
     func getListMovieProvidersSuccess(data: [MovieProvider]) {
-        self.data[2] = .movieProviders(data)
+        self.data[2] = .movieProviders(data.filter { $0.providerID != 3 })
         view?.reloadContent()
     }
     

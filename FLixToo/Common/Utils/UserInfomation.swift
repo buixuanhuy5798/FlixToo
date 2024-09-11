@@ -58,4 +58,7 @@ struct UserInfomation {
     
     @UserDefault("disliked_list", defaultValue: [])
     static var dislikeList: [SaveData]
+    
+    @UserDefault("number_touch", defaultValue: 0)
+    static var numberTouch: Int
 }

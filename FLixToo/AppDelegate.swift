@@ -28,8 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.resignOnTouchOutside = true
         
+        Interstitial.shared.loadInterstitial()
+        
         return true
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        AppOpenAdManager.shared.showAdIfAvailable()
+      }
 
     private func navigateScreen() {
         if UserInfomation.firstLauchApp {

@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tD8-72-CtY">
-                                        <rect key="frame" x="16" y="16" width="361" height="29.666666666666671"/>
+                                        <rect key="frame" x="16" y="16" width="361" height="29"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearest Cinemas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEK-F2-XJ8">
-                                                <rect key="frame" x="16" y="4" width="137.33333333333334" height="21.666666666666668"/>
+                                                <rect key="frame" x="16" y="4" width="137.33333333333334" height="21"/>
                                                 <fontDescription key="fontDescription" name="Urbanist-SemiBold" family="Urbanist" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -55,7 +55,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BBO-Ac-jBg">
-                                        <rect key="frame" x="0.0" y="61.666666666666686" width="393" height="697.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="61" width="393" height="658"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                 </subviews>
@@ -63,7 +63,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="BBO-Ac-jBg" secondAttribute="trailing" id="5d5-10-xK9"/>
                                     <constraint firstItem="BBO-Ac-jBg" firstAttribute="top" secondItem="tD8-72-CtY" secondAttribute="bottom" constant="16" id="6IZ-o5-Vc3"/>
-                                    <constraint firstAttribute="bottom" secondItem="BBO-Ac-jBg" secondAttribute="bottom" id="FFr-QD-SD1"/>
+                                    <constraint firstAttribute="bottom" secondItem="BBO-Ac-jBg" secondAttribute="bottom" constant="40" id="FFr-QD-SD1"/>
                                     <constraint firstItem="tD8-72-CtY" firstAttribute="leading" secondItem="3GS-NR-4ka" secondAttribute="leading" constant="16" id="J2E-KO-dke"/>
                                     <constraint firstItem="tD8-72-CtY" firstAttribute="top" secondItem="3GS-NR-4ka" secondAttribute="top" constant="16" id="TSE-6K-8xk"/>
                                     <constraint firstItem="BBO-Ac-jBg" firstAttribute="leading" secondItem="3GS-NR-4ka" secondAttribute="leading" id="V3R-rn-4nh"/>
