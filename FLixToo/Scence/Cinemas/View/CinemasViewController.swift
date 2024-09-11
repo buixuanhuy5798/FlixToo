@@ -15,7 +15,6 @@ import CoreLocation
 
 class CinemasViewController: BaseViewController {
 
-    @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var placesTableView: UITableView!
     
     var presenter: CinemasPresenterProtocol!
@@ -44,18 +43,6 @@ class CinemasViewController: BaseViewController {
         placesTableView.register(cellType: PlaceTableViewCell.self)
         placesTableView.register(cellType: CenimaTableViewCell.self)
         
-        locationTextField.rx.controlEvent(.editingChanged)
-            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
-                guard let self = self else { return }
-                if self.locationTextField.text?.isEmpty ?? true {
-                    SVProgressHUD.dismiss()
-                    self.placesTableView.reloadData()
-                } else {
-
-                    self.searchForPlaces(text: self.locationTextField?.text ?? "")
-                }
-            }).disposed(by: disposeBag)
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest

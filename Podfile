@@ -21,7 +21,7 @@ pod 'Cosmos'
 pod 'YouTubePlayer'
 pod 'PanModal'
 pod "ImageSlideshow/Kingfisher"
-#pod 'Google-Mobile-Ads-SDK'
+pod 'Google-Mobile-Ads-SDK'
 pod 'IQKeyboardManagerSwift'
 pod "ExpandableLabel"
 

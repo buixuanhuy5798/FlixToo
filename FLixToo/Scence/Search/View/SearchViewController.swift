@@ -12,9 +12,10 @@ import RxCocoa
 
 class SearchViewController: BaseViewController {
     @IBOutlet weak var searchTextfield: UITextField!
-    @IBOutlet weak var namesTableView: UITableView!
     @IBOutlet weak var deleteButton: UIButton!
     
+    @IBOutlet weak var resultsView: UIView!
+    @IBOutlet weak var resultsCollectionView: UICollectionView!
     @IBOutlet weak var recommendMoviesView: UIView!
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     @IBOutlet weak var recommendShowsView: UIView!
@@ -25,7 +26,7 @@ class SearchViewController: BaseViewController {
     private let api = APIService()
     private let disposeBag = DisposeBag()
 
-    private var results: [MovieName] = []
+    private var results: [MovieCommonInfomation] = []
     private var movies: [MovieCommonInfomation] = []
     private var shows: [TvShowCommonInfomation] = []
     
@@ -44,25 +45,36 @@ class SearchViewController: BaseViewController {
         title = "Search"
         showBackButton = false
         deleteButton.isHidden = true
-        namesTableView.delegate = self
-        namesTableView.dataSource = self
-        namesTableView.register(cellType: SearchNameTableViewCell.self)
-        namesTableView.rowHeight = UITableView.automaticDimension
-        namesTableView.estimatedRowHeight = 30
-        namesTableView.isHidden = true
+        
+        resultsView.isHidden = true
+        resultsCollectionView.register(cellType: MoviePosterCell.self)
+        let layout = UICollectionViewFlowLayout()
+        let itemWitdh = (Screen.width - 48) / 3.2
+        let itemHeight = itemWitdh * 194/102 + 16
+        layout.itemSize = CGSize(width: itemWitdh, height: itemHeight)
+        layout.minimumLineSpacing = 16
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.minimumInteritemSpacing = 16
+        layout.scrollDirection = .vertical
+        resultsCollectionView.collectionViewLayout = layout
+        resultsCollectionView.showsHorizontalScrollIndicator = false
+        resultsCollectionView.delegate = self
+        resultsCollectionView.dataSource = self
         
         searchTextfield.rx.controlEvent(.editingChanged)
-            .throttle(.milliseconds(200), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 if self.searchTextfield.text?.isEmpty ?? true {
                     self.deleteButton.isHidden = true
                     self.recommendShowsView.isHidden = false
+                    self.recommendMoviesView.isHidden = false
                     self.results = []
-                    self.namesTableView.reloadData()
-                    self.namesTableView.isHidden = true
+                    self.resultsView.isHidden = true
                 } else {
                     self.deleteButton.isHidden = false
+                    self.recommendShowsView.isHidden = true
+                    self.recommendMoviesView.isHidden = true
                     self.searchMovieNames(keyword: self.searchTextfield.text ?? "")
                 }
             }).disposed(by: disposeBag)
@@ -101,10 +113,11 @@ class SearchViewController: BaseViewController {
     @IBAction func handleDeleteTextButton(_ sender: Any) {
         searchTextfield.text = ""
         recommendShowsView.isHidden = false
+        recommendMoviesView.isHidden = false
         deleteButton.isHidden = true
         results = []
-        namesTableView.reloadData()
-        namesTableView.isHidden = true
+        resultsCollectionView.reloadData()
+        resultsView.isHidden = true
     }
     
     private func searchMovieNames(keyword: String) {
@@ -112,15 +125,15 @@ class SearchViewController: BaseViewController {
         hasLoadMore = true
         isLoading = true
         
-        getMoviesBy(keyword: keyword, page: page)
+        searchMovies(keyword: keyword, page: page, checking: .checked)
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else { return }
                 self.isLoading = false
-                self.results = response.results
+                self.results = response.results ?? []
                 self.recommendShowsView.isHidden = true
-                self.namesTableView.isHidden = false
-                self.hasLoadMore = response.page < response.total_pages
-                self.namesTableView.reloadData()
+                self.resultsView.isHidden = false
+                self.hasLoadMore = response.page ?? 0 < response.totalPage ?? 0
+                self.resultsCollectionView.reloadData()
             }, onFailure: { error in
                 self.isLoading = false
                 print("error", error.localizedDescription)
@@ -128,18 +141,18 @@ class SearchViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    private func fetchMoreMovieNames() {
+    private func fetchMoreMovies() {
         guard !isLoading else { return }
         isLoading = true
         page += 1
         
-        getMoviesBy(keyword: searchTextfield.text ?? "", page: page, checking: .unchecked)
+        searchMovies(keyword: searchTextfield.text ?? "", page: page, checking: .unchecked)
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else { return }
                 self.isLoading = false
-                self.results.append(contentsOf: response.results)
-                self.hasLoadMore = response.page < response.total_pages
-                self.namesTableView.reloadData()
+                self.results.append(contentsOf: response.results ?? [])
+                self.hasLoadMore = response.page ?? 0 < response.totalPage ?? 0
+                self.resultsCollectionView.reloadData()
             }, onFailure: { error in
                 self.isLoading = false
                 print("error", error.localizedDescription)
@@ -193,40 +206,11 @@ class SearchViewController: BaseViewController {
     }
 }
 
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: SearchNameTableViewCell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchNameTableViewCell.self)
-        cell.configCell(title: results[indexPath.row].name)
-        if indexPath.row == self.results.count - 1,
-           hasLoadMore {
-            self.fetchMoreMovieNames()
-        }
-
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movie = self.results[indexPath.row]
-        openMovieDetail(id: movie.id)
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        let currentOffset = scrollView.contentOffset.y
-        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-
-        if maximumOffset - currentOffset <= 10.0,
-           hasLoadMore {
-            self.fetchMoreMovieNames()
-        }
-    }
-}
-
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == resultsCollectionView {
+            return results.count
+        }
         if collectionView == moviesCollectionView {
             return movies.count
         }
@@ -235,18 +219,29 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MoviePosterCell.self)
-        if collectionView == moviesCollectionView {
+        if collectionView == resultsCollectionView {
+            cell.setContentForCell(data: results[indexPath.row])
+        } else if collectionView == moviesCollectionView {
             cell.setContentForCell(data: movies[indexPath.row])
         } else {
             cell.setContentForCell(data: shows[indexPath.row])
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == resultsCollectionView {
+            guard hasLoadMore, indexPath.item == results.count-1 else { return }
+            self.fetchMoreMovies()
+        }
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == moviesCollectionView {
+        if collectionView == resultsCollectionView {
+            openMovieDetail(id: results[indexPath.row].id ?? 0)
+        } else if collectionView == moviesCollectionView {
             openMovieDetail(id: movies[indexPath.row].id ?? 0)
         } else {
             openShowDetail(show: shows[indexPath.row])
@@ -256,8 +251,8 @@ extension SearchViewController: UICollectionViewDelegate {
 
 
 extension SearchViewController {
-    private func getMoviesBy(keyword: String, page: Int, checking: CheckingType = .checked) -> Single<SearchMovieNameResponse> {
-        return api.request(router: .searchMovieName(keyword: keyword, page: page), checking: checking)
+    func searchMovies(keyword: String, page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>> {
+        return api.request(router: .searchMovies(keyword: keyword, page: page), checking: checking)
     }
     
     private func getListPopularMovie(page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>> {

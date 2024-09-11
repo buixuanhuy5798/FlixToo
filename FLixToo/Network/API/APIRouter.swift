@@ -42,6 +42,8 @@ enum APIRouter {
     case getTvShowStreamOn(id: Int)
     case getMovieStreamOn(id: Int)
     
+    case searchMovies(keyword: String, page: Int)
+    
     var method: HTTPMethod {
         switch self {
         default:
@@ -117,6 +119,8 @@ enum APIRouter {
             return "/tv/\(id)/watch/providers"
         case .getMovieStreamOn(let id):
             return "/movie/\(id)/watch/providers"
+        case .searchMovies:
+            return "/search/movie"
         }
     }
     
@@ -174,6 +178,13 @@ enum APIRouter {
             ]
         case .getShowDetail:
             return ["value": 8]
+        case .searchMovies(let keyword, let page):
+            return [
+                "include_adult": false,
+                "language": "en-US",
+                "page": page,
+                "query": keyword
+            ]
         default:
             return nil
         }

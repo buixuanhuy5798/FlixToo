@@ -51,6 +51,7 @@ protocol MovieRepositoryType {
     func getMoviesByProvider(id: Int, sortBy: String, page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>>
     func getTvShowStreamOn(id: Int) -> Single<MovieStreamOn>
     func getMovieStreamOn(id: Int) -> Single<MovieStreamOn>
+    func searchMovies(keyword: String, page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>>
 }
 
 struct MovieRepository: MovieRepositoryType {
@@ -58,6 +59,10 @@ struct MovieRepository: MovieRepositoryType {
     
     init(_ api: APIService) {
         self.api = api
+    }
+    
+    func searchMovies(keyword: String, page: Int, checking: CheckingType) -> Single<BasePageResponse<[TvShowCommonInfomation]>> {
+        return api.request(router: .searchMovies(keyword: keyword, page: page), checking: checking)
     }
     
     func getListPopularMovie(page: Int, checking: CheckingType) -> Single<BasePageResponse<[MovieCommonInfomation]>> {

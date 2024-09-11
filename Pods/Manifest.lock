@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.9.1)
   - Cosmos (25.0.1)
+  - ExpandableLabel (0.5.2)
   - Google-Mobile-Ads-SDK (11.8.0):
     - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleUserMessagingPlatform (2.5.0)
@@ -36,6 +37,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Cosmos
+  - ExpandableLabel
   - Google-Mobile-Ads-SDK
   - ImageSlideshow/Kingfisher
   - IQKeyboardManagerSwift
@@ -56,6 +58,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Cosmos
+    - ExpandableLabel
     - Google-Mobile-Ads-SDK
     - GoogleUserMessagingPlatform
     - ImageSlideshow
@@ -77,6 +80,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   Cosmos: 02db0a1c953107049bfd2d7af19ceef55ecb7e98
+  ExpandableLabel: c2fab6d27860c572d67134b30522a5917746171d
   Google-Mobile-Ads-SDK: c1c53687b572122c5b0bdaf354335bbf40fd81ef
   GoogleUserMessagingPlatform: 6b4f48a370e77ce121d034c908cc6ee4fdafaf13
   ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
@@ -95,6 +99,6 @@ SPEC CHECKSUMS:
   SwinjectStoryboard: fe54ea9494a75348b1f3126e5e278e674f5684ad
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 46a162d25c4a1102ae9065f5ef0dbdbf0bca0944
+PODFILE CHECKSUM: 6b9dd2e61bd1a393e9f49034270614396660d07e
 
 COCOAPODS: 1.15.2
